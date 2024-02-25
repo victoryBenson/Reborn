@@ -9,7 +9,7 @@ import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js";
 import rateLimitMiddleware from "./middleware/rateLimit.js";
 import cookieParser from "cookie-parser";
-// import PaystackRoute from './routes/payStackRoute.js'
+
 
 const app = express();
 
@@ -47,6 +47,8 @@ app.get("/get", (req, res) => {
   const singedCookies = req.signedCookies;
   console.log("signedCookies:", singedCookies);
 });
+
+app.get("/", (req,res) => res.send('Welcome to Reborn'))
 
 mongoose.set("strictQuery", false);
 mongoose.connect(MONGO_URL).then(() => {
