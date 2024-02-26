@@ -35,8 +35,6 @@ app.use(rateLimitMiddleware);
 app.use("/api/products", productRoute);
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
-// app.use("/api/paystack", PaystackRoute)
-
 
 
 //view your token
@@ -48,7 +46,10 @@ app.get("/get", (req, res) => {
   console.log("signedCookies:", singedCookies);
 });
 
-app.get("/", (req,res) => res.send('Welcome to Reborn'))
+// app.get("/", (req,res) => res.send('Welcome to Reborn'))
+app.get('/', (req, res) => {
+  res.send("Welcome to Reborn");
+});
 
 mongoose.set("strictQuery", false);
 mongoose.connect(MONGO_URL).then(() => {
