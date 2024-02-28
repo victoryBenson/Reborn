@@ -11,7 +11,7 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {MyCart} from "./pages/MyCart"
 import { useDispatch, useSelector } from "react-redux";
-import { getTotals } from "./redux/features/cartSlide";
+// import { getTotals } from "./redux/features/cartSlide";
 import { useEffect } from "react";
 import { Loader } from "./component/Loader";
 import { NotFound } from "./component/NotFound";
@@ -29,6 +29,8 @@ import { Profile } from "./pages/Profile";
 import { HomeDashboard } from "./pages/HomeDashboard";
 import { AdminProducts } from "./pages/AdminProducts";
 import { Orders } from "./pages/Order";
+import { Categories } from "./pages/Categories";
+import { AllCategory } from "./component/AllCategory";
 
 
 
@@ -37,7 +39,7 @@ function App() {
   const dispatch = useDispatch();
   
   useEffect(() => {
-      dispatch(getTotals())
+    //   dispatch(getTotals())
     }, [cart, dispatch])
 
   return (
@@ -57,7 +59,8 @@ function App() {
                         {/* <Route path="userDetails" element = {<AccountPage/>}/> */}
                     {/* </Route> */}
                 </Route>
-                <Route path='category' element={<Layout/>}>
+                <Route path='category' element={<Categories/>}>
+                    <Route path="all-category" element={<AllCategory/>}/>
                     <Route path="beauty" element={<Beauty/>}/>
                     <Route path="fashion" element={<Fashion/>}/>
                     <Route path="sports" element={<Sports/>}/>

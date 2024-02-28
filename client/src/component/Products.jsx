@@ -14,7 +14,7 @@ import {useDispatch, useSelector} from "react-redux"
 
 
 export const Products = ({product}) => {
-    const {_id, image, name, description, color,amount, section, sku, quantity, size, brand, price, oldPrice} = product
+    const {_id, image, name, description, color,quantity, size, brand, price, oldPrice, } = product
     // console.log(product)
 
     const [open, setOpen] = useState(false);
@@ -81,7 +81,6 @@ export const Products = ({product}) => {
                                     <h1 className=' font-bold text-xl text-brown'>{name}</h1>
                                     <div className='flex items-center space-x-4 flex-wrap px-3'>
                                         <p className='text-gray py-2'>Brand: {brand}</p>
-                                        <p className='p-1 text-green'>Sku: {sku}</p>
                                     </div>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
                                     <div className='py-3  flex items-center' >

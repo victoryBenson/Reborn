@@ -6,7 +6,7 @@ export const Explore = () =>  {
             visible={true}
             height="40"
             width="40"
-            color="#4D2D18"
+            color="#FFFFF0"
             wrapperStyle={{}}
     /> ) 
 }

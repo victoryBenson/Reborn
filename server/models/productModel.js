@@ -3,42 +3,13 @@ import mongoose from 'mongoose';
 const productSchema = mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Please add a name"],
-        trim: true
+        required: [true, "Please add product name"],
+        trim: true,
+        lowercase: true
     },
-    sku: {
+    description: {
         type: String,
-        required: true,
-        default: "SKU",
-        trim: true 
-    },
-    category: {
-        type: String,
-        required: [true, "Please add a category"],
-        trim: true
-    },
-    section: {
-        type: String,
-        // required: [true, "Please add a category"],
-        trim: true
-    },
-    brand: {
-        type: String,
-        required: [true, "Please add a brand"],
-        trim: true
-    },
-    quantity: {
-        type: Number,
-        required: [true, "Please add a quantity"],
-        trim: true
-    },
-    sold: {
-        type: Number,
-        default: 0,
-        trim: true
-    },
-    oldPrice: {
-        type: Number,
+        required: [true, "Please add a description"],
         trim: true
     },
     price: {
@@ -46,22 +17,48 @@ const productSchema = mongoose.Schema({
         required: [true, "Please add a price"],
         trim: true
     },
-    description: {
+    oldPrice: {
+        type: Number,
+        trim: true,
+        required: [true, "Pls add old price"]
+    },
+    category: {
         type: String,
-        required: [true, "Please add a description"],
+        required: [true, "Please add product category"],
+        trim: true
+    },
+    brand: {
+        type: String,
+        required: [true, "Please add product brand"],
+        trim: true
+    },
+    quantity: {
+        type: Number,
+        required: [true, "Please add product quantity"],
         trim: true
     },
     image: {
-        type: [String]
+        type: [String],
+        required: [true, "Please add an image"],
+        trim: true
     },
-    ratings: {
-        type: [Object]
+    sold: {
+        type: Number,
+        default: 0,
+        trim: true
+    },
+    rating: {
+        type: [Object],
+        trim: true
     },
     color: {
-        type: [String]
+        type: [String],
+        default: "As Seen",
+        trim: true
     },
     size: {
-        type: [String]
+        type: [String],
+        trim: true
     },
 },
 {

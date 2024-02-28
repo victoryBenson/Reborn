@@ -8,7 +8,7 @@ import { ShowAdmin } from './hiddenLinks';
 
 export const DashboardMenu = () => {
   return (
-    <div className='md:w-96 w-full md:min-h-[100vh] shadow transition-all'>
+    <div className='md:w-96 w-full md:min-h-[100vh] shadow transition-all bg-brown text-ivory'>
         <div className='flex items-center text-2xl font-bold border-b py-4'>
             <MdOutlineDashboardCustomize className='mx-1'/>
             Dashboard

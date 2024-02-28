@@ -9,13 +9,16 @@ export default {
       'blue': '#0f172a',
       'gray': '#7c7772',
       'gray-light': '#d3dce6',
-      'white': '#fff',
+      'white': '#FFFFFF',
       'black': '#0000',
       'green': '#56d71e',
       'ivory': '#FFFFF0',
       'red': '#FF0000',
-      'brown': '#4D2D18',
-      'lightBrown': '#ab8c7e'
+      // 'brown': '#4D2D18',
+      'brown': '#013220',
+      // 'lightBrown': '#ab8c7e'
+      // 'lightBrown': '#025839'
+      'lightBrown': '#03925e'
       
     },
     extend: {

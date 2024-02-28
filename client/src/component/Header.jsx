@@ -3,7 +3,7 @@ import { Logo } from './Logo'
 import {NavLink, Link, useNavigate} from 'react-router-dom'
 import { GoSearch } from "react-icons/go";
 import { CiUser, CiLogout, CiLogin, CiEdit } from "react-icons/ci";
-import { MdSportsTennis } from "react-icons/md";
+import { MdCategory, MdSportsTennis } from "react-icons/md";
 import { BiPurchaseTag } from "react-icons/bi";
 import { RiArrowDownSLine, RiArrowUpSLine, RiLightbulbFlashLine, RiUserFollowLine } from "react-icons/ri";
 import { LuHelpCircle, LuSunMoon } from "react-icons/lu";
@@ -20,8 +20,9 @@ import { Reset_Auth } from '../redux/features/auth/authSlice';
 import { LiaToggleOffSolid} from "react-icons/lia";
 import { PiShirtFoldedLight } from "react-icons/pi";
 import { TbChecklist, TbPerfume } from "react-icons/tb";
-import { HiComputerDesktop } from "react-icons/hi2";
 import { RxUpdate } from "react-icons/rx";
+import { AiFillDashboard, AiOutlineDashboard } from "react-icons/ai";
+import { GrUpdate } from "react-icons/gr";
 
 
 export const Header = () => {
@@ -118,17 +119,37 @@ export const Header = () => {
                 )
             }
         </div>
-        <div className='hidden l:flex font-light text-lg transition-all space-x-6'>
-            <NavLink to={`/category/fashion`} className={({isActive}) => isActive ? "flex items-center font-bold cursor-pointer" : `cursor-pointer hover:underline decoration-2 underline-offset-4 flex items-center`}><PiShirtFoldedLight className='mx-1'/>Fashion</NavLink>
-            <NavLink to={`/category/beauty`} className={({isActive}) => isActive ? "flex items-center font-bold cursor-pointer" : `cursor-pointer hover:underline decoration-2 underline-offset-4 flex items-center`}><TbPerfume className='mx-1'/>Beauty</NavLink>
-            <NavLink to={`/category/sports`} className={({isActive}) => isActive ? "flex items-center font-bold cursor-pointer" : `cursor-pointer hover:underline decoration-2 underline-offset-4 flex items-center`}><MdSportsTennis className='mx-1'/>Sports</NavLink>
-            <NavLink to={`/category/digital`} className={({isActive}) => isActive ? "flex items-center font-bold cursor-pointer" : `cursor-pointer hover:underline decoration-2 underline-offset-4 flex items-center`}><HiComputerDesktop className='mx-1'/>Digital</NavLink>
+        <div className='flex flex-inline'>
+            <Link to='category' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+                <MdCategory className='mx-1'/>
+                Categories
+            </Link>
+            <ShowCustomer>
+                <div className=' p-2 flex'>
+                    <Link to = '/dashboard/orders' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+                        <BiPurchaseTag className='mx-1'/>
+                        My Order
+                    </Link>
+                </div>
+            </ShowCustomer>
+            <ShowAdmin>
+                <div className=' p-2 flex'>
+                    <Link to={`/dashboard/home-dashboard`} className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4'>
+                        <AiFillDashboard className='mx-1'/>
+                        Dashboard
+                    </Link>
+                    <Link to={`/dashboard/products`} className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4'>
+                        <GrUpdate className="mx-1"/>
+                        Update Products
+                    </Link>
+                </div>
+            </ShowAdmin>
         </div>
         <div className='items-center space-x-2 hidden md:flex'>
-            <div className='px-2 text-xl cursor-pointer hidden md:flex items-center'>
+            {/* <div className=' px-2 text-xl cursor-pointer hidden mdflex items-center'>
                 <input type="search" placeholder='Search products here' className='lg:w-80 w-60 p-2 rounded-l-lg outline-none border border-gray/20' />
                 <label htmlFor="search" className='bg-brown text-ivory p-2 rounded-r-lg shadow border border-gray/20'>Search</label>
-            </div>
+            </div> */}
             <div className='px-2 relative flex items-center space-x-4'>
                 <div onClick={()=> setMenu(!menu)} className='flex items-center cursor-pointer space-x-3 transition-all'>
                     <ShowOnLogout><CiUser className='text-xl'/></ShowOnLogout>
