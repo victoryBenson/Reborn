@@ -28,7 +28,7 @@ export const SportsDetails = ({product}) => {
             <div className='group-hover:flex hidden bg-ivory/30 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
                 <p className='bottom-4 flex justify-center absolute w-full'>
                     <p className='flex '>
-                        <button className='flex mx-2 items-center bg-brown p-2 px-3 rounded-full text-ivory'>
+                        <button className='flex mx-2 items-center bg-lightBrown p-2 px-3 rounded-full text-ivory'>
                             <BsBagCheck/> 
                             Add to bag
                         </button>
@@ -70,7 +70,7 @@ export const SportsDetails = ({product}) => {
                                 </div>
                                 <div>
                                     <h1 className=' font-bold text-xl'>{name}</h1>
-                                    <p className='p-1 text-green'>Sku: {sku}</p>
+                                    <p className='p-1 text-lightBrown'>Sku: {sku}</p>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
                                     <p className='py-3  flex items-center' >
                                         Color: {
@@ -110,7 +110,7 @@ export const SportsDetails = ({product}) => {
                                         <p className='w-full py-3'>
                                             {
                                                 quantity > 0 ? (
-                                                    <button className='hover:opacity-80 transition-all w-full justify-center flex items-center bg-blue p-3 rounded-full text-white'>
+                                                    <button className='hover:opacity-80 transition-all w-full justify-center flex items-center bg-lightBrown p-3 rounded-full text-white'>
                                                         <BsBagCheck className='mx-1'/> 
                                                         Add to cart
                                                     </button>
@@ -137,14 +137,14 @@ export const SportsDetails = ({product}) => {
             <img src={image[0]} alt="image" className='group-hover:scale-110 object-contain w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </p>
         <div className='p-3 fle flex-col h-full'>
-            <p className='font-bold text-blue'>{truncateString(name, 20)}</p>
+            <p className='font-bold '>{truncateString(name, 20)}</p>
             <p className='text-gray py-2'>Brand: {brand}</p>
-            <p className='flex p-1'>
-                <span className='px-2 font-bold rounded flex items-center bg-brown text-ivory'>
+            <p className='flex py-1'>
+                <span className='pr-2 font-bold rounded flex items-center text-brown'>
                     <TbCurrencyNaira/>
                     {price?.toLocaleString()}
                 </span>
-                <span className='px-2 line-through text-gray flex items-center'>
+                <span className='px-2 line-through text-gray flex items-center '>
                     <TbCurrencyNaira/>
                     {oldPrice}
                 </span>

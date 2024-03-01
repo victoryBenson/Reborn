@@ -18,7 +18,8 @@ export default {
       'brown': '#013220',
       // 'lightBrown': '#ab8c7e'
       // 'lightBrown': '#025839'
-      'lightBrown': '#03925e'
+      'lightBrown': '#03925e',
+      'yellow': '#FFEA00'
       
     },
     extend: {

@@ -43,13 +43,13 @@ export const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    if(!username || !email || !password || !role){
-        return toast.error("all fields are required")
-    }  
+    // if(!username || !email || !password || !role){
+    //     return toast.error("all fields are required")
+    // }  
 
-    if(password.length < 6){
-        return toast.error('Password is too weak!')
-    }
+    // if(password.length < 6){
+    //     return toast.error('Password is too weak!')
+    // }
    
     const userData = {
         username,

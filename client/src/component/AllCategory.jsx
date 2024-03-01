@@ -5,23 +5,13 @@ import fashion from "../assets/image/welcome2.avif";
 import beauty from "../assets/image/beauty.jpg";
 import digital from "../assets/image/digital.jpg";
 import sports from "../assets/image/sports.jpg";
-import gift from "../assets/image/gift-unscreen.gif";
+
 
 export const AllCategory = () => {
   return (
-    <div className="relative my-5">
-      <div className=" p-3 flex items-center justify-between relative">
-            <p className="flex flex-wrap items-center font-bold md:text-3xl sm:p-5 text-brown">
-            Discover more.
-            <span className="text-lightBrown font-light flex flex-warp items-center">
-                Good things are waiting for you
-                <img src={gift} alt="image" className="w-14 h-10 rounded" />
-            </span>
-            </p>
-      </div>
-      <div className=" m-auto overflow-x-auto no-scrollbar  w-full h-full flex relative" >
-        <div>
-            <div className="relative transition-all group md:w-[30rem] mx-1 h-60 w-[20rem] inline-flex slide shadow-xl rounded-2xl">
+    <div className="relative my-5 flex items-center transition-all">
+        <div className=" m-auto relative flex flex-wrap justify-center gap-8 md:gap-4" >
+            <div className="relative group md:w-1/3 mx-1 h-60 w-3/4 inline-flex slide shadow-xl rounded-2xl">
                 <div className="h-full w-full flex">
                 <img
                     src={fashion}
@@ -49,7 +39,7 @@ export const AllCategory = () => {
                 </Link>
                 </div>
             </div>
-            <div className="relative group md:w-[30rem] mx-1 h-60 w-[20rem] inline-flex slide shadow-xl rounded-2xl">
+            <div className="relative group md:w-1/3 mx-1 h-60 w-3/4 inline-flex slide shadow-xl rounded-2xl">
                 <div className="h-full w-full flex">
                 <img
                     src={beauty}
@@ -77,7 +67,7 @@ export const AllCategory = () => {
                 </Link>
                 </div>
             </div>
-            <div className="relative group md:w-[30rem] mx-1 h-60 w-[20rem] inline-flex slide shadow-xl rounded-2xl">
+            <div className="relative group md:w-1/3 mx-1 h-60 w-3/4 inline-flex slide shadow-xl rounded-2xl">
                 <div className="h-full w-full flex">
                 <img
                     src={digital}
@@ -105,7 +95,7 @@ export const AllCategory = () => {
                 </div>
                 </Link>
             </div>
-            <div className="relative group md:w-[30rem] mx-1 h-60 w-[20rem] inline-flex slide shadow-xl rounded-2xl">
+            <div className="relative group md:w-1/3 mx-1 h-60 w-3/4 inline-flex slide shadow-xl rounded-2xl">
                 <div className="h-full w-full flex">
                 <img
                     src={sports}
@@ -131,7 +121,6 @@ export const AllCategory = () => {
                 </Link>
             </div>
         </div>
-      </div>
     </div>
   );
 };

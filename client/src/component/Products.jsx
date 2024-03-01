@@ -10,7 +10,8 @@ import { CiCirclePlus } from "react-icons/ci";
 import { BsCartX } from "react-icons/bs";
 import { FaCheck } from "react-icons/fa6";
 import { addToCart, decreaseCart, displayCart, increaseCart } from '../redux/features/cartSlide.js';
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux";
+import { RiHeart2Line } from "react-icons/ri";
 
 
 export const Products = ({product}) => {
@@ -32,9 +33,9 @@ export const Products = ({product}) => {
     }
     
   return (
-    <div className='shadow rounded-xl sm:w-72 w-full h-96 relative group sm:m-3 my-2 mx-5'>
+    <div className='product shadow rounded-xl w-full h-96 relative group sm:m-3 my-2 mx-5'>
         <div className='bg-white h-2/3 flex justify-center relative overflow-hidden rounded-t-xl'>
-            <div className='group-hover:flex hidden bg-ivory/30 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
+            <div className='lg:group-hover:flex flex lg:hidden lg:bg-ivory/30 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
                 <div className='bottom-4 flex justify-center absolute w-full'>
                     <div className='flex '>
                         <button onClick={()=> handleAddToCart(product)} className='flex mx-2 items-center bg-brown p-2 px-3 rounded-full text-white shadow text-sm'>
@@ -59,8 +60,8 @@ export const Products = ({product}) => {
                                 >
                             <div className='sm:p-3 grid md:grid-cols-2 grid-cols-1 gap-4 '>
                                 <div className='relative p-2'>
-                                    <span className='absolute top-4 right-4 p-2 z-10 bg-lightBrown/10 rounded-full cursor-pointer'>
-                                        <CiHeart size={20} className='text-[#09d7bf77]'/>
+                                   <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
+                                        <RiHeart2Line size={20}/>
                                     </span>
                                     <div className='h-72 w-full'>
                                         <img src={Image} className='object-contain w-full h-full rounded-lg' alt="image" />
@@ -150,17 +151,17 @@ export const Products = ({product}) => {
                     </div>
                 </div>
             </div>
-            <span className='absolute top-2 right-2 p-2 z-10 bg-gray/10 text-green rounded-full cursor-pointer'>
-                <CiHeart size={20}/>
+            <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
+                <RiHeart2Line size={20}/>
             </span>
             <img src={image[0]} alt="image" className='group-hover:scale-110 object-contain w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </div>
         <div className='p-3 fle flex-col h-full'>
-            <p className='font-bold text-brown'>{truncateString(name, 20)}</p>
-            <p className='text-lightBrown py-2'>{brand}</p>
-            <p className='flex p-1'>
-                <span className='px-2 bg-brown text-ivory font-bold rounded flex items-center'>
-                    <TbCurrencyNaira/>
+            <p className='font-bold text-brown capitalize'>{truncateString(name, 20)}</p>
+            <p className='text-lightBrown py-2 capitalize'>{brand}</p>
+            <p className='flex py-1'>
+                <span className='py-2 text-lightBrown font-bold rounded flex items-center'>
+                    <TbCurrencyNaira className='mt-1'/>
                     {price?.toLocaleString()}
                 </span>
                 <span className='px-2 line-through text-gray items-center flex'>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Logo } from './Logo'
 import {NavLink, Link, useNavigate} from 'react-router-dom'
 import { GoSearch } from "react-icons/go";
-import { CiUser, CiLogout, CiLogin, CiEdit } from "react-icons/ci";
+import { CiUser, CiLogout, CiLogin, CiEdit, CiMenuFries } from "react-icons/ci";
 import { MdCategory, MdSportsTennis } from "react-icons/md";
 import { BiPurchaseTag } from "react-icons/bi";
 import { RiArrowDownSLine, RiArrowUpSLine, RiLightbulbFlashLine, RiUserFollowLine } from "react-icons/ri";
@@ -69,49 +69,55 @@ export const Header = () => {
         </div>
         {/* mobile */}
         <div className='flex flex-cols md:hidden px-3'>
-            <HiOutlineMenuAlt2 size={20} onClick={clickMobile} className='cursor-pointer '/>
+            <CiMenuFries size={20} onClick={clickMobile} className='cursor-pointer '/>
             {
                 mobile && (
                     <div>
                         <div onClick={clickMobile} className='bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-full w-full transition-all z-10'></div>
-                        <div data-aos="fade-right" className='sm:w-2/4 w-full  fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all'>  
+                        <div data-aos="fade-right" className='hamburger-menu sm:w-2/4 w-4/5  fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all'>  
                             <div className='relative bg-white h-full'>
-                                <div className='border-b border-gray/10'>
-                                    <div className='mx-2 py-4 flex items-center justify-between relative'>
-                                        <p className='p-2 flex items-center'>
-                                            <Logo/>
-                                        </p>
-                                        <p onClick={clickMobile} className=' flex items-end justify-end p-2 '><IoArrowUndoOutline size={20} /></p>
-                                    </div>
-                                    <div>
-                                        <p className='text-gray/80 p-4'>Discover the most outstanding articles on all topics of life. Write your stories and share them</p>
-                                    </div>
-                                    <div className='flex items-center justify-between px-2'>
-                                        <SocialMedia/>
-                                        <p className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full'>
-                                            <LuSunMoon className='mx-1'/>
-                                        </p>
-                                    </div>
-                                    <div className='py-3'>
-                                        <p className='bg-gra mx-2 p-1 rounded-xl flex items-center border border-gray/10'>
-                                            <GoSearch/>
-                                            <input type="search" className='w-full p-1 rounded-xl bg-gray/0 outline-none' placeholder='Type your search' />
-                                        </p>
-                                    </div>
+                                <div className='py-4 flex items-center justify-between relative shadow'>
+                                    <p className='p-2 flex items-center'>
+                                        <Logo/>
+                                    </p>
+                                    <p onClick={clickMobile} className=' flex items-end justify-end p-2 '><IoArrowUndoOutline size={20} /></p>
                                 </div>
-                                <div className='p-5 sm:px-10  px-5 flex flex-col'>
-                                    <Link to = '/' className= "text-blue py-2 text-lg hover:underline decoration-blue decoration-2 underline-offset-4" >
-                                        Men
+                                <div>
+                                    <p className='text-brown p-4 text-lg'>Discover the most outstanding articles on all topics of life. Write your stories and share them</p>
+                                </div>
+                                <div className='flex items-center justify-between px-2'>
+                                    <SocialMedia/>
+                                    <p className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full'>
+                                        <LuSunMoon className='mx-1'/>
+                                    </p>
+                                </div>
+                                <div className='py-3 mx-1'>
+                                    <p className='bg-brown mx-2 rounded-xl flex items-center '>
+                                        {/* <GoSearch className='text-ivory font-bold mx-3' size={20}/> */}
+                                        <input type="search" className='w-full p-3 outline-none bg-white text-brown border border-brown/10 rounded' placeholder='Type your search' />
+                                    </p>
+                                </div>
+                                <div onClick={clickMobile} className='p-5 sm:px-10  px-5 flex flex-col gap-4'>
+                                    <Link to='category/all-category' className= "hover:bg-gray/10  flex rounded items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+                                        <MdCategory className='mx-1'/>
+                                        Categories
                                     </Link>
-                                    <Link to = '/' className= "text-blue py-2 text-lg hover:underline decoration-blue decoration-2 underline-offset-4" >
-                                        Women                                 
-                                    </Link>
-                                    <Link to = '/' className= "text-blue py-2 text-lg hover:underline decoration-blue decoration-2 underline-offset-4" >
-                                        Beauty
-                                    </Link>
-                                    <Link to = '/' className= "text-blue py-2 text-lg hover:underline decoration-blue decoration-2 underline-offset-4" >
-                                        Sport
-                                    </Link>
+                                    <ShowCustomer>
+                                        <div className=' p-2 flex'>
+                                            <Link to = '/dashboard/orders' className= "hover:bg-gray/10  flex rounded items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+                                                <BiPurchaseTag className='mx-1'/>
+                                                My Order
+                                            </Link>
+                                        </div>
+                                    </ShowCustomer>
+                                    <ShowAdmin>
+                                        <div className='flex hover:bg-gray/10 rounded'>
+                                            <Link to={`/dashboard/home-dashboard`} className='rounded flex items-center p-2 cursor-pointer hover:underline underline-offset-4'>
+                                                <AiFillDashboard className='mx-1'/>
+                                                Dashboard
+                                            </Link>
+                                        </div>
+                                    </ShowAdmin>
                                 </div>
                             </div>
                         </div>
@@ -119,8 +125,8 @@ export const Header = () => {
                 )
             }
         </div>
-        <div className='flex flex-inline'>
-            <Link to='category' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+        <div className='md:flex flex-inline hidden text-lg'>
+            <Link to='category/all-category' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
                 <MdCategory className='mx-1'/>
                 Categories
             </Link>
@@ -137,10 +143,6 @@ export const Header = () => {
                     <Link to={`/dashboard/home-dashboard`} className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4'>
                         <AiFillDashboard className='mx-1'/>
                         Dashboard
-                    </Link>
-                    <Link to={`/dashboard/products`} className='flex items-center p-2 cursor-pointer hover:underline underline-offset-4'>
-                        <GrUpdate className="mx-1"/>
-                        Update Products
                     </Link>
                 </div>
             </ShowAdmin>

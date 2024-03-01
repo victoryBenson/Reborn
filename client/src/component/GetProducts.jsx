@@ -68,15 +68,15 @@ export const GetProducts = () => {
                 </p>
                 <p className='text-ivory sm:text-xl text-lg font-light'>Discover the most trending products in Reborn.</p>
             </div>
-            <div className="search-wrapper p-2 w-full mx-auto" data-aos="fade-up">
-                    <input
-                        type="search"
-                        name="search-form"
-                        className="search-input p-3 flex w-full outline-none border border-gray/20 rounded"
-                        placeholder="Search for Products, Category, Brands etc..."
-                        value={q}
-                        onChange={handleSearch}
-                    />
+            <div className="search-wrapper p-2 flex justify-center items-center w-full " data-aos="fade-up">
+                <input
+                    type="search"
+                    name="search-form"
+                    className="search-input p-3 flex w-2/3 outline-none border border-gray/20 rounded"
+                    placeholder="Search for Products, Category, Brands etc..."
+                    value={q}
+                    onChange={handleSearch}
+                />
             </div>
         </div>
         <div data-aos="fade-down" className='flex flex-wrap justify-between items-center mx-auto py-6 sm:px-10 px-5'>

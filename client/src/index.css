@@ -71,6 +71,19 @@
   }
 }
 
-.active {
-  padding: 2px;
+  .active {
+    padding: 2px;
+  }
+
+  /* products */
+  @media (min-width: 600px) {
+    .product {
+        width: 18rem/* 288px */;
+    }
+}
+
+@media (max-width: 350px){
+  .hamburger-menu{
+    width: 100%;
+  }
 }

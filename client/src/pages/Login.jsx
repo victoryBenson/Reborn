@@ -27,13 +27,13 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if(!email || !password){
-        return toast.error("All fields are required")
-    }
+    // if(!email || !password){
+    //     return toast.error("All fields are required")
+    // }
     
-    if( password.length < 6 ){
-        return toast.error("Password is too weak")
-    }
+    // if( password.length < 6 ){
+    //     return toast.error("Password is too weak")
+    // }
    
     const userData = {
         email,
@@ -57,7 +57,7 @@ useEffect(() => {
 
   return (
     <div className='flex justify-center items-center mx-auto h-screen'>
-        <div className='bg-ivory md:w-1/2 w-3/4 my-10 rounded-lg shadow p-4 transition-all'>
+        <div className='bg-ivory/30 md:w-1/2 w-3/4 my-10 rounded-lg shadow p-4 transition-all'>
             <div className='text-2xl text-center my-7 font-bold flex flex-wrap items-center justify-center'><Logo/></div>
             <h1 className='text-xl text-center font-bold'>Welcome back!</h1>
             <p className='p-2 text-center font-light'>Login into your account for full access.</p>

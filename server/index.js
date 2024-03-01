@@ -9,6 +9,7 @@ import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js";
 import rateLimitMiddleware from "./middleware/rateLimit.js";
 import cookieParser from "cookie-parser";
+import { errorHandler } from "./utils/errorhandler.js";
 
 
 const app = express();
@@ -40,7 +41,7 @@ app.use("/api/auth", authRoute);
 //view your token
 app.get("/get", (req, res) => {
   const cookies = req.cookies;
-  console.log("not singed coookie", cookies);
+  console.log("not singed cookie", cookies);
 
   const singedCookies = req.signedCookies;
   console.log("signedCookies:", singedCookies);
@@ -50,6 +51,10 @@ app.get("/get", (req, res) => {
 app.get('/', (req, res) => {
   res.send("Welcome to Reborn");
 });
+
+
+// Custom ErrorHandler middleware
+app.use(errorHandler)
 
 mongoose.set("strictQuery", false);
 mongoose.connect(MONGO_URL).then(() => {

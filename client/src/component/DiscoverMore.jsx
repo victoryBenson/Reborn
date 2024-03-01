@@ -9,7 +9,7 @@ import fashion from '../assets/image/welcome2.avif'
 import beauty from '../assets/image/beauty.jpg'
 import digital from '../assets/image/digital.jpg'
 import sports from '../assets/image/sports.jpg'
-import gift from '../assets/image/gift-unscreen.gif'
+// import gift from '../assets/image/gift-unscreen.gif'
 
 
 export const DiscoverMore = () => {
@@ -29,13 +29,13 @@ export const DiscoverMore = () => {
   return (
     <div className='relative my-5'>
         <div className='p-3 flex items-center justify-between relative'>
-            <p className='flex flex-wrap items-center font-bold md:text-3xl sm:p-5 text-brown'>
+            {/* <p className='flex flex-wrap items-center font-bold md:text-3xl sm:p-5 text-brown'>
                 Discover more. 
                 <span className='text-lightBrown font-light flex flex-warp items-center'> 
                     Good things are waiting for you
                     <img src={gift} alt="image" className='w-14 h-10 rounded'/>
                 </span>
-            </p>
+            </p> */}
             <p className='flex'>
                 <IoArrowBackCircleOutline className='mx-2 text-[#d3d3d3]' size={40} onClick={slideLeft}/>
                 <IoArrowForwardCircleOutline className='mx-2 text-[#81b787]' size={40} onClick={slideRight}/>

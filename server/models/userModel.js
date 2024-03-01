@@ -1,22 +1,31 @@
 import mongoose from "mongoose";
-import bcryt from "bcryptjs";
+import bcrypt from "bcryptjs";
+import pkg from 'validator';
+const {isEmail, isStrongPassword} = pkg;
+
 
 const userSchema = mongoose.Schema(
   {
     username: {
       type: String,
       required: [true, "Please add a name"],
+      minLength: [2, "minimum 2letters"],
+      maxLength: 30,
+      lowercase: true
     },
     email: {
       type: String,
       required: [true, "Please add an email"],
       unique: true,
       trim: true,
+      lowercase: true,
+      validate: [isEmail, "Please enter a valid email address"]
     },
     password: {
       type: String,
       required: [true, "Please add a password!"],
-      minLength: [6, "Password must be up to 6 character"],
+      // select: false,
+      validate: [isStrongPassword, "Please use a strong password!"],
     }, 
     profilePicture: {
       type: String,
@@ -28,7 +37,8 @@ const userSchema = mongoose.Schema(
       type: String,
       enum: ['customer', 'admin'],
       default: 'customer',
-      required: [true, 'Pls choose a role!']
+      required: [true, 'Pls choose a role!'],
+      lowercase: true
     },
     address: {
       type: Object,
@@ -56,8 +66,8 @@ userSchema.pre("save", async function(next){
   }
 
   //hash password
-  const salt = await bcryt.genSalt(10);
-  const hashedPassword = await bcryt.hash(this.password, salt);
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(this.password, salt);
   this.password = hashedPassword;
   next();
 });

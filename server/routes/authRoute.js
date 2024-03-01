@@ -3,6 +3,16 @@ import { Login, Logout} from '../controllers/authController.js';
 const router = express.Router()
 
 import { verifyJWT } from "../middleware/verifyJWT.js";
+
+
+
+
+
+
+
+
+
+
 // router.use(verifyJWT)
 
 
