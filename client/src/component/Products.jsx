@@ -35,7 +35,7 @@ export const Products = ({product}) => {
   return (
     <div className='product shadow rounded-xl w-full h-96 relative group sm:m-3 my-2 mx-5'>
         <div className='bg-white h-2/3 flex justify-center relative overflow-hidden rounded-t-xl'>
-            <div className='lg:group-hover:flex flex lg:hidden lg:bg-ivory/30 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
+            <div className=' lg:bg-ivory/30 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
                 <div className='bottom-4 flex justify-center absolute w-full'>
                     <div className='flex '>
                         <button onClick={()=> handleAddToCart(product)} className='flex mx-2 items-center bg-brown p-2 px-3 rounded-full text-white shadow text-sm'>
@@ -60,7 +60,7 @@ export const Products = ({product}) => {
                                 >
                             <div className='sm:p-3 grid md:grid-cols-2 grid-cols-1 gap-4 '>
                                 <div className='relative p-2'>
-                                   <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
+                                    <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
                                         <RiHeart2Line size={20}/>
                                     </span>
                                     <div className='h-72 w-full'>

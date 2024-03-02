@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Logo } from './Logo'
 import {NavLink, Link, useNavigate} from 'react-router-dom'
-import { GoSearch } from "react-icons/go";
 import { CiUser, CiLogout, CiLogin, CiEdit, CiMenuFries } from "react-icons/ci";
-import { MdCategory, MdSportsTennis } from "react-icons/md";
+import { MdCategory} from "react-icons/md";
 import { BiPurchaseTag } from "react-icons/bi";
 import { RiArrowDownSLine, RiArrowUpSLine, RiLightbulbFlashLine, RiUserFollowLine } from "react-icons/ri";
 import { LuHelpCircle, LuSunMoon } from "react-icons/lu";
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import {IoArrowUndoOutline} from 'react-icons/io5';
 import AOS from 'aos'
 import "aos/dist/aos.css"
@@ -18,16 +16,14 @@ import { ShowCustomer, ShowOnLogin, ShowOnLogout, ShowAdmin } from './hiddenLink
 import { LogoutUser } from '../redux/features/auth/authActions';
 import { Reset_Auth } from '../redux/features/auth/authSlice';
 import { LiaToggleOffSolid} from "react-icons/lia";
-import { PiShirtFoldedLight } from "react-icons/pi";
-import { TbChecklist, TbPerfume } from "react-icons/tb";
+import { TbChecklist} from "react-icons/tb";
 import { RxUpdate } from "react-icons/rx";
-import { AiFillDashboard, AiOutlineDashboard } from "react-icons/ai";
-import { GrUpdate } from "react-icons/gr";
+import { AiFillDashboard} from "react-icons/ai";
 
 
 export const Header = () => {
     const [menu, setMenu] = useState(false)
-    const [mobile, setmobile] = useState(false)
+    const [mobile,setMobile] = useState(false)
     const [showCart, setShowCart] = useState(false)
     const {cartItems, cartTotalQuantity} = useSelector(state => state.cart)
     const {userInfo} = useSelector((state) => state.auth); 
@@ -36,7 +32,7 @@ export const Header = () => {
 
 
     const clickMobile = ()=> {
-        setmobile(!mobile)
+       setMobile(!mobile)
     }
 
     const displayCart = ()=> {
@@ -61,7 +57,7 @@ export const Header = () => {
     }
 
   return (
-    <div className='flex items-center justify-between bg-blur p-3 px-10 md:px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40'>
+    <div className='flex items-center justify-between bg-blur p-3 px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40'>
         <div>
             <NavLink to={`/`}>
                 <Logo/>
@@ -126,7 +122,7 @@ export const Header = () => {
             }
         </div>
         <div className='md:flex flex-inline hidden text-lg'>
-            <Link to='category/all-category' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
+            <Link to='categories' className= " flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4" >
                 <MdCategory className='mx-1'/>
                 Categories
             </Link>

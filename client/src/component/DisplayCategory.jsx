@@ -9,30 +9,39 @@ import { truncateString } from '../utils';
 import { CiCirclePlus } from "react-icons/ci";
 import { BsCartX } from "react-icons/bs";
 import { FaCheck } from "react-icons/fa6";
+import { addToCart, decreaseCart, displayCart, increaseCart } from '../redux/features/cartSlide.js';
+import {useDispatch, useSelector} from "react-redux";
+import { RiHeart2Line } from "react-icons/ri";
 
 
-export const SportsDetails = ({product}) => {
-    const {_id, image, name, description, color, section,sku, quantity, size, brand, price, oldPrice} = product
+export const DisplayCategory = ({product}) => {
+    const {_id, image, name, description, color,quantity, size, brand, price, oldPrice, } = product
+
     const [open, setOpen] = useState(false);
-    const [Color, setColor] = useState(product.color[1])
-    const [Size, setSize] = useState(product.size[0])
-    const [Image, setImage] = useState(product.image[0])
-
+    const [Color, setColor] = useState(color[1])
+    const [Size, setSize] = useState(size[0])
+    const [Image, setImage] = useState(image[0])
+    const dispatch = useDispatch()
+    const {cartItems} = useSelector(state => state.cart)
 
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product))
+    }
     
   return (
-    <div className='shadow rounded-xl w-72 h-96 relative group mx-2 my-2'>
-        <p className='bg-white h-2/3 flex justify-center relative overflow-hidden rounded-t-xl'>
-            <div className='group-hover:flex hidden bg-ivory/30 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
-                <p className='bottom-4 flex justify-center absolute w-full'>
-                    <p className='flex '>
-                        <button className='flex mx-2 items-center bg-lightBrown p-2 px-3 rounded-full text-ivory'>
+    <div className='product shadow rounded-xl w-full h-96 relative group sm:m-3 my-2 sm:mx-5'>
+        <div className='bg-white h-2/3 flex justify-center relative overflow-hidden rounded-t-xl'>
+            <div className='lg:group-hover:flex flex lg:hidden lg:bg-ivory/30 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
+                <div className='bottom-4 flex justify-center absolute w-full'>
+                    <div className='flex '>
+                        <button onClick={()=> handleAddToCart(product)} className='flex mx-2 items-center bg-brown p-2 px-3 rounded-full text-white shadow text-sm'>
                             <BsBagCheck/> 
                             Add to bag
                         </button>
-                        <button onClick={()=> onOpenModal(_id)} className='flex mx-2 items-center bg-ivory rounded-full p-2'>
+                        <button onClick={()=> onOpenModal(product)} className='flex mx-2 items-center bg-white rounded-full p-2 shadow text-sm'>
                             <TiArrowMaximise/>
                             Quick view
                         </button>
@@ -50,13 +59,13 @@ export const SportsDetails = ({product}) => {
                                 >
                             <div className='sm:p-3 grid md:grid-cols-2 grid-cols-1 gap-4 '>
                                 <div className='relative p-2'>
-                                    <span className='absolute top-4 right-4 p-2 z-10 bg-gray/10 rounded-full cursor-pointer'>
-                                        <CiHeart size={20} className='text-[#09d7bf77]'/>
+                                    <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
+                                        <RiHeart2Line size={20}/>
                                     </span>
                                     <div className='h-72 w-full'>
                                         <img src={Image} className='object-contain w-full h-full rounded-lg' alt="image" />
                                     </div>
-                                    <p className='flex pt-3  h-20 w-full justify-center'>
+                                    <div className='flex pt-3  h-20 w-full justify-center'>
                                         {
                                             image.map((mImage, idx) => {
                                                 return (
@@ -66,13 +75,15 @@ export const SportsDetails = ({product}) => {
                                                 )
                                             })
                                         }
-                                    </p>
+                                    </div>
                                 </div>
                                 <div>
-                                    <h1 className=' font-bold text-xl'>{name}</h1>
-                                    <p className='p-1 text-lightBrown'>Sku: {sku}</p>
+                                    <h1 className=' font-bold text-xl text-brown'>{name}</h1>
+                                    <div className='flex items-center space-x-4 flex-wrap px-3'>
+                                        <p className='text-gray py-2'>Brand: {brand}</p>
+                                    </div>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
-                                    <p className='py-3  flex items-center' >
+                                    <div className='py-3  flex items-center' >
                                         Color: {
                                             color.length ? 
                                                 color.map((mColor, index) => {
@@ -85,8 +96,8 @@ export const SportsDetails = ({product}) => {
                                                 :
                                                 "As seen"
                                         }
-                                    </p>
-                                    <p className='py-3  flex flex-wrap items-center' >
+                                    </div>
+                                    <div className='py-3  flex flex-wrap items-center' >
                                         Size: 
                                         {
                                             size.length ?
@@ -100,17 +111,25 @@ export const SportsDetails = ({product}) => {
                                             :
                                             " As seen"
                                         }
-                                    </p>
+                                    </div>
                                     <div className='flex flex-wrap sm:flex-nowrap items-center pt-4'>
                                         <p className='space-x-3 sm:w-1/3 justify-center flex mx-2 items-center bg-gray-light/50 p-3 rounded-full'>
-                                            <CiCircleMinus size={30} className='mx-1 cursor-pointer hover:opacity-10 transition-all'/> 
-                                            10
-                                            <CiCirclePlus size={30} className='mx-1 cursor-pointer hover:opacity-10 transition-all'/> 
+                                            <CiCircleMinus 
+                                                size={30} 
+                                                onClick={() => dispatch(decreaseCart(_id))} 
+                                                className='mx-1 cursor-pointer hover:opacity-10 transition-all'
+                                            /> 
+                                            <span>00</span>
+                                            <CiCirclePlus 
+                                                size={30} 
+                                                onClick={() => dispatch(increaseCart(_id))}
+                                                className='mx-1 cursor-pointer hover:opacity-10 transition-all'
+                                            /> 
                                         </p>
                                         <p className='w-full py-3'>
                                             {
                                                 quantity > 0 ? (
-                                                    <button className='hover:opacity-80 transition-all w-full justify-center flex items-center bg-lightBrown p-3 rounded-full text-white'>
+                                                    <button onClick={()=> handleAddToCart(product)} className='hover:opacity-80 transition-all w-full justify-center flex items-center bg-brown p-3 rounded-full text-ivory'>
                                                         <BsBagCheck className='mx-1'/> 
                                                         Add to cart
                                                     </button>
@@ -128,25 +147,25 @@ export const SportsDetails = ({product}) => {
                                 </div>
                             </div>
                         </Modal>
-                    </p>
-                </p>
+                    </div>
+                </div>
             </div>
-            <span className='absolute top-2 right-2 p-2 z-10 bg-gray/10 text-green rounded-full cursor-pointer'>
-                <CiHeart size={20}/>
+            <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
+                <RiHeart2Line size={20}/>
             </span>
             <img src={image[0]} alt="image" className='group-hover:scale-110 object-contain w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
-        </p>
+        </div>
         <div className='p-3 fle flex-col h-full'>
-            <p className='font-bold '>{truncateString(name, 20)}</p>
-            <p className='text-gray py-2'>Brand: {brand}</p>
+            <p className='font-bold text-brown capitalize'>{truncateString(name, 20)}</p>
+            <p className='text-lightBrown py-2 capitalize'>{brand}</p>
             <p className='flex py-1'>
-                <span className='pr-2 font-bold rounded flex items-center text-brown'>
-                    <TbCurrencyNaira/>
+                <span className='py-2 text-lightBrown font-bold rounded flex items-center'>
+                    <TbCurrencyNaira className='mt-1'/>
                     {price?.toLocaleString()}
                 </span>
-                <span className='px-2 line-through text-gray flex items-center '>
+                <span className='px-2 line-through text-gray items-center flex'>
                     <TbCurrencyNaira/>
-                    {oldPrice}
+                    {oldPrice?.toLocaleString()}
                 </span>
             </p>
         </div>

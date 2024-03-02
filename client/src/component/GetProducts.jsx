@@ -62,7 +62,7 @@ export const GetProducts = () => {
     <div className='' id='search' >
         <div className='sm:p-5 lg:h-[50vh] md: h-[40vh] h- [20vh] transition-all px-3 flex flex-col justify-center items-center gap-4 bg-gradient-to-r from-lightBrown to-brown '>
             <div className='text-center flex flex-col justify-center items-center' data-aos="fade-down">
-                <p className=' font-bold md:text-3xl text-xl text-ivory flex items-center'>
+                <p className=' font-bold md:text-3xl text-xl text-ivory flex flex-wrap justify-center items-center'>
                     Explore, Shop, repeat again
                     <Explore/>
                 </p>
@@ -72,7 +72,7 @@ export const GetProducts = () => {
                 <input
                     type="search"
                     name="search-form"
-                    className="search-input p-3 flex w-2/3 outline-none border border-gray/20 rounded"
+                    className="search-input p-3 flex w-11/12 md:w-2/3 transition-all outline-none border border-gray/20 rounded"
                     placeholder="Search for Products, Category, Brands etc..."
                     value={q}
                     onChange={handleSearch}
@@ -80,7 +80,6 @@ export const GetProducts = () => {
             </div>
         </div>
         <div data-aos="fade-down" className='flex flex-wrap justify-between items-center mx-auto py-6 sm:px-10 px-5'>
-            {/*  */}
             <div>
                 <select
                     onChange={handleFilter}

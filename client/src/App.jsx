@@ -1,12 +1,7 @@
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 import { Header } from "./component/Header";
 import { LandingPage } from "./pages/LandingPage";
-import { Products } from "./component/Products";
 import {Footer} from "./component/Footer"
-import { Beauty } from "./component/Beauty";
-import { Fashion } from "./component/Fashion";
-import { Sports } from "./component/Sports";
-import { Digital } from "./component/Digital";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {MyCart} from "./pages/MyCart"
@@ -30,7 +25,6 @@ import { HomeDashboard } from "./pages/HomeDashboard";
 import { AdminProducts } from "./pages/AdminProducts";
 import { Orders } from "./pages/Order";
 import { Categories } from "./pages/Categories";
-import { AllCategory } from "./component/AllCategory";
 
 
 
@@ -59,13 +53,6 @@ function App() {
                         {/* <Route path="userDetails" element = {<AccountPage/>}/> */}
                     {/* </Route> */}
                 </Route>
-                <Route path='category' element={<Categories/>}>
-                    <Route path="all-category" element={<AllCategory/>}/>
-                    <Route path="beauty" element={<Beauty/>}/>
-                    <Route path="fashion" element={<Fashion/>}/>
-                    <Route path="sports" element={<Sports/>}/>
-                    <Route path="digital" element={<Digital/>}/>
-                </Route>
                 <Route path="userDetails" element = {<AccountPage/>}/>
                 <Route path="mycart" element={<MyCart/>}/>
                 <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
@@ -77,6 +64,7 @@ function App() {
                     <Route path="products" element={<AdminProducts/>}/>
                     <Route path="orders" element={<Orders/>}/>
                 </Route>
+                <Route path="categories" element={<Categories/>}/>
             </Routes>
             <ConditionRoute>
                 <Footer/>

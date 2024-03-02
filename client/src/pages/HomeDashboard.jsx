@@ -7,7 +7,7 @@ import { useFetchUsersQuery } from '../redux/features/product/generalApi';
 
 export const HomeDashboard = () => {
     const {data = [], error, isLoading, isError} = useFetchUsersQuery()
-    console.log(data)
+    // console.log(data)
 
     if(isLoading) return <div className='flex justify-center'><Loader/></div>
     if(isError) return <div className='flex justify-center'>Error:{error}</div>
