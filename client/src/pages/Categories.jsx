@@ -11,8 +11,10 @@ import { PiDressFill } from "react-icons/pi";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 
 export const Categories = () => {
-  const [open, setOpen] = useState(false);
   const [click, setClick] = useState();
+  const [toggle, setToggle] = useState(false)
+  const [color, setColor] = useState("#000000");  // default value of bg-color 
+    const [textColor, setText] = useState("#FFFFFF");
   const {
     data = [],
     isLoading,
@@ -23,6 +25,9 @@ export const Categories = () => {
 
   const handleClick = (e) => {
     setClick(e.target.value);
+    // setColor(color);
+    // setText(textColor);
+    setToggle(!toggle)
   };
 
   if (isLoading) {
@@ -49,7 +54,8 @@ export const Categories = () => {
             type="button"
             onClick={handleClick}
             value={"fragrances"}
-            className="flex items-center"
+            className={"flex items-center"}
+            // style={toggle && { background: color, color: textColor }}
           >
             <TbPerfume className="mx-1" />
             Beauty
@@ -113,5 +119,5 @@ export const Categories = () => {
         )}
       </div>
     </div>
-  );
+  )
 };
