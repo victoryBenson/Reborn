@@ -1,27 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Loader } from '../component/Loader'
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { BsCartCheck } from "react-icons/bs";
 import { MdOutlineSell } from "react-icons/md";
-import { useFetchUsersQuery } from '../redux/features/product/generalApi';
+// import { useFetchUsersCountQuery, useFetchUsersQuery } from '../redux/features/product/generalApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { UsersTotal, getUsers } from '../redux/features/user/userAction';
 
 export const HomeDashboard = () => {
-    const {data = [], error, isLoading, isError} = useFetchUsersQuery()
-    // console.log(data)
+    const dispatch = useDispatch()
+    const {isLoading, isError, isSuccess, userInfo, errMessage, data} = useSelector(state => state.user)
+    // const USERS = useSelector(state => state.user.userInfo)
+    // const result = Object.values(USERS);
+    
+    // console.log(userInfo)
+    // const {data = [], error, isLoading, isError} = useFetchUsersQuery()
+    // const {data = [], error, isLoading, isError} = useFetchUsersCountQuery()
+
+    useEffect(() => {
+      dispatch(getUsers())
+      dispatch(UsersTotal())        
+    }, [])
+    
 
     if(isLoading) return <div className='flex justify-center'><Loader/></div>
-    if(isError) return <div className='flex justify-center'>Error:{error}</div>
+    if(isError) return <div className='flex justify-center'>Error:{errMessage}</div>
     
   return (
     <section className='max md:w-full mx-2 shadow'>
         <div className='flex flex-wrap justify-evenly items-center py-5 space-y-4'>
             <div className=' bg-lightBrown shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl text-ivory'>
-                <p>20,394</p>
+                <p>{data}</p>
                 <p className='flex items-center'><BsCartCheck/>Products</p>
             </div>
             <div className=' bg-blue text-ivory shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl'>
-                <FaUsersViewfinder />
-                <p>Over 1 million Users</p>
+                <p>{data}</p>
+                <p className='flex items-center'><FaUsersViewfinder />Registered Users</p>
             </div>
             <div className=' bg-ivory shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl'>
                 <span>199</span>
@@ -29,10 +43,10 @@ export const HomeDashboard = () => {
             </div>
         </div>
         <div>
-            <h1 className='p-2 font-bold text-2xl'>Reistered Users</h1>
+            <h1 className='p-2 font-bold text-2xl'>Registered Users</h1>
             <div className=''>
                 {
-                    data.map((user) => {
+                    userInfo.map((user) => {
                         return (
                             <div key={user._id} className='md:h-20 w-full my-4 '>
                                 <div className='h-full flex flex-wrap justify-between items-center bg-white md:px-5 p-3 md:mx-5 rounded shadow'>
@@ -55,7 +69,7 @@ export const HomeDashboard = () => {
                                     </p>
                                     <p className='text-center'>
                                         <span className='font-bold'>Last Updated:</span>
-                                        <p>{user.updatedAt.toString()}</p>
+                                        <p>{user?.createdAt?.toString()}</p>
                                     </p>
                                 </div>
                             </div>

@@ -34,7 +34,7 @@ export const DisplayCategory = ({product}) => {
   return (
     <div className='product shadow rounded-xl w-full h-96 relative group sm:m-3 my-2 sm:mx-5'>
         <div className='bg-white h-2/3 flex justify-center relative overflow-hidden rounded-t-xl'>
-            <div className='lg:group-hover:flex flex lg:hidden lg:bg-ivory/30 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
+            <div className='lg:group-hover:flex flex lg:hidden lg:bg-lightBrown/5 bg-ivory/10 transition-all absolute z-10 top-0 right-0 left-0 w-full h-full'>
                 <div className='bottom-4 flex justify-center absolute w-full'>
                     <div className='flex '>
                         <button onClick={()=> handleAddToCart(product)} className='flex mx-2 items-center bg-brown p-2 px-3 rounded-full text-white shadow text-sm'>

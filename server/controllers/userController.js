@@ -26,7 +26,7 @@ export const register = async (req, res, next) => {
   }
 }
 
-//getusers
+//getUsers
 export const getUsers = async (req, res, next) => {
   try {
     const users = await User.find({}).select("-password").sort("-createdAt");
@@ -34,6 +34,18 @@ export const getUsers = async (req, res, next) => {
     if (!users?.length) {
       return res.status(400).json({ message: "No user found!" });
     }
+
+    res.status(200).json(users);
+    
+  } catch (err) {
+    next(err)
+  }
+  };
+
+  //getUsersCount
+export const getUsersCount = async (req, res, next) => {
+  try {
+    const users = await User.find({}).count();
 
     res.status(200).json(users);
     

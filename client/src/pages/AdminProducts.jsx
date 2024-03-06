@@ -9,6 +9,8 @@ import { useFetchItemsQuery } from "../redux/features/product/generalApi";
 
 export const AdminProducts = () => {
   const { data = [], error, isLoading, isError } = useFetchItemsQuery();
+  console.log(data)
+  
   const [open, setOpen] = useState(false);
   const [radioColor, setRadioColor] = useState("As Seen")
 
@@ -217,7 +219,7 @@ export const AdminProducts = () => {
       <div>
         <h1 className="p-2 font-bold text-2xl">Products</h1>
         <div className="">
-          {data.map((user) => {
+          {/* {data.map((user) => {
             return (
               <div
                 key={user._id}
@@ -268,7 +270,7 @@ export const AdminProducts = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </div>
       </div>
       <div>

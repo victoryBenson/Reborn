@@ -5,7 +5,8 @@ const productSchema = mongoose.Schema({
         type: String,
         required: [true, "Please add product name"],
         trim: true,
-        lowercase: true
+        lowercase: true,
+        unique:true
     },
     description: {
         type: String,
@@ -25,12 +26,14 @@ const productSchema = mongoose.Schema({
     category: {
         type: String,
         required: [true, "Please add product category"],
-        trim: true
+        trim: true,
+        lowercase: true
     },
     brand: {
         type: String,
         required: [true, "Please add product brand"],
-        trim: true
+        trim: true,
+        lowercase: true
     },
     quantity: {
         type: Number,

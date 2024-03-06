@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { register } from "./userAction";
+import { UsersTotal, getUsers, register } from "./userAction";
 import {toast} from 'react-toastify'
 
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     isError: null,
     isSuccess: false,
     userInfo: null,
-    message: ""
+    errMessage: "",
+    data: null
 }
 
 const userSlice = createSlice({
@@ -19,7 +20,8 @@ const userSlice = createSlice({
             state.isSuccess = false;
             state.isLoading = false;
             state.userInfo = null;
-            state.message = "";
+            state.errMessage = "";
+            state.data = null
         }
     },
     extraReducers: (builder) => {
@@ -38,29 +40,46 @@ const userSlice = createSlice({
         .addCase(register.rejected, (state, {payload}) => {
             state.isLoading = false;
             state.isError = true;
-            state.message = payload;
+            state.errMessage = payload;
             state.userInfo = null;
             toast.error(payload)
         })
 
-        // // getUsers
-        // .addCase(register.pending, (state) => {
-        //     state.isLoading = true
-        //     state.isError = null
-        // })
-        // .addCase(register.fulfilled, (state, {payload}) => {
-        //     state.isLoading = false;
-        //     state.isSuccess = true;
-        //     state.userInfo = payload;
-        //     toast.success(payload)
-        // })
-        // .addCase(register.rejected, (state, {payload}) => {
-        //     state.isLoading = false;
-        //     state.isError = true;
-        //     state.message = payload;
-        //     state.userInfo = null;
-        //     toast.error(payload)
-        // })
+        // getUsers
+        .addCase(getUsers.pending, (state) => {
+            state.isLoading = true
+            state.isError = null
+        })
+        .addCase(getUsers.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.userInfo = payload;
+            toast.success(payload)
+        })
+        .addCase(getUsers.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
+            state.userInfo = null;
+            toast.error(payload)
+        })
+
+         // UserCount
+        .addCase(UsersTotal.pending, (state) => {
+            state.isLoading = true
+            state.isError = null
+        })
+        .addCase(UsersTotal.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.data = payload;
+        })
+        .addCase(UsersTotal.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
+            state.data = null;
+        })
     }
 })
 

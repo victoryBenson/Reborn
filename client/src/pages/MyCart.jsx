@@ -57,7 +57,7 @@ export const MyCart = () => {
                                         </p>
                                         <p onClick={()=> dispatch(removeCart(item._id))} className='hover:opacity-70 cursor-pointer bg-red text-ivory flex items-center justify-center p-1 rounded shadow'>
                                             <BsTrash3/> 
-                                            <span className='sm: flex idden '>REMOVE</span>
+                                            <span className='sm: flex'>REMOVE</span>
                                         </p>
                                     </div>
                                     <p className='py-1 rounded-lg flex justify-start items-center text-sm m-2 sm:w-32 w-28 '>

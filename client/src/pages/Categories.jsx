@@ -12,9 +12,9 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 
 export const Categories = () => {
   const [click, setClick] = useState();
-  const [toggle, setToggle] = useState(false)
-  const [color, setColor] = useState("#000000");  // default value of bg-color 
-    const [textColor, setText] = useState("#FFFFFF");
+  const [toggle, setToggle] = useState(false);
+  const [color, setColor] = useState("#000000"); // default value of bg-color
+  const [textColor, setText] = useState("#FFFFFF");
   const {
     data = [],
     isLoading,
@@ -27,7 +27,7 @@ export const Categories = () => {
     setClick(e.target.value);
     // setColor(color);
     // setText(textColor);
-    setToggle(!toggle)
+    setToggle(!toggle);
   };
 
   if (isLoading) {
@@ -39,85 +39,92 @@ export const Categories = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 my-10 gap-4">
-      <p className="flex flex-wrap items-center font-bold md:text-3xl text-xl sm:p-5 text-brown">
-        Discover more.
-        <span className="text-lightBrown font-light flex flex-warp items-center">
-          Good things are waiting for you
-          <img src={gift} alt="image" className="w-14 h-10 rounded" />
-        </span>
-      </p>
-      {/* buttons */}
-      <div className="mx-auto w-[90%] flex justify-center items-center my-10">
-        <div className="overflow-x-scroll md:overflow-hidden p-4 md:p-3 mx-auto flex lg:font-light text-lg transition-all space-x-14 text-brown bg-[#ffffff] shadow-lg rounded-lg">
-          <button
-            type="button"
-            onClick={handleClick}
-            value={"fragrances"}
-            className={"flex items-center"}
-            // style={toggle && { background: color, color: textColor }}
-          >
-            <TbPerfume className="mx-1" />
-            Beauty
-          </button>
-          <button
-            type="button"
-            onClick={handleClick}
-            value={"Fashion"}
-            className="flex items-center"
-          >
-            <PiDressFill className="mx-1" />
-            Fashion
-          </button>
-          <button
-            type="button"
-            onClick={handleClick}
-            value={"digital"}
-            className="flex items-center"
-          >
-            <FaComputerMouse className="mx-1" />
-            Accessories
-          </button>
-          <button
-            type="button"
-            onClick={handleClick}
-            value={"smartphones"}
-            className="flex items-center"
-          >
-            <IoPhonePortraitOutline className="mx-1" />
-            Phones
-          </button>
-          <button
-            type="button"
-            onClick={handleClick}
-            value={"Sport"}
-            className="flex items-center"
-          >
-            <MdSportsTennis className="mx-1" />
-            Sports
-          </button>
-        </div>
-      </div>
-      <div>
-        {!isLoading && data.length && (
-            <div>
-                {/* <div>
-                {data
-                    .filter((item) => item.category === click)
-                    .map((product) => {
-                        return <p key={product._id}>{product.category}</p>;
-                    })}
-                </div> */}
-                <div className="flex flex-wrap justify-center items-center">
-                    {data
-                    .filter((item) => item.category === click)
-                    .map((product) => {
-                        return <DisplayCategory key={product._id} product={product} />;
-                    })}
+    <div className="flex flex-col items-center justify-center gap-4">
+        <div className="from-lightBrown to-brown bg-gradient-to-r w-full flex flex-col items-center justify-center">
+            <p className="flex flex-wrap items-center font-bold md:text-3xl text-xl sm:p-5">
+                <span className="text-ivory">Discover more.</span>
+                <span className="text-green font-light flex flex-warp items-center">
+                Good things are waiting for you
+                <img src={gift} alt="image" className="w-14 h-10 rounded" />
+                </span>
+            </p>
+            {/* buttons */}
+            <div className="mx-auto w-[90%] flex justify-center items-center my-10">
+                <div className="overflow-x-scroll md:overflow-hidden p-4 md:p-3 mx-auto flex lg:font-light text-lg transition-all space-x-14 text-brown bg-[#ffffff] shadow-lg rounded-lg">
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    value={"fragrances"}
+                    className={"flex items-center"}
+                    // style={toggle && { background: color, color: textColor }}
+                >
+                    <TbPerfume className="mx-1" />
+                    Beauty
+                </button>
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    value={"Fashion"}
+                    className="flex items-center"
+                >
+                    <PiDressFill className="mx-1" />
+                    Fashion
+                </button>
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    value={"digital"}
+                    className="flex items-center"
+                >
+                    <FaComputerMouse className="mx-1" />
+                    Accessories
+                </button>
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    value={"smartphones"}
+                    className="flex items-center"
+                >
+                    <IoPhonePortraitOutline className="mx-1" />
+                    Phones
+                </button>
+                <button
+                    type="button"
+                    onClick={handleClick}
+                    value={"Sport"}
+                    className="flex items-center"
+                >
+                    <MdSportsTennis className="mx-1" />
+                    Sports
+                </button>
                 </div>
             </div>
+        </div>
+      <div>
+        {!isLoading && data.length && (
+          <div>
+            {click ? (
+              <div className="flex flex-wrap justify-center items-center">
+                {data
+                  .filter((item) => item.category === click)
+                  .map((product) => {
+                    return (
+                      <DisplayCategory key={product._id} product={product} />
+                    );
+                  })}
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center items-center">
+                {data.map((product) => {
+                  return (
+                    <DisplayCategory key={product._id} product={product} />
+                  );
+                })}
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>
-  )
+  );
 };
