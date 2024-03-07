@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Loader } from "../component/Loader";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import { BsCartCheck, BsPlusLg } from "react-icons/bs";
 import { MdOutlineSell } from "react-icons/md";
 import { truncateString } from "../utils";
 import Modal from "react-responsive-modal";
-import { useFetchItemsQuery } from "../redux/features/product/generalApi";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts, getTotalProduct } from "../redux/features/product/productAction";
 
 export const AdminProducts = () => {
-  const { data = [], error, isLoading, isError } = useFetchItemsQuery();
-  console.log(data)
+  const dispatch = useDispatch()
+  const { data, userInfo, errMessage, isLoading, isError, items} = useSelector(state => state.product);
+  console.log(items)
+
+  useEffect(() => {
+    dispatch(getProducts()),
+    dispatch(getTotalProduct())
+  }, [])
+  
   
   const [open, setOpen] = useState(false);
   const [radioColor, setRadioColor] = useState("As Seen")
@@ -27,7 +35,7 @@ export const AdminProducts = () => {
         <Loader />
       </div>
     );
-  if (isError) return <div className="flex justify-center">Error:{error}</div>;
+  if (isError) return <div className="flex justify-center">Error:{errMessage}</div>;
 
   return (
     <section className="max md:w-full mx-2 shadow">
@@ -219,10 +227,10 @@ export const AdminProducts = () => {
       <div>
         <h1 className="p-2 font-bold text-2xl">Products</h1>
         <div className="">
-          {/* {data.map((user) => {
+          {items.map((item) => {
             return (
               <div
-                key={user._id}
+                key={item._id}
                 className="md:h-20 w-full my-4 group transition-all "
               >
                 <div className="h-full flex flex-wrap justify-between items-center bg-white md:px-5 p-3 md:mx-5 rounded shadow relative">
@@ -245,32 +253,36 @@ export const AdminProducts = () => {
                   <p className="flex items-center space-x-2">
                     <span>
                       <img
-                        src={user.image[0]}
+                        src={item.image[0]}
                         alt="image"
                         className="w-10 h-10"
                       />
                     </span>
                     <p className="text-center">
                       <span className="font-bold">Name:</span>
-                      <p>{truncateString(user.name, 20)}</p>
+                      <p>{truncateString(item.name, 20)}</p>
                     </p>
                   </p>
                   <p className="text-center">
                     <span className="font-bold">Quantity:</span>
-                    <p>{user.quantity}</p>
+                    <p>{item.quantity.toLocaleString()}</p>
                   </p>
                   <p className="text-center">
                     <span className="font-bold">Category:</span>
-                    <p className="capitalize">{user.category}</p>
+                    <p className="capitalize">{item.category}</p>
                   </p>
                   <p className="text-center">
                     <span className="font-bold">Brand:</span>
-                    <p className="capitalize">{user.brand}</p>
+                    <p className="capitalize">{item.brand}</p>
                   </p>
+                  <p className='text-center space-x-4 p-3'>
+                        <button className=''>Edit</button>
+                        <button className='text-red'>Delete</button>
+                </p>
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
       </div>
       <div>

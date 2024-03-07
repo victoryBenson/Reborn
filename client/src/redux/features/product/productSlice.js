@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { getProducts } from "./productAction";
+import { getProducts, getTotalProduct } from "./productAction";
 
 const initialState = {
     isLoading: false,
     isError: null,
     isSuccess: false,
-    userInfo: null,
+    items: null,
     errMessage: "",
     data: null
 }
@@ -19,7 +19,7 @@ const productSlice = createSlice({
             state.isError = false;
             state.isSuccess = false;
             state.isLoading = false;
-            state.userInfo = null;
+            state.items = null;
             state.errMessage = "";
             state.data = null
         }
@@ -34,15 +34,32 @@ const productSlice = createSlice({
         .addCase(getProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
             state.isSuccess = true;
-            state.userInfo = payload;
-            // toast.success(payload)
+            state.items = payload;
         })
         .addCase(getProducts.rejected, (state, {payload}) => {
             state.isLoading = false;
             state.isError = true;
             state.errMessage = payload;
-            state.userInfo = null;
-            toast.error(payload)
+            state.items = null;
+            // toast.error(payload)
+        })
+
+        // getTotalProduct
+        .addCase(getTotalProduct.pending, (state) => {
+            state.isLoading = true
+            state.isError = null
+        })
+        .addCase(getTotalProduct.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.data = payload;
+        })
+        .addCase(getTotalProduct.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
+            state.data = null;
+            // toast.error(payload)
         })
     }    
 })

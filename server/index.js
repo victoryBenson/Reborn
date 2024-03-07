@@ -29,7 +29,7 @@ app.use(cookieParser(process.env.ACCESS_TOKEN_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
-app.use(rateLimitMiddleware);
+// app.use(rateLimitMiddleware);
 
 
 //routes
@@ -51,7 +51,6 @@ app.get("/get", (req, res) => {
 app.get('/', (req, res) => {
   res.send("Welcome to Reborn");
 });
-
 
 // Custom ErrorHandler middleware
 app.use(errorHandler)

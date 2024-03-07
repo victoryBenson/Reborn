@@ -78,9 +78,10 @@ export const DisplayCategory = ({product}) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <h1 className=' font-bold text-xl text-brown'>{name}</h1>
+                                    <h1 className=' font-bold text-xl text-brown capitalize'>{name}</h1>
                                     <div className='flex items-center space-x-4 flex-wrap px-3'>
-                                        <p className='text-gray py-2'>Brand: {brand}</p>
+                                        <p className='text-brown font-bold'>Brand:</p>
+                                        <p className='text-gray py-2'>{brand}</p>
                                     </div>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
                                     <div className='py-3  flex items-center' >

@@ -66,270 +66,287 @@ export const Header = () => {
 
   return (
     <div className="flex items-center justify-between bg-blur p-3 px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40">
-      <div>
-        <NavLink to={`/landpage`}>
-          <Logo />
-        </NavLink>
-      </div>
-      {/* mobile */}
-      <div className="flex flex-cols md:hidden px-3">
-        <CiMenuFries
-          size={20}
-          onClick={clickMobile}
-          className="cursor-pointer "
-        />
-        {mobile && (
-          <div>
-            <div
-              onClick={clickMobile}
-              className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-full w-full transition-all z-10"
-            ></div>
-            <div
-              data-aos="fade-right"
-              className="hamburger-menu sm:w-2/4 w-4/5  fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all"
-            >
-              <div className="relative bg-white h-full">
-                <div className="py-4 flex items-center justify-between relative shadow">
-                  <p className="p-2 flex items-center">
-                    <Logo />
-                  </p>
-                  <p
-                    onClick={clickMobile}
-                    className=" flex items-end justify-end p-2 "
-                  >
-                    <IoArrowUndoOutline size={20} />
-                  </p>
-                </div>
-                <div>
-                  <p className="text-brown p-4 text-lg">
-                    Discover the most outstanding articles on all topics of
-                    life. Write your stories and share them
-                  </p>
-                </div>
-                <div className="flex items-center justify-between px-2">
-                  <SocialMedia />
-                  <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full">
-                    <LuSunMoon className="mx-1" />
-                  </p>
-                </div>
-                <div className="py-3 mx-1">
-                  <p className="bg-brown mx-2 rounded-xl flex items-center ">
-                    <input
-                      type="search"
-                      className="w-full p-3 outline-none bg-white text-brown border border-brown/10 rounded"
-                      placeholder="Type your search"
-                    />
-                  </p>
-                </div>
-                <div
-                  onClick={clickMobile}
-                  className="p-5 sm:px-10  px-5 flex flex-col gap-4"
-                >
-                  <Link
-                    to="categories"
-                    className="hover:bg-gray/10  flex rounded items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                  >
-                    <MdCategory className="mx-1" />
-                    Categories
-                  </Link>
-                  <ShowCustomer>
-                    <div className=" p-2 flex">
-                      <Link
-                        to="/dashboard/orders"
-                        className="hover:bg-gray/10  flex rounded items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                      >
-                        <BiPurchaseTag className="mx-1" />
-                        My Order
-                      </Link>
-                    </div>
-                  </ShowCustomer>
-                  <ShowAdmin>
-                    <div className="flex hover:bg-gray/10 rounded">
-                      <Link
-                        to={`/dashboard/home-dashboard`}
-                        className="rounded flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                      >
-                        <AiFillDashboard className="mx-1" />
-                        Dashboard
-                      </Link>
-                    </div>
-                  </ShowAdmin>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-      <div className="md:flex flex-inline hidden text-lg">
-        <NavLink
-          to="categories"
-          className={({ isActive }) =>
-            isActive
-              ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
-              : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
-          }
-        >
-          <MdCategory className="mx-1" />
-          Categories
-        </NavLink>
-        <ShowCustomer>
-          <div className=" p-2 flex">
-            <NavLink
-              to="/dashboard/orders"
-              className={({ isActive }) =>
-                isActive
-                ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
-                : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
-            }
-            >
-              <BiPurchaseTag className="mx-1" />
-              My Order
+        <div>
+            <NavLink to={`/landpage`}>
+            <Logo />
             </NavLink>
-          </div>
-        </ShowCustomer>
-        <ShowAdmin>
-          <div className=" p-2 flex">
-            <NavLink
-              to={`/dashboard/home-dashboard`}
-              className={({ isActive }) =>
-                isActive
-                ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
-                : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
-            }
-            >
-              <AiFillDashboard className="mx-1" />
-              Dashboard
-            </NavLink>
-          </div>
-        </ShowAdmin>
-      </div>
-      <div className="items-center space-x-2 hidden md:flex">
-        <div className="px-2 relative flex items-center space-x-4">
-          <div
-            onClick={() => setMenu(!menu)}
-            className="flex items-center cursor-pointer space-x-3 transition-all"
-          >
-            <ShowOnLogout>
-              <CiUser className="text-xl" />
-            </ShowOnLogout>
-            <ShowOnLogin>
-              <RiUserFollowLine className="text-xl" />
-            </ShowOnLogin>
-            <h1 className="capitalize">
-              Hi,{userInfo ? userInfo.username : "user"}
-            </h1>
-            {menu ? <RiArrowDownSLine /> : <RiArrowUpSLine />}
-          </div>
-          <div className="absolute top-10 right-0">
-            {menu && (
-              <div className="drop-shadow w-60 rounded-xl p-2 bg-white">
-                <div className="border-b border-gray/20 p-2 flex">
-                  <p className="rounded-full h-14 w-14 flex items-center justify-center">
-                    <img
-                      src={
-                        userInfo
-                          ? userInfo.profilePicture
-                          : `https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg`
-                      }
-                      alt="image"
-                    />
-                  </p>
-                  <p className="flex flex-col px-2">
-                    <span className="font-bold capitalize">
-                      {userInfo ? userInfo.username : "user"}
-                    </span>
-                    <span className="font-light">Nigeria</span>
-                  </p>
-                </div>
-                <ShowCustomer>
-                  <div className="border-b border-gray/20 p-2">
-                    <Link
-                      to={`/dashboard/profile`}
-                      className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <CiUser className="mx-1" />
-                      Account
-                    </Link>
-                    <Link
-                      to="/dashboard/orders"
-                      className=" flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <BiPurchaseTag className="mx-1" />
-                      My Order
-                    </Link>
-                  </div>
-                </ShowCustomer>
-                <ShowAdmin>
-                  <div className="border-b border-gray/20 p-2">
-                    <Link
-                      to={`/dashboard/home-dashboard`}
-                      className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <CiEdit className="mx-1" />
-                      Dashboard
-                    </Link>
-                    <Link
-                      to={`/dashboard/products`}
-                      className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <TbChecklist className="mx-1" />
-                      View Products
-                    </Link>
-                    <Link
-                      to={`dashboard/products`}
-                      className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <RxUpdate className="mx-1" />
-                      Update Product
-                    </Link>
-                  </div>
-                </ShowAdmin>
-                <div className="p-2">
-                  <div className="flex items-center justify-between">
-                    <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4">
-                      <RiLightbulbFlashLine className="mx-1" />
-                      Dark theme
-                    </p>
-                    <p className="flex items-center ">
-                      <LiaToggleOffSolid size={20} />
-                    </p>
-                  </div>
-                  <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4">
-                    <LuHelpCircle className="mx-1" />
-                    Help
-                  </p>
-                  <ShowOnLogout>
-                    <Link
-                      to={`login`}
-                      className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <CiLogin className="mt-1 mx-1" />
-                      Login
-                    </Link>
-                  </ShowOnLogout>
-                  <ShowOnLogin>
-                    <p
-                      onClick={Logout}
-                      className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
-                    >
-                      <CiLogout className="mt-1 mx-1" />
-                      Logout
-                    </p>
-                  </ShowOnLogin>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
-        <NavLink to="/mycart" className="px-1 text-xl relative cursor-pointer">
-          <p className="relative">
-            <BsCartCheck />
-            <span className="absolute -top-3 -right-3 px-1 text-sm bg-blue text-white rounded-full flex item-center justify-center">
-              {cartTotalQuantity}
-            </span>
-          </p>
-        </NavLink>
-      </div>
+        {/* mobile */}
+        <div className="flex flex-cols md:hidden px-3">
+            <CiMenuFries
+            size={20}
+            onClick={clickMobile}
+            className="cursor-pointer "
+            />
+            {mobile && (
+                <div>
+                    <div
+                    onClick={clickMobile}
+                    className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-full w-full transition-all z-10"
+                    ></div>
+                    <div data-aos="fade-right"
+                    className="hamburger-menu sm:w-2/4 w-4/5  fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all">
+                        <div onClick={clickMobile} className="relative bg-white h-full">
+                            {/* header */}
+                            <div className="py-4 flex items-center justify-between relative shadow">
+                                <p className="p-2 flex items-center">
+                                    <Logo />
+                                </p>
+                                <p
+                                    onClick={clickMobile}
+                                    className=" flex items-end justify-end p-2 "
+                                >
+                                    <IoArrowUndoOutline size={20} />
+                                </p>
+                            </div>
+                            <div className="p-2">
+                                {/* profile */}
+                                <div className=" p-2 flex">
+                                    <p className="rounded-full h-14 w-14 flex items-center justify-center">
+                                        <img
+                                        src={
+                                            userInfo
+                                            ? userInfo.profilePicture
+                                            : `https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg`
+                                        }
+                                        alt="image"
+                                        />
+                                    </p>
+                                    <p className="flex flex-col px-2">
+                                        <span className="font-bold capitalize">
+                                        {userInfo ? userInfo.username : "user"}
+                                        </span>
+                                        <span className="font-light">Nigeria</span>
+                                    </p>
+                                </div>
+                                {/* lists */}
+                                <Link
+                                to={`/dashboard/profile`}
+                                className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <CiUser className="mx-1" />
+                                My Account
+                                </Link>
+                                <Link
+                                to="/dashboard/orders"
+                                className=" flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <BiPurchaseTag className="mx-1" />
+                                My Order
+                                </Link>
+                                <ShowAdmin>
+                                    <Link
+                                    to={`/dashboard/home-dashboard`}
+                                    className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                    >
+                                    <CiEdit className="mx-1" />
+                                    Admin Dashboard
+                                    </Link>
+                                </ShowAdmin>
+                                <ShowOnLogout>
+                                    <Link
+                                    to={`login`}
+                                    className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                    >
+                                    <CiLogin className="mt-1 mx-1" />
+                                    Login
+                                    </Link>
+                                </ShowOnLogout>
+                                <ShowOnLogin>
+                                    <p
+                                    onClick={Logout}
+                                    className="flex items-center text-red font-bold p-2 cursor-pointer hover:underline underline-offset-4"
+                                    >
+                                    <CiLogout className="mt-1 mx-1" />
+                                    Logout
+                                    </p>
+                                </ShowOnLogin>
+                            </div>
+                            <div className="p-2">
+                                <h1 className="px-4 font-bold text-lg ">Follow us for more</h1>
+                                <p className="p-4 ">
+                                    Discover the most outstanding articles on all topics of
+                                    life. Write your stories and share them
+                                </p>
+                                <div className="flex items-center justify-between px-2">
+                                    <SocialMedia />
+                                    <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full">
+                                        <LuSunMoon className="mx-1" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+        <div className="md:flex flex-inline hidden text-lg">
+            <NavLink
+            to="categories"
+            className={({ isActive }) =>
+                isActive
+                ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
+                : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+            }
+            >
+            <MdCategory className="mx-1" />
+            Categories
+            </NavLink>
+            <ShowCustomer>
+            <div className=" p-2 flex">
+                <NavLink
+                to="/dashboard/orders"
+                className={({ isActive }) =>
+                    isActive
+                    ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
+                    : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                }
+                >
+                <BiPurchaseTag className="mx-1" />
+                My Order
+                </NavLink>
+            </div>
+            </ShowCustomer>
+            <ShowAdmin>
+            <div className=" p-2 flex">
+                <NavLink
+                to={`/dashboard/home-dashboard`}
+                className={({ isActive }) =>
+                    isActive
+                    ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
+                    : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                }
+                >
+                <AiFillDashboard className="mx-1" />
+                Dashboard
+                </NavLink>
+            </div>
+            </ShowAdmin>
+        </div>
+        <div className="items-center space-x-2 hidden md:flex">
+            <div className="px-2 relative flex items-center space-x-4">
+                <div
+                    onClick={() => setMenu(!menu)}
+                    className="flex items-center cursor-pointer space-x-3 transition-all"
+                >
+                    <ShowOnLogout>
+                    <CiUser className="text-xl" />
+                    </ShowOnLogout>
+                    <ShowOnLogin>
+                    <RiUserFollowLine className="text-xl" />
+                    </ShowOnLogin>
+                    <h1 className="capitalize">
+                    Hi,{userInfo ? userInfo.username : "user"}
+                    </h1>
+                    {menu ? <RiArrowDownSLine /> : <RiArrowUpSLine />}
+                </div>
+                <div className="absolute top-10 right-0">
+                    {menu && (
+                    <div className="drop-shadow w-80 rounded-xl p-4 bg-white">
+                        <div className="border-b border-gray/20 p-2 flex">
+                            <p className="rounded-full h-14 w-14 flex items-center justify-center">
+                                <img
+                                src={
+                                    userInfo
+                                    ? userInfo.profilePicture
+                                    : `https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg`
+                                }
+                                alt="image"
+                                />
+                            </p>
+                            <p className="flex flex-col px-2">
+                                <span className="font-bold capitalize">
+                                {userInfo ? userInfo.username : "user"}
+                                </span>
+                                <span className="font-light">Nigeria</span>
+                            </p>
+                        </div>
+                        <ShowCustomer>
+                            <div className="">
+                                <Link
+                                to={`/dashboard/profile`}
+                                className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <CiUser className="mx-1" />
+                                Account
+                                </Link>
+                                <Link
+                                to="/dashboard/orders"
+                                className=" flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <BiPurchaseTag className="mx-1" />
+                                My Order
+                                </Link>
+                            </div>
+                        </ShowCustomer>
+                        <ShowAdmin>
+                            <div>
+                                <Link
+                                to={`/dashboard/home-dashboard`}
+                                className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <CiEdit className="mx-1" />
+                                Dashboard
+                                </Link>
+                                <Link
+                                to={`/dashboard/products`}
+                                className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <TbChecklist className="mx-1" />
+                                View Products
+                                </Link>
+                                <Link
+                                to={`dashboard/products`}
+                                className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <RxUpdate className="mx-1" />
+                                Update Product
+                                </Link>
+                            </div>
+                        </ShowAdmin>
+                        <div>
+                        <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4">
+                            <LuHelpCircle className="mx-1" />
+                            Help
+                        </p>
+                        <div className="flex items-center justify-between">
+                            <SocialMedia />
+                            <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full">
+                                <LuSunMoon className="mx-1" />
+                            </p>
+                        </div>
+                        <ShowOnLogout>
+                            <Link
+                            to={`login`}
+                            className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                            >
+                            <CiLogin className="mt-1 mx-1" />
+                            Login
+                            </Link>
+                        </ShowOnLogout>
+                        <ShowOnLogin>
+                            <p
+                            onClick={Logout}
+                            className="flex items-center p-2 text-red font-bold cursor-pointer hover:underline underline-offset-4"
+                            >
+                            <CiLogout className="mt-1 mx-1" />
+                            Logout
+                            </p>
+                        </ShowOnLogin>
+                        </div>
+                    </div>
+                    )}
+                </div>
+            </div>
+            <NavLink to="/mycart" className="px-1 text-xl relative cursor-pointer">
+                <p className="relative">
+                    <BsCartCheck />
+                    <span className="absolute -top-3 -right-3 px-1 text-sm bg-blue text-white rounded-full flex item-center justify-center">
+                    {cartTotalQuantity}
+                    </span>
+                </p>
+            </NavLink>
+        </div>
     </div>
   );
 };

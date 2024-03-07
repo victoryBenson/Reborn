@@ -2,9 +2,9 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "../features/cartSlide";
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer} from 'redux-persist';
-import userReducer from '../features/user/userSlice'
-import authReducer from '../features/auth/authSlice'                                                                                                                                                                                            
-import { generalApi } from "../features/product/generalApi";
+import userReducer from '../features/user/userSlice.js'
+import authReducer from '../features/auth/authSlice.js'                                                                                                                                                                                            
+import productReducer from "../features/product/productSlice.js"
 
 
 
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     user: userReducer,
     cart: cartReducer,
-    [generalApi.reducerPath]: generalApi.reducer
+    product: productReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -26,7 +26,9 @@ export const store = configureStore({
     reducer: persistedReducer,
 
     middleware: (getDefaultMiddlewire) => 
-    getDefaultMiddlewire().concat(generalApi.middleware),
+    getDefaultMiddlewire({
+        serializableCheck: false,
+    }),
     devTools: true //set true only in development mode
     
 })

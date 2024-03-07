@@ -1,5 +1,6 @@
 import React from 'react';
-import {FaFacebookF, FaInstagram, FaTwitter, FaWhatsapp} from 'react-icons/fa';
+import { BiLogoGmail } from 'react-icons/bi';
+import {FaFacebookF, FaInstagram} from 'react-icons/fa';
 import { FaXTwitter } from "react-icons/fa6";
 
 export const SocialMedia = () => {
@@ -12,10 +13,10 @@ export const SocialMedia = () => {
             <FaFacebookF size={20} className='text-[#3741a4]'/>
         </p>
         <p className='m-2 hover:scale-110 ease-in duration-100 rounded-full p-2'>
-            <FaInstagram size={20} className='text-[#e24a68]'/>
+            <FaInstagram size={20} className='text-red'/>
         </p>
         <p className='m-2 hover:scale-110 ease-in duration-100 rounded-full p-2'>
-            <FaWhatsapp size={20} className='text-[#50eb81]'/>
+            <BiLogoGmail size={20} className='text-[#50eb81]'/>
         </p>
     </div>
   )

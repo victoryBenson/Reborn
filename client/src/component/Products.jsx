@@ -68,9 +68,9 @@ export const Products = ({product}) => {
                                     </div>
                                     <div className='flex pt-3  h-20 w-full justify-center'>
                                         {
-                                            image.map((mImage, idx) => {
+                                            image?.map((mImage, idx) => {
                                                 return (
-                                                    <div key={idx} onClick={()=> setImage(mImage)} className='cursor-pointer mx-1'>
+                                                    <div key={idx} onClick={()=> setImage(mImage)} className='cursor-pointer mx-1 border border-gray/10 w-20 '>
                                                         <img src={mImage} alt="image" className='rounded object-contain h-full w-full' />
                                                     </div>
                                                 )
@@ -81,7 +81,8 @@ export const Products = ({product}) => {
                                 <div>
                                     <h1 className=' font-bold text-xl text-brown'>{name}</h1>
                                     <div className='flex items-center space-x-4 flex-wrap px-3'>
-                                        <p className='text-gray py-2'>Brand: {brand}</p>
+                                        <p className='text-brown font-bold'>Brand:</p>
+                                        <p className='text-gray py-2'> {brand}</p>
                                     </div>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
                                     <div className='py-3  flex items-center' >
