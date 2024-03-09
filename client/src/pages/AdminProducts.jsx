@@ -10,8 +10,9 @@ import { getProducts, getTotalProduct } from "../redux/features/product/productA
 
 export const AdminProducts = () => {
   const dispatch = useDispatch()
-  const { data, userInfo, errMessage, isLoading, isError, items} = useSelector(state => state.product);
-  console.log(items)
+  const {errMessage, isLoading, isError, items} = useSelector(state => state.products)
+    // const product = useSelector(state => state.products)
+//   console.log(items)
 
   useEffect(() => {
     dispatch(getProducts()),
@@ -34,7 +35,8 @@ export const AdminProducts = () => {
       <div className="flex justify-center items-center">
         <Loader />
       </div>
-    );
+  );
+  
   if (isError) return <div className="flex justify-center">Error:{errMessage}</div>;
 
   return (
@@ -227,7 +229,7 @@ export const AdminProducts = () => {
       <div>
         <h1 className="p-2 font-bold text-2xl">Products</h1>
         <div className="">
-          {items.map((item) => {
+          {items?.map((item) => {
             return (
               <div
                 key={item._id}

@@ -16,9 +16,7 @@ export const Categories = () => {
   const dispatch = useDispatch()
   const [click, setClick] = useState();
   const [toggle, setToggle] = useState(false);
-  const [color, setColor] = useState("#000000"); // default value of bg-color
-  const [textColor, setText] = useState("#FFFFFF");
-  const {isLoading,items, isError, errMessage } = useSelector(state => state.product);
+  const {isLoading,items, isError, errMessage } = useSelector(state => state.products);
   
 
   useEffect(() => {
@@ -28,8 +26,6 @@ export const Categories = () => {
 
   const handleClick = (e) => {
     setClick(e.target.value);
-    // setColor(color);
-    // setText(textColor);
     setToggle(!toggle);
   };
 

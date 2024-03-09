@@ -21,7 +21,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
-import { HomeDashboard } from "./pages/HomeDashboard";
+import { HomeDashboard } from "./pages/DashboardOverview";
 import { AdminProducts } from "./pages/AdminProducts";
 import { Orders } from "./pages/Order";
 import { Categories } from "./pages/Categories";

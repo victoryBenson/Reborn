@@ -4,9 +4,9 @@ import { getProducts, getTotalProduct } from "./productAction";
 
 const initialState = {
     isLoading: false,
-    isError: null,
+    isError: false,
     isSuccess: false,
-    items: null,
+    items: [],
     errMessage: "",
     data: null
 }
@@ -19,7 +19,7 @@ const productSlice = createSlice({
             state.isError = false;
             state.isSuccess = false;
             state.isLoading = false;
-            state.items = null;
+            state.items = [];
             state.errMessage = "";
             state.data = null
         }
@@ -29,7 +29,7 @@ const productSlice = createSlice({
         // getProducts
         .addCase(getProducts.pending, (state) => {
             state.isLoading = true
-            state.isError = null
+            state.isError = false
         })
         .addCase(getProducts.fulfilled, (state, {payload}) => {
             state.isLoading = false;
@@ -40,14 +40,13 @@ const productSlice = createSlice({
             state.isLoading = false;
             state.isError = true;
             state.errMessage = payload;
-            state.items = null;
-            // toast.error(payload)
+            state.items = [];
         })
 
         // getTotalProduct
         .addCase(getTotalProduct.pending, (state) => {
             state.isLoading = true
-            state.isError = null
+            state.isError = false
         })
         .addCase(getTotalProduct.fulfilled, (state, {payload}) => {
             state.isLoading = false;
@@ -59,7 +58,6 @@ const productSlice = createSlice({
             state.isError = true;
             state.errMessage = payload;
             state.data = null;
-            // toast.error(payload)
         })
     }    
 })

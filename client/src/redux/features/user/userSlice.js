@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UsersTotal, getUsers, register } from "./userAction";
-import {toast} from 'react-toastify'
+import { UsersTotal, deleteUser, getUsers, register } from "./userAction";
+import {toast} from 'react-toastify';
 
 const initialState = {
     isLoading: false,
@@ -54,7 +54,7 @@ const userSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = true;
             state.userInfo = payload;
-            toast.success(payload)
+            // toast.success(payload)
         })
         .addCase(getUsers.rejected, (state, {payload}) => {
             state.isLoading = false;
@@ -79,6 +79,22 @@ const userSlice = createSlice({
             state.isError = true;
             state.errMessage = payload;
             state.data = null;
+        })
+
+         // deleteUser
+         .addCase(deleteUser.pending, (state) => {
+            state.isLoading = true
+            state.isError = null
+        })
+        .addCase(deleteUser.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.userInfo = null;
+        })
+        .addCase(deleteUser.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
         })
     }
 })

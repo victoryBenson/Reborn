@@ -55,8 +55,8 @@ export const getUsersCount = async (req, res, next) => {
   };
 
 //updateUser
-export const updateUser = asyncHandler(
-  async (req, res, next) => {
+export const updateUser = async (req, res, next) => {
+  try {
     const { id } = req.params;
     const user = await User.findById(id);
 
@@ -69,28 +69,27 @@ export const updateUser = asyncHandler(
 
       const updateUser = await user.save();
       res.status(200).json(updateUser);
+    
     } else {
       res.status(400).json("User not found!");
     }
-  },
-  (err, req, res, next) => {
+  } 
+  catch (error) {
     next(err);
   }
-);
+};
 
-//deleteuser
-export const deleteUser = asyncHandler(
-  async (req, res, next) => {
+//deleteUser
+export const deleteUser = async (req, res, next) => {
+  try {
     const { id } = req.params;
     const user = await User.findByIdAndDelete(id);
-
     if (user) {
       res.status(200).json({ message: "User deleted" });
     } else {
       res.status(400).json("User not found");
     }
-  },
-  (err, req, res, next) => {
+  } catch (error) {
     next(err);
   }
-);
+};

@@ -84,4 +84,31 @@ export const UsersTotal = createAsyncThunk(
   }
 );
 
+//deleteUser
+export const deleteUser = createAsyncThunk(
+  "user/deleteUser",
+    async (userId, { rejectWithValue }) => {
+        try {
+        const config = {
+            headers: {
+            "Content-Type": "application/json",
+            },
+        };
+
+        const response = await axios.delete(
+            `${backendURL}deleteUser/${id}`,
+            userId,
+            config
+        );
+        return response.data;
+        } catch (error) {
+        if (error.response && error.response.data.message) {
+            return rejectWithValue(error.response.data.message);
+        } else {
+            return rejectWithValue(error.message);
+        }
+        }
+    }
+);
+
 

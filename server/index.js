@@ -59,7 +59,7 @@ mongoose.set("strictQuery", false);
 mongoose.connect(MONGO_URL).then(() => {
   app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}!`);
-    console.log(`...build Capacity!`);
+    console.log(`build competence!...build Capacity!`);
     //the cure for shame is competence
     //the real reward come when kings reward you!
   });

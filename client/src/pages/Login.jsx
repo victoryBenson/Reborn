@@ -92,7 +92,7 @@ useEffect(() => {
                     <p className='text-red text-center text-sm'>{isError && 'something went wrong!...'}</p>
                     <div >
                         <button disabled={isLoading} className='w-full p-3 from-lightBrown to-brown bg-gradient-to-r text-ivory hover:opacity-80 disabled:opacity-70  hover:font-bold transition-all duration-200 rounded-lg text-center gap-2'>
-                            { isLoading? 'LOADING...' : 'LOGIN'}
+                            { isLoading? 'Loading...Please wait!' : 'LOGIN'}
                         </button>
                     </div>
                     <p className='text-blue underline mx-auto text-sm'>continue with google</p>
