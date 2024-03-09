@@ -90,6 +90,6 @@ export const deleteUser = async (req, res, next) => {
       res.status(400).json("User not found");
     }
   } catch (error) {
-    next(err);
+    next(error);
   }
 };

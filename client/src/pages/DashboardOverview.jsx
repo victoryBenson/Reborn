@@ -123,8 +123,8 @@ export const Users = ({user}) => {
                                 >
                                 <div className='flex items-center justify-center h-full w-full'>
                                     <div className='flex-col flex justify-center items-center '>
-                                        <h1 className='text-2xl font-bold p-2'>You want to delete {username}?</h1>
-                                        <p className='p-2'>You won't be able to revert this!</p>
+                                        <h1 className='text-2xl font-bold p-2'> Do you want to delete {username}?</h1>
+                                        <p className='p-2'>you won't be able to revert this!</p>
                                         <p className='py-4 gap-4 flex text-ivory'>
                                             <button onClick={onCloseModal} className='p-3 bg-red rounded-full sm:hover:shadow-xl md:hover:font-bold'>Cancel</button>
                                             <button onClick={()=> handleDelete(user)}  className='p-3 bg-lightBrown rounded-full md:hover:shadow-xl md:hover:font-bold'>Yes, Delete!</button>

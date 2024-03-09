@@ -8,7 +8,7 @@ import { ShowAdmin } from './hiddenLinks';
 
 export const DashboardMenu = () => {
   return (
-    <div className='md:w-96 w-full md:min-h-[100vh] shadow transition-all bg-brown text-ivory'>
+    <div className='md:w-[26rem] w-full md:min-h-[100vh] shadow transition-all bg-brown text-ivory'>
         <div className='flex items-center text-2xl font-bold border-b py-4'>
             <MdOutlineDashboardCustomize className='mx-1'/>
             Dashboard
@@ -27,7 +27,7 @@ export const DashboardMenu = () => {
                         Overview
                 </NavLink>
                 <NavLink 
-                    to={'products'} 
+                    to={'admin-products'} 
                     style={
                         ({isActive}) => {
                         return { fontWeight: isActive && 'bolder', padding: isActive && '0.5rem'}

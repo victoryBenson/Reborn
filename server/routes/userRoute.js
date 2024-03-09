@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/register", rateLimitMiddleware, register);
 router.get("/getUsers", getUsers);
 router.get("/getUsersCount", getUsersCount);
-router.patch("/updateUser/:id", verifyJWT, updateUser);
-router.delete("/deleteUser/:id", verifyJWT, deleteUser);
+router.patch("/updateUser/:id", updateUser);
+router.delete("/deleteUser/:id", deleteUser); //verifyJWT,
 
 export default router;

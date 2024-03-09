@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.post('/login', Login);
-router.get('/logout',verifyJWT, Logout);
+router.get('/logout', Logout); //verifyJWT,
 // router.get('/refresh', refreshToken);
 
 export default router;

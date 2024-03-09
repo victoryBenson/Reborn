@@ -85,7 +85,7 @@ export const Header = () => {
                     className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-full w-full transition-all z-10"
                     ></div>
                     <div data-aos="fade-right"
-                    className="hamburger-menu sm:w-2/4 w-4/5  fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all">
+                    className="hamburger-menu sm:w-2/4 w-4/5 bg-white fixed z-10 shadow-lg left-0 md:-left-0 top-0 h-full duration-500 transition-all">
                         <div onClick={clickMobile} className="relative bg-white h-full">
                             {/* header */}
                             <div className="py-4 flex items-center justify-between relative shadow">

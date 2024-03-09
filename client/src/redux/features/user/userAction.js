@@ -95,12 +95,12 @@ export const deleteUser = createAsyncThunk(
             },
         };
 
-        const response = await axios.delete(
-            `${backendURL}deleteUser/${id}`,
-            userId,
+        const response =  await axios.delete(
+            `${backendURL}deleteUser/${userId}`,
             config
         );
         return response.data;
+        
         } catch (error) {
         if (error.response && error.response.data.message) {
             return rejectWithValue(error.response.data.message);
