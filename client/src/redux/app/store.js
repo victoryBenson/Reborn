@@ -29,7 +29,7 @@ export const store = configureStore({
     getDefaultMiddlewire({
         serializableCheck: false,
     }),
-    devTools: true //set true only in development mode
+    devTools: false //set true only in development mode
     
 })
 
