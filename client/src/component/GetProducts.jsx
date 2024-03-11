@@ -16,7 +16,7 @@ export const GetProducts = () => {
   const [filterParam, setFilterParam] = useState(["All"]);
   const dispatch = useDispatch()
   const { errMessage, isLoading, isError, items } = useSelector(state => state.products);
-  console.log(items)
+  // console.log(items)
 
   useEffect(() => {
     AOS.init({

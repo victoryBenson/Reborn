@@ -19,7 +19,8 @@ const MONGO_URL = process.env.MONGO_URL;
 const FRONTEND = process.env.FRONTEND;
 
 const corsOptions = {
-  origin: "*",
+  // origin: "https://reborn-9uk3.onrender.com/",
+  origin: FRONTEND,
   optionsSuccessStatus: 200,
 };
 
