@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { backendURL } from "../../../utils/backendUrl.js";
+
+const backendURL = "https://reborn-api.onrender.com/api/auth/";
 
 //Loginuser
 export const loginUser = createAsyncThunk(
@@ -14,7 +15,7 @@ export const loginUser = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `${backendURL}/auth/login`,
+        `${backendURL}login`,
         userData,
         config
       );
@@ -42,7 +43,7 @@ export const LogoutUser = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}/auth/logout`,
+        `${backendURL}logout`,
         userData,
         config
       );

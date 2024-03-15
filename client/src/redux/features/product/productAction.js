@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { backendURL } from "../../../utils/backendUrl.js";
 
+const backendURL = "https://reborn-api.onrender.com/api/products/";
 
 export const getProducts = createAsyncThunk(
     "products/getProducts",
@@ -14,7 +14,7 @@ export const getProducts = createAsyncThunk(
         };
   
         const response = await axios.get(
-          `${backendURL}/products/getProducts`,
+          `${backendURL}getProducts`,
           productData,
           config
         );
@@ -92,7 +92,7 @@ export const deleteProduct = createAsyncThunk(
       };
 
       const response = await axios.patch(
-        `${backendURL}/products/deleteProduct`,
+        `${backendURL}deleteProduct`,
         productData,
         config
       );

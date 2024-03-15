@@ -19,7 +19,7 @@ const MONGO_URL = process.env.MONGO_URL;
 const FRONTEND = process.env.FRONTEND;
 
 
-const allowedOrigin = ['https://reborn-9uk3.onrender.com/', 'https://reborn-api.onrender.com/api']
+const allowedOrigin = ['https://reborn-9uk3.onrender.com/']
 const corsOptions = {
   origin: (origin, callback) => {
     if(allowedOrigin.indexOf(origin) !== -1 || !origin){
@@ -41,9 +41,9 @@ app.use(cors(corsOptions));
 
 
 //routes
-app.use("products", productRoute);
-app.use("users", userRoute);
-app.use("auth", authRoute);
+app.use("/api/products", productRoute);
+app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
 
 
 //view your token

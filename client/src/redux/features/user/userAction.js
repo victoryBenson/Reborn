@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { backendURL } from "../../../utils/backendUrl.js";
+
+const backendURL = "https://reborn-api.onrender.com/api/users/";
 
 //regUser
 export const register = createAsyncThunk(
@@ -14,7 +15,7 @@ export const register = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `${backendURL}/users/register`,
+        `${backendURL}register`,
         userData,
         config
       );
@@ -41,7 +42,7 @@ export const getUsers = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}/users/getUsers`,
+        `${backendURL}getUsers`,
         userData,
         config
       );
@@ -68,7 +69,7 @@ export const UsersTotal = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}/users/getUsersCount`,
+        `${backendURL}getUsersCount`,
         userData,
         config
       );
@@ -95,7 +96,7 @@ export const deleteUser = createAsyncThunk(
         };
 
         const response =  await axios.delete(
-            `${backendURL}/users/deleteUser/${userId}`,
+            `${backendURL}deleteUser/${userId}`,
             config
         );
         return response.data;
