@@ -9,7 +9,7 @@
     "start": "NODE_OPTIONS='--experimental-specifier-resolution=node --trace-warnings' node index.js",
     "server": "nodemon index.js"
   },
-  "proxy": "http://localhost:3000",
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

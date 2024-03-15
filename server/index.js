@@ -18,10 +18,17 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URL = process.env.MONGO_URL;
 const FRONTEND = process.env.FRONTEND;
 
+
+const allowedOrigin = ['https://reborn-9uk3.onrender.com/', 'http://127.0.0.1:3000/', 'http://localhost:5173']
 const corsOptions = {
-  // origin: "https://reborn-9uk3.onrender.com/",
-  origin: FRONTEND,
-  optionsSuccessStatus: 200,
+  origin: (origin, callback) => {
+    if(allowedOrigin.indexOf(origin) !== -1 || !origin){
+        callback(null, true)
+    }else{
+        callback(new Error("Not allowed by CORS"))
+    }
+  },
+  optionsSuccessStatus : 200
 };
 
 //middleware
@@ -48,10 +55,8 @@ app.get("/get", (req, res) => {
   console.log("signedCookies:", singedCookies);
 });
 
-// app.get("/", (req,res) => res.send('Welcome to Reborn'))
-app.get('/', (req, res) => {
-  res.send("Welcome to Reborn");
-});
+app.get("/", (req,res) => res.send('Welcome to Reborn'))
+
 
 // Custom ErrorHandler middleware
 app.use(errorHandler)
@@ -61,7 +66,5 @@ mongoose.connect(MONGO_URL).then(() => {
   app.listen(PORT, () => {
     console.log(`server is listening on port ${PORT}!`);
     console.log(`build competence!...build Capacity!`);
-    //the cure for shame is competence
-    //the real reward come when kings reward you!
   });
 });
