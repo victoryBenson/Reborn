@@ -14,7 +14,7 @@ export const register = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `${backendURL}register`,
+        `${backendURL}/users/register`,
         userData,
         config
       );
@@ -41,7 +41,7 @@ export const getUsers = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}getUsers`,
+        `${backendURL}/users/getUsers`,
         userData,
         config
       );
@@ -68,7 +68,7 @@ export const UsersTotal = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}getUsersCount`,
+        `${backendURL}/users/getUsersCount`,
         userData,
         config
       );
@@ -95,7 +95,7 @@ export const deleteUser = createAsyncThunk(
         };
 
         const response =  await axios.delete(
-            `${backendURL}deleteUser/${userId}`,
+            `${backendURL}/users/deleteUser/${userId}`,
             config
         );
         return response.data;

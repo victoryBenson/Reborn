@@ -1,1 +1,1 @@
-export const backendURL = "https://reborn-api.onrender.com/api/products/";
+export const backendURL = "https://reborn-api.onrender.com/api/";

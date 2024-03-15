@@ -14,7 +14,7 @@ export const loginUser = createAsyncThunk(
       };
 
       const response = await axios.post(
-        `${backendURL}login`,
+        `${backendURL}/auth/login`,
         userData,
         config
       );
@@ -42,7 +42,7 @@ export const LogoutUser = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `${backendURL}logout`,
+        `${backendURL}/auth/logout`,
         userData,
         config
       );

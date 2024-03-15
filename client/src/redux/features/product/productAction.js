@@ -14,7 +14,7 @@ export const getProducts = createAsyncThunk(
         };
   
         const response = await axios.get(
-          `${backendURL}getProducts`,
+          `${backendURL}/products/getProducts`,
           productData,
           config
         );
@@ -92,7 +92,7 @@ export const deleteProduct = createAsyncThunk(
       };
 
       const response = await axios.patch(
-        `${backendURL}deleteProduct`,
+        `${backendURL}/products/deleteProduct`,
         productData,
         config
       );
