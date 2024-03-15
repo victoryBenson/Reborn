@@ -28,16 +28,14 @@ export const HomeDashboard = () => {
         dispatch(getUsers())     
     }, [])
 
-
     
-
     if(isLoading) return <div className='flex justify-center h-screen w-full'><Loader/></div>
     if(isError) return <div className='flex justify-center'>Error:{errMessage}</div>
     
   return (
     <section className='max md:w-full mx-2 shadow'>
         <div className='flex flex-wrap justify-evenly items-center py-5 space-y-4'>
-            <NavLink to={`/dashboard/products`}>
+            <NavLink to={`/dashboard/admin-products`}>
                 <div className=' bg-lightBrown shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl text-ivory'>
                     <p>({product.data})</p>
                     <p className='flex items-center'><BsCartCheck/>Available Products</p>
