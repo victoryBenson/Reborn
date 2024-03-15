@@ -31,7 +31,9 @@ const corsOptions = {
   optionsSuccessStatus : 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-  credentials: true
+  credentials: true,
+  exposedHeaders: '*',
+  preflightContinue: false
 };
 
 //middleware
@@ -40,6 +42,7 @@ app.use(cookieParser(process.env.ACCESS_TOKEN_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+
 // app.use(rateLimitMiddleware);
 
 
