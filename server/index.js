@@ -19,7 +19,7 @@ const MONGO_URL = process.env.MONGO_URL;
 const FRONTEND = process.env.FRONTEND;
 
 
-const allowedOrigin = ['https://reborn-9uk3.onrender.com/']
+const allowedOrigin = ['https://reborn-9uk3.onrender.com']
 const corsOptions = {
   origin: (origin, callback) => {
     if(allowedOrigin.indexOf(origin) !== -1 || !origin){
@@ -30,9 +30,7 @@ const corsOptions = {
   },
   optionsSuccessStatus : 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
   credentials: true,
-  exposedHeaders: '*',
   preflightContinue: false
 };
 
@@ -42,6 +40,7 @@ app.use(cookieParser(process.env.ACCESS_TOKEN_SECRET));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
+
 
 // app.use(rateLimitMiddleware);
 
