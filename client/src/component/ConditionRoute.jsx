@@ -6,7 +6,7 @@ export const ConditionRoute = ({children}) => {
     const [display, setDisplay] = useState()
 
     useEffect(() => {    
-      if (location.pathname === '/login' || location.pathname === '/register' || location.pathname === '/') {
+      if (location.pathname === '/login' || location.pathname === '/register') {
         setDisplay(false)
       }else{
         setDisplay(true)
