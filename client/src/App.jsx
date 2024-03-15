@@ -15,7 +15,6 @@ import { Layout } from "./component/Layout";
 import { ConditionRoute } from "./component/ConditionRoute";
 // import { RequireAuth } from "./component/RequireAuth";
 // import { PayButton } from "./component/PayButton";
-import { Hero } from "./component/Hero";
 import { AccountPage } from "./pages/AccountPage";
 import { Dashboard } from "./pages/Dashboard";
 import { Register } from "./pages/Register";
@@ -44,9 +43,9 @@ function App() {
             </ConditionRoute>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                    <Route index element={<Hero/>}/>
+                    <Route index element ={<LandingPage/>}/>
                     <Route path="login" element={<Login/>}/>
-                    <Route path="landPage" element ={<LandingPage/>}/>
+
                     {/* protected route */}
                     {/* <Route element={<RequireAuth/>}> */}
                         {/* <Route path="payBtn" element ={<PayButton/>}/> */}
