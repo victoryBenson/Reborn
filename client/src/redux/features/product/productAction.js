@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
+import { backendURL } from "../../../utils/backendUrl.js";
 
-export const backendURL = "http://127.0.0.1:3000/api/products/";
 
 export const getProducts = createAsyncThunk(
     "products/getProducts",

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-export const backendURL = "http://127.0.0.1:3000/api/auth/";
+import { backendURL } from "../../../utils/backendUrl.js";
 
 //Loginuser
 export const loginUser = createAsyncThunk(
