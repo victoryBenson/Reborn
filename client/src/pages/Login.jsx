@@ -48,7 +48,7 @@ export const Login = () => {
 
 useEffect(() => {
     if(isSuccess && isLoggedIn){
-      navigate('/landPage')
+      navigate('/')
     }
     // dispatch(Reset_Auth())
 }, [isSuccess, navigate])
