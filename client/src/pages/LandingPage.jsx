@@ -8,8 +8,7 @@ export const LandingPage = () => {
     <>
       {/* <DiscoverMore /> */}
       <GetProducts />
-      {/* <Testimonial /> */}
-      <Hero/>
+      <Testimonial />
     </>
   );
 };
