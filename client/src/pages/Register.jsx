@@ -21,11 +21,11 @@ import { Logo } from '../component/Logo';
 export const Register = () => {
 //   const [formData, setFormData] = useState(initialState);
 //   const {username, email, password, admin, customer} = formData;
+    const [accessToken, setAccessToken] = useState()
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [role, setRole] = useState("customer")
-    const [accessToken, setAccessToken] = useState()
     const { isLoading, isError, message, isSuccess} = useSelector((state) => state.user); 
     const navigate = useNavigate();
     const dispatch = useDispatch()

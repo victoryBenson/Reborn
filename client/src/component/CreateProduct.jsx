@@ -1,165 +1,120 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { AiOutlinePlus } from 'react-icons/ai';
+
+const initialState = {
+        name: "",
+        brand: "",
+        category: "",
+        price: "",
+        oldPrice: "",
+        quantity: "",
+        description: "",
+        image: ""
+        
+    }
 
 export const CreateProduct = () => {
+      const [formData, setFormData] = useState(initialState);
+      const {name, brand, category, price, oldPrice, quantity, description, image} = formData
+
+
+      const handleChange = (e) => {
+            const {name, value} = e.target
+            setFormData({ ...formData, [name]: value})
+      }
 
   return (
-    <div className=" text-blue  w-full flex justify-center">
-        <form action="#" className=" w-full flex flex-col items-center ">
+    <div className=" text-blue flex justify-center">
+        <form action="#" className=" w-full flex flex-col items-center">
             <label htmlFor="" className="font-bold p-3 text-2xl">
                 Create a new Product
             </label>
-            <div className="md:flex w-full items-center space-x-2 py-3">
-                <div className="w-full">
-                <label htmlFor="name">Product name</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter product name"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+            <div className="items-center space-y-2 p-3 w-full ">
+                <div className="">
+                    <label  htmlFor="name" className="absolut inputLabel bg-gree">Product name</label>
+                    <input
+                        type="text"
+                        name="name"
+                        value={name}
+                        id=""
+                        placeholder=""
+                        className="inputField w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
+                    />
                 </div>
-                <div className="w-full ">
-                <label htmlFor="name" className="block">
-                    Select Category:
-                </label>
-                <select
-                    name=""
-                    id=""
-                    className="p-2 border border-gray/10 rounded outline-none w-full"
-                >
-                    <option value="Beauty">Beauty</option>
-                    <option value="Beauty">Fashion</option>
-                    <option value="Beauty">Digital</option>
-                    <option value="Beauty">Sport</option>
-                </select>
+                <div className="">
+                    <label htmlFor="name" className="block">
+                        Select Category:
+                    </label>
+                    <select
+                        name="category"
+                        id=""
+                        className="p-2 border border-gray/10 rounded outline-none w-full"
+                    >
+                        <option value="fragrance">Fragrance</option>
+                        <option value="Skincare">SkinCare</option>
+                        <option value="fashion">Fashion</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Phones">Phones</option>
+                        <option value="Sports">Sports</option>
+                    </select>
                 </div>
-                <div className="w-full">
-                <label htmlFor="name">Brand</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter product brand"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+                <div className="">
+                    <label htmlFor="name">Brand</label>
+                    <input
+                        type="text"
+                        name="brand"
+                        value = {brand}
+                        id=""
+                        placeholder="Enter product brand"
+                        className="w-full p-2 outline-none border border-gray/10 rounded"
+                    />
                 </div>
-            </div>
-            <div className="flex w-full items-center space-x-2 py-3">
-                <div className="w-full">
-                <label htmlFor="name">Price</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter product price"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+                <div className="">
+                    <label htmlFor="name">Price</label>
+                    <input
+                        type="text"
+                        name="price"
+                        value={price}
+                        id=""
+                        placeholder="Enter product price"
+                        className="w-full p-2 outline-none border border-gray/10 rounded"
+                    />
                 </div>
-                <div className="w-full ">
-                <label htmlFor="name">Old Price</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter product price"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+                <div className="">
+                    <label htmlFor="name">Old Price</label>
+                    <input
+                        type="text"
+                        name="oldPrice"
+                        value={oldPrice}
+                        id=""
+                        placeholder="Enter product price"
+                        className="w-full p-2 outline-none border border-gray/10 rounded"
+                    />
                 </div>
-                <div className="w-full ">
-                <label htmlFor="name">Quantity</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Enter product quantity"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+                <div className="">
+                    <label htmlFor="name">Quantity</label>
+                    <input
+                        type="text"
+                        name="quantity"
+                        value={quantity}
+                        id=""
+                        placeholder="Enter product quantity"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                        className="w-full p-2 outline-none border border-gray/10 rounded"
+                    />
                 </div>
-            </div>
-            <div className="flex flex-wrap w-full items-center space-x-2">
-                <div className="w-full flex flex-col">
-                <label htmlFor="name">Description</label>
-                <textarea name="" id="" cols="10" rows="5" placeholder="Enter product description" className="border border-gray/20 rounded outline-none p-2"></textarea>
+                <div className="flex flex-col w-full">
+                    <label htmlFor="name">Description</label>
+                    <textarea name="description" value={description} id="" cols="10" rows="5" placeholder="Enter product description" className="border border-gray/20 rounded outline-none p-2"></textarea>
                 </div>
-                <div className="w-full py-2">
-                <div className="flex space-x-3">
-                    <label htmlFor="name">Select Color:</label>
-                    <div className="flex space-x-3">
-                        <p className="flex">
-                            <input
-                            type="radio"
-                            name="color"
-                            id=""
-                            value= "As Seen"
-                            className=""
-                            onChange={handleColor}
-                            checked = {radioColor === "As Seen"}
-                            />
-                            <label htmlFor="asSeen">As Seen</label>
-                        </p>
-                        <p className="flex">
-                            <input
-                            type="radio"
-                            name="color"
-                            id=""
-                            value= "color"
-                            className=""
-                            onChange={handleColor}
-                            // checked = {radioColor === "As Seen"}
-                            />
-                            <label htmlFor="asSeen">Use Hex Code</label>
-                        </p>
-                    </div>
+                <div className="">
+                    <label htmlFor="name" className='flex items-center'>Select Image <AiOutlinePlus className='mt-1'/></label>
                 </div>
-                {
-                    radioColor &&
-                    <div className="flex space-x-3 py-2">
-                        <input
-                            type="text"
-                            name=""
-                            id=""
-                            placeholder="color code"
-                            className="w-full p-2 outline-none border border-gray/10 rounded"
-                        />
-                        <input
-                            type="text"
-                            name=""
-                            id=""
-                            placeholder="color code"
-                            className="w-full p-2 outline-none border border-gray/10 rounded"
-                        />
-                        <input
-                            type="text"
-                            name=""
-                            id=""
-                            placeholder="color code"
-                            className="w-full p-2 outline-none border border-gray/10 rounded"
-                        />
-                    </div>
-                }
-                </div>
-            </div>
-            <div className="flex w-full items-center space-x-2">
-                <div className="w-full">
-                <label htmlFor="name">Name</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="product name"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
-                </div>
-                <div className="w-full ">
-                <label htmlFor="name">Name</label>
-                <input
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="product name"
-                    className="w-full p-2 outline-none border border-gray/10 rounded"
-                />
+                <div className="flex justify-end py-2">
+                    <p className='space-x-2 '>
+                        <button type="" className="bg-ivory p-2 rounded shadow hover:shadow-lg">Cancel</button>
+                        <button type="" className="bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Create</button>
+                    </p>
                 </div>
             </div>
         </form>

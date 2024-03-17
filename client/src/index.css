@@ -75,6 +75,12 @@
     padding: 2px;
   }
 
+  input:focus + .inputLabel {
+    top: 3em;
+    right: 2em;
+    position: relative;
+  }
+
   /* products */
   @media (min-width: 600px) {
     .product {

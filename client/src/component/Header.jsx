@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import { CiUser, CiLogout, CiLogin, CiEdit, CiMenuFries } from "react-icons/ci";
+import { CiUser, CiLogout, CiLogin, CiEdit, CiMenuFries, CiHome } from "react-icons/ci";
 import { MdCategory } from "react-icons/md";
 import { BiPurchaseTag } from "react-icons/bi";
 import {
@@ -10,8 +10,8 @@ import {
   RiLightbulbFlashLine,
   RiUserFollowLine,
 } from "react-icons/ri";
-import { LuHelpCircle, LuSunMoon } from "react-icons/lu";
-import { IoArrowUndoOutline } from "react-icons/io5";
+import { LuHelpCircle, LuLayoutDashboard, LuSunMoon } from "react-icons/lu";
+import { IoArrowUndoOutline, IoListCircleOutline } from "react-icons/io5";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { SocialMedia } from "./SocialMedia";
@@ -116,6 +116,20 @@ export const Header = () => {
                                     </p>
                                 </div>
                                 {/* lists */}
+                                <Link
+                                to={`/`}
+                                className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <CiHome className="mx-1" />
+                                Home Page
+                                </Link>
+                                <Link
+                                to={`/categories`}
+                                className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
+                                >
+                                <IoListCircleOutline className="mx-1" />
+                                    Categories
+                                </Link>
                                 <Link
                                 to={`/dashboard/profile`}
                                 className="flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"

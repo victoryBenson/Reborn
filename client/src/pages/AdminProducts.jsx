@@ -8,7 +8,7 @@ import Modal from "react-responsive-modal";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, getTotalProduct } from "../redux/features/product/productAction"; 
 import { EditProduct } from "../component/EditProduct";
-import { CreateProduct, PreviewProduct } from "../component/CreateProduct";
+import { CreateProduct } from "../component/CreateProduct";
 
 const initialState = {
     name:"",
@@ -65,7 +65,7 @@ export const AdminProducts = () => {
             open={open}
             classNames={{
               overlay: "bg-black/60 customOverlay ",
-              modal:" md:w-full w-5/6 mx-auto sm:h-[30rem] no-scrollbar transition-all shadow rounded-xl",
+              modal:" md:w-1/2 w-[90%] mx-auto sm:h-[30rem] no-scrollbar transition-all shadow rounded-xl",
               overlayAnimationIn: "customEnterOverlayAnimation",
               overlayAnimationOut: "customLeaveOverlayAnimation",
               modalAnimationIn: "customEnterModalAnimation",
