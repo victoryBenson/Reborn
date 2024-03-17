@@ -86,12 +86,12 @@ export const Users = ({user}) => {
     return(
         <div className='min-h-fit w-full my-4 '>
             <div className='h-full flex justify-between sm:justify-center space-x-2 rounded shadow sm:p-3'>
-                <div className='w-[50%] h-[20vh]'>
+                <div className='w-[20%] sm:w-[50%] h-[20vh]'>
                     <div className='flex justify-center items-center h-full'>
                         <img src={profilePicture} alt="image" className='w-full h-full object-contain top' />
                     </div>
                 </div>
-                <div className='w-[50%] h-[20vh] p-2 flex items-center'>
+                <div className='w-[80%] sm:w-[50%] h-[20vh] p-2 flex items-center'>
                     <div>
                         <p className='text-center flex items-center space-x-2 '>
                             <span className='font-bold'>Name:</span>
