@@ -1,16 +1,17 @@
 import React from 'react'
-import { InfinitySpin } from 'react-loader-spinner'
+import { Blocks } from 'react-loader-spinner'
 import { Circles } from 'react-loader-spinner'
 
 export const Loader = () => {
   return (
-    <div className='flex justify-center '>
-        <InfinitySpin
+    <div className=' justify-center flex flex-col items-center '>
+        <Blocks
             visible={true}
             width="200"
             color="#4fa94d"
             ariaLabel="infinity-spin-loading"
         />
+        <p className='font-bold text-xl'>Please Wait...</p>
     </div>
   )
 }

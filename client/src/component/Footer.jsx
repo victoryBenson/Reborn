@@ -14,7 +14,7 @@ export const Footer = () => {
     },[])
 
   return (
-    <div data-aos="fade-up" className=' text-white bg-[#AB8C7E bg-brown mt-10 h-auto md:flex items-center sm:p-5 p-3'>
+    <div data-aos="fade-up" className=' text-white bg-[#AB8C7E bg-brown mt-5 h-auto md:flex items-center sm:p-5 p-3'>
         <div className='md:w-1/2'>
             <div className='p-2'>
                 <Logo/>

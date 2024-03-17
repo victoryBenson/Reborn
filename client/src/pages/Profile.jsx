@@ -3,7 +3,7 @@ import React from 'react'
 export const Profile = () => {
   return (
     <section className='flex justify-center items-center h-screen w-full'> 
-        <div className='w-[50vw] shadow-lg rounded'>
+        <div className='md:w-[50vw] w-full h-5/6 lg:h-[100%] mx-5 mt-5  shadow-lg rounded-lg'>
             <form action="" method="get">
                 <div className='text-center font-bold text-xl p-2'>Profile</div>
                 <div className='mx-5 flex flex-col space-y-4'>
@@ -18,13 +18,13 @@ export const Profile = () => {
                             />
                         </div>
                     </div>
-                    <div className="w-full">
-                        <label htmlFor="name">Name</label>
+                    <div className="w-full relative">
+                        <label htmlFor="name" className=''>Username</label>
                         <input
                         type="text"
                         name=""
                         id=""
-                        placeholder=" Ikem Joy"
+                        placeholder="user"
                         className="w-full p-2 outline-none border border-gray/10 rounded"
                         />
                     </div>
@@ -34,7 +34,7 @@ export const Profile = () => {
                         type="email"
                         name=""
                         id=""
-                        placeholder=" Ikem Joy@gmail.com"
+                        placeholder="user@gmail.com"
                         className="w-full p-2 outline-none border border-gray/10 rounded"
                         />
                     </div>
@@ -48,8 +48,9 @@ export const Profile = () => {
                         className="w-full p-2 outline-none border border-gray/10 rounded"
                     />
                     </div>
-                    <div className="mx-2 self-center w-full">
-                        <button type="submit" className="bg-lightBrown text-ivory p-2 rounded shadow w-full">UPDATE</button>
+                    <div className="mx-2 self-end space-x-2">
+                        <button type="submit" className="bg-ivory p-2 rounded shadow hover:shadow-lg">Cancel</button>
+                        <button type="submit" className="bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Save Changes</button>
                     </div>
                 </div>
             </form>

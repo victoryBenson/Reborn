@@ -84,52 +84,27 @@ export const Users = ({user}) => {
     }
 
     return(
-        <div className=''>
-            <div className='md:h-20 w-full my-4 '>
-                <div className='h-full flex flex-wrap sm:justify-between justify-around items-center space-x-4 bg-white md:px-5 p-3 md:mx-5 rounded shadow'>
-                    <p className='flex items-center space-x-2'>
-                        <span>
-                            <img src={profilePicture} alt="image" className='w-10 h-10' />
-                        </span>
-                        <p className='text-center'>
+        <div className='min-h-fit w-full my-4 '>
+            <div className='h-full flex justify-between sm:justify-center space-x-2 rounded shadow sm:p-3'>
+                <div className='w-[50%] h-[20vh]'>
+                    <div className='flex justify-center items-center h-full'>
+                        <img src={profilePicture} alt="image" className='w-full h-full object-contain top' />
+                    </div>
+                </div>
+                <div className='w-[50%] h-[20vh] p-2 flex items-center'>
+                    <div>
+                        <p className='text-center flex items-center space-x-2 '>
                             <span className='font-bold'>Name:</span>
-                            <p>{username}</p>
+                            <span>{username}</span>
                         </p>
-                    </p>
-                    <p className='text-center'>
-                        <span className='font-bold'>Email:</span>
-                        <p>{email}</p>
-                    </p>
-                    <p className='text-center'>
-                        <span className='font-bold'>Role:</span>
-                        <p>{role}</p>
-                    </p>
-                    <div className='text-center space-x-4 p-3'>
-                        <button onClick={()=> onOpenModal(user)} className='text-red'>Delete</button>
-                        <Modal open={open} 
-                                center 
-                                onClose={onCloseModal}
-                            classNames={{
-                                overlay: 'bg-black/10 customOverlay ', 
-                                modal: ' md:w-1/3 w-5/6 mx-auto h-1/3 no-scrollbar transition-all shadow rounded-xl ',
-                                overlayAnimationIn: 'customEnterOverlayAnimation',
-                                overlayAnimationOut: 'customLeaveOverlayAnimation',
-                                modalAnimationIn: 'customEnterModalAnimation',
-                                modalAnimationOut: 'customLeaveModalAnimation',
-                                }}
-                                animationDuration={100}
-                                >
-                                <div className='flex items-center justify-center h-full w-full'>
-                                    <div className='flex-col flex justify-center items-center '>
-                                        <h1 className='text-2xl font-bold p-2'> Do you want to delete {username}?</h1>
-                                        <p className='p-2'>you won't be able to revert this!</p>
-                                        <p className='py-4 gap-4 flex text-ivory'>
-                                            <button onClick={onCloseModal} className='p-3 bg-red rounded-full sm:hover:shadow-xl md:hover:font-bold'>Cancel</button>
-                                            <button onClick={()=> handleDelete(user)}  className='p-3 bg-lightBrown rounded-full md:hover:shadow-xl md:hover:font-bold'>Yes, Delete!</button>
-                                        </p>
-                                    </div>
-                                </div>
-                        </Modal>
+                        <p className='text-center flex items-center space-x-2 '>
+                            <span className='font-bold'>Email:</span>
+                            <span>{email}</span>
+                        </p>
+                        <p className='text-center flex items-center space-x-2 '>
+                            <span className='font-bold'>Role:</span>
+                            <span>{role}</span>
+                        </p>
                     </div>
                 </div>
             </div>
