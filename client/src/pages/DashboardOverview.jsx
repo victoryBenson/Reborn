@@ -35,12 +35,12 @@ export const HomeDashboard = () => {
   return (
     <section className='max md:w-full mx-2 shadow'>
         <div className='flex flex-wrap justify-evenly items-center py-5 space-y-4'>
-            <NavLink to={`/dashboard/admin-products`}>
-                <div className=' bg-lightBrown shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl text-ivory'>
+            <div>
+                <NavLink to={`/dashboard/admin-products`} className='border border-lightBrown/10 shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl'>
                     <p>({product.data})</p>
                     <p className='flex items-center'><BsCartCheck/>Available Products</p>
-                </div>
-            </NavLink>
+                </NavLink>
+            </div>
             <div className=' bg-blue text-ivory shadow-lg w-60 p-3 rounded flex flex-col justify-center items-center font-bold text-xl'>
                 <p>({data})</p>
                 <p className='flex items-center'><FaUsersViewfinder />Registered Users</p>
@@ -71,27 +71,17 @@ export const HomeDashboard = () => {
 
 
 export const Users = ({user}) => {
-    const [open, setOpen] = useState(false);
-    const {_id, profilePicture, username, email, role} = user
-    const dispatch = useDispatch()
-
-
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-
-    const handleDelete = (user) => {
-        dispatch(deleteUser(user))
-    }
+    const { profilePicture, username, email, role} = user
 
     return(
         <div className='min-h-fit w-full my-4 '>
-            <div className='h-full flex justify-between sm:justify-center space-x-2 rounded shadow sm:p-3'>
-                <div className='w-[20%] sm:w-[50%] h-[20vh]'>
+            <div className='h-full flex justify-between sm:justify-center space-x- rounded shadow sm:p-3'>
+                <div className='w-[20%] sm:w-[50%] h-[16vh]'>
                     <div className='flex justify-center items-center h-full'>
                         <img src={profilePicture} alt="image" className='w-full h-full object-contain top' />
                     </div>
                 </div>
-                <div className='w-[80%] sm:w-[50%] h-[20vh] p-2 flex items-center'>
+                <div className='w-full h-[16vh] p-2 flex items-center'>
                     <div>
                         <p className='text-center flex items-center space-x-2 '>
                             <span className='font-bold'>Name:</span>

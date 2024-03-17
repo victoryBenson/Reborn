@@ -76,7 +76,7 @@ useEffect(() => {
 
   return (
     <div className='flex justify-center items-center mx-auto h-screen'>
-        <div className='bg-ivory md:w-1/2 w-3/4 rounded-lg shadow p-4 transition-all'>
+        <div className='bg-ivory md:w-1/2 w-full rounded-lg shadow p-4 transition-all'>
             <div className='text-2xl text-center my-7 font-bold flex flex-wrap items-center justify-center'><Logo/></div>
                 <h1 className='text-xl text-center font-bold'>Register now!</h1>
                 <div className='max-w-lg m-auto'>
