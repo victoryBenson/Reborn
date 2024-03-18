@@ -10,15 +10,6 @@ import { getProducts, getTotalProduct } from "../redux/features/product/productA
 import { EditProduct } from "../component/EditProduct";
 import { CreateProduct } from "../component/CreateProduct";
 
-const initialState = {
-    name:"",
-    category: "",
-    quantity: "",
-    price:"",
-    oldPrice:  "",
-    brand:"",
-    description: ""
-}
 
 export const AdminProducts = () => {
   const dispatch = useDispatch()
@@ -33,23 +24,19 @@ export const AdminProducts = () => {
   
   
   const [open, setOpen] = useState(false);
-  const [radioColor, setRadioColor] = useState("As Seen")
+
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
-  const handleColor = (e) => {
-    setRole(e.target.value)
-  }
-
-  if (isLoading)
+if (isLoading)
     return (
       <div className="flex justify-center items-center h-screen w-full">
         <Loader />
       </div>
   );
   
-  if (isError) return <div className="flex justify-center ">Error:{errMessage}</div>;
+//   if (isError) return <div className="flex justify-center ">Error:{errMessage}</div>;
 
   return (
     <section className="max md:w-full mx-2 shadow">
@@ -74,17 +61,20 @@ export const AdminProducts = () => {
             animationDuration={100}
           >
             <CreateProduct/>
+            <p className='' onClick={onCloseModal}>
+                <button type="" className="bg-ivory p-2 rounded shadow hover:shadow-lg">Cancel</button>
+            </p>
           </Modal>
         </div>
       </div>
       <div>
         <h1 className="p-2 font-bold text-2xl">Products</h1>
         <div className="">
-          {items?.map((item) => {
+          {/* {items.map((item) => {
             return (
-                <Items key={item._id} item={item} PreviewProduct={item}/>
+                <Items key={item._id} item={item}/>
             );
-          })}
+          })} */}
         </div>
       </div>
     </section>
@@ -93,10 +83,9 @@ export const AdminProducts = () => {
 
 
 export const Items = ({item}) => {
-    const {_id, image, name, quantity, category, brand, description} = item
+    const {image, name, quantity, category, brand, description} = item
     const [open, setOpen] = useState(false);
     const [updateBtn, setUpdateBtn] = useState(false)
-    const [formData, setFormData] = useState(initialState) 
 
 
     const onOpenModal = () => setOpen(true);

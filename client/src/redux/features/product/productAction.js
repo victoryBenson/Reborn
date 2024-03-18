@@ -3,6 +3,33 @@ import axios from 'axios';
 
 const backendURL = "https://reborn-api.onrender.com/api/products/";
 
+
+export const createProduct = createAsyncThunk(
+  "products/createProduct",
+  async (productData, { rejectWithValue }) => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const response = await axios.post(
+        `${backendURL}createProduct`,
+        productData,
+        config
+      );
+      return response.data;
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);
+
 export const getProducts = createAsyncThunk(
     "products/getProducts",
     async (productData, { rejectWithValue }) => {

@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { createProduct } from '../redux/features/product/productAction';
+import { RESET_AUTH } from '../redux/features/product/productSlice';
+
 
 const initialState = {
         name: "",
@@ -16,16 +20,37 @@ const initialState = {
 export const CreateProduct = () => {
       const [formData, setFormData] = useState(initialState);
       const {name, brand, category, price, oldPrice, quantity, description, image} = formData
+      const { isLoading, isError, errMessage, isSuccess} = useSelector((state) => state.products); 
+      const dispatch = useDispatch()
 
 
-      const handleChange = (e) => {
-            const {name, value} = e.target
-            setFormData({ ...formData, [name]: value})
-      }
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormData({ ...formData, [name]: value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const productData = {
+            name,
+            brand,
+            category, price, oldPrice, quantity, description,image
+        }
+
+        dispatch(createProduct(productData))
+    }
+
+    useEffect(() => {
+        if(isSuccess){
+      
+        }
+        dispatch(RESET_AUTH())
+    }, [isSuccess])
 
   return (
     <div className=" text-blue flex justify-center">
-        <form action="#" className=" w-full flex flex-col items-center">
+        <form onSubmit={handleSubmit} className=" w-full flex flex-col items-center">
             <label htmlFor="" className="font-bold p-3 text-2xl">
                 Create a new Product
             </label>
@@ -37,7 +62,7 @@ export const CreateProduct = () => {
                         name="name"
                         value={name}
                         id=""
-                        placeholder=""
+                        placeholder="Enter name"
                         className="inputField w-full p-2 outline-none border border-gray/10 rounded"
                         onChange={handleChange}
                     />
@@ -50,6 +75,7 @@ export const CreateProduct = () => {
                         name="category"
                         id=""
                         className="p-2 border border-gray/10 rounded outline-none w-full"
+                        onChange={handleChange}
                     >
                         <option value="fragrance">Fragrance</option>
                         <option value="Skincare">SkinCare</option>
@@ -64,10 +90,11 @@ export const CreateProduct = () => {
                     <input
                         type="text"
                         name="brand"
-                        value = {brand}
+                        value={brand}
                         id=""
                         placeholder="Enter product brand"
                         className="w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="">
@@ -79,6 +106,7 @@ export const CreateProduct = () => {
                         id=""
                         placeholder="Enter product price"
                         className="w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="">
@@ -90,6 +118,7 @@ export const CreateProduct = () => {
                         id=""
                         placeholder="Enter product price"
                         className="w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="">
@@ -101,19 +130,45 @@ export const CreateProduct = () => {
                         id=""
                         placeholder="Enter product quantity"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
                         className="w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="flex flex-col w-full">
                     <label htmlFor="name">Description</label>
-                    <textarea name="description" value={description} id="" cols="10" rows="5" placeholder="Enter product description" className="border border-gray/20 rounded outline-none p-2"></textarea>
+                    <textarea 
+                            name="description" 
+                        value={description} id="" cols="10" rows="5" 
+                        placeholder="Enter product description" 
+                        className="border border-gray/20 rounded outline-none p-2"
+                        onChange={handleChange}
+                        >
+                        
+                    </textarea>
                 </div>
-                <div className="">
+                <div className="space-y-2">
                     <label htmlFor="name" className='flex items-center'>Select Image <AiOutlinePlus className='mt-1'/></label>
+                    <input
+                        type="text"
+                        name="image"
+                        value={image}
+                        id=""
+                        placeholder="Paste the image url"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                        className="w-full p-2 outline-none border border-gray/10 rounded"
+                        onChange={handleChange}
+                    />
+                    {
+                        image && (
+
+                        <p className='h-20 w-20 pt-2'>
+                            <img src={image} alt="image"  className='object-fit h-full w-full'/>
+                        </p>
+                        )
+                    }
                 </div>
+                <div className='text-red'>{errMessage}</div>
                 <div className="flex justify-end py-2">
-                    <p className='space-x-2 '>
-                        <button type="" className="bg-ivory p-2 rounded shadow hover:shadow-lg">Cancel</button>
-                        <button type="" className="bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Create</button>
+                    <p className='space-x-2 w-full' >
+                        <button type="submit" className="w-full bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Create</button>
                     </p>
                 </div>
             </div>

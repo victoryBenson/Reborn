@@ -75,11 +75,9 @@
     padding: 2px;
   }
 
-  input:focus + .inputLabel {
-    top: 3em;
-    right: 2em;
-    position: relative;
-  }
+  /* .inputField:focus  + {
+    background-color: aqua;
+  } */
 
   /* products */
   @media (min-width: 600px) {

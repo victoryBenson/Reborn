@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { getProducts, getTotalProduct } from "./productAction";
+import { createProduct, getProducts, getTotalProduct } from "./productAction";
 
 const initialState = {
     isLoading: false,
@@ -19,13 +19,32 @@ const productSlice = createSlice({
             state.isError = false;
             state.isSuccess = false;
             state.isLoading = false;
-            state.items = [];
+            // state.items = [];
             state.errMessage = "";
-            state.data = null
+            // state.data = null
         }
     },
     extraReducers: (builder) => {
         builder
+
+         // createProduct
+         .addCase(createProduct.pending, (state) => {
+            state.isLoading = true
+            state.isError = false
+        })
+        .addCase(createProduct.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.items = payload;
+            toast.success("Created Successfully")
+        })
+        .addCase(createProduct.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
+            state.items = [];
+        })
+
         // getProducts
         .addCase(getProducts.pending, (state) => {
             state.isLoading = true
