@@ -3,6 +3,7 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { createProduct } from '../redux/features/product/productAction';
 import { RESET_AUTH } from '../redux/features/product/productSlice';
+import { toast } from 'react-toastify';
 
 
 const initialState = {
@@ -41,12 +42,11 @@ export const CreateProduct = () => {
         dispatch(createProduct(productData))
     }
 
-    // useEffect(() => {
-    //     if(isSuccess){
-      
-    //     }
-    //     dispatch(RESET_AUTH())
-    // }, [isSuccess])
+    useEffect(() => {
+        if(isError){
+            toast.error("An error occurred")
+        }
+    }, [isError])
 
   return (
     <div className=" text-blue flex justify-center">
