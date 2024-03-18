@@ -41,12 +41,12 @@ export const CreateProduct = () => {
         dispatch(createProduct(productData))
     }
 
-    useEffect(() => {
-        if(isSuccess){
+    // useEffect(() => {
+    //     if(isSuccess){
       
-        }
-        dispatch(RESET_AUTH())
-    }, [isSuccess])
+    //     }
+    //     dispatch(RESET_AUTH())
+    // }, [isSuccess])
 
   return (
     <div className=" text-blue flex justify-center">
@@ -165,11 +165,9 @@ export const CreateProduct = () => {
                         )
                     }
                 </div>
-                <div className='text-red'>{errMessage}</div>
+                <div className='text-red'>{isError && errMessage}</div>
                 <div className="flex justify-end py-2">
-                    <p className='space-x-2 w-full' >
-                        <button type="submit" className="w-full bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Create</button>
-                    </p>
+                    <button type="submit" className="w-full bg-lightBrown text-ivory p-2 rounded shadow hover:shadow-lg">Create</button>
                 </div>
             </div>
         </form>
