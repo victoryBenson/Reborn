@@ -155,7 +155,7 @@ export const Products = ({product}) => {
             <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
                 <RiHeart2Line size={20}/>
             </span>
-            <img src={image[0]} alt="image" className='group-hover:scale-110 object-contain w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
+            <img src={image[0]} alt="image" className='group-hover:scale-110 rounded-lg sm:object-cover object-contain object-top w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </div>
         <div className='p-3 fle flex-col h-full'>
             <p className='font-bold text-brown capitalize'>{truncateString(name, 20)}</p>

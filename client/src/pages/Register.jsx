@@ -9,48 +9,25 @@ import { Logo } from '../component/Logo';
 
 // import { OAuth } from '../Component/OAuth';
 
-
-// const initialState = {
-//     username: "",
-//     email: "",
-//     password: "",
-//     admin: "",
-//     customer: ""
-// }
-
 export const Register = () => {
-//   const [formData, setFormData] = useState(initialState);
-//   const {username, email, password, admin, customer} = formData;
-    const [accessToken, setAccessToken] = useState()
+    // const [accessToken, setAccessToken] = useState()
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [role, setRole] = useState("customer")
-    const { isLoading, isError, message, isSuccess} = useSelector((state) => state.user); 
+    const { isLoading, isError, errMessage, isSuccess} = useSelector((state) => state.user); 
     const navigate = useNavigate();
     const dispatch = useDispatch()
   
 
-//   const handleChange = (e) => {
-//     const {name, value} = e.target
-//     setFormData({ ...formData, [name]: value})
-//   }
-
-  const handleRole = (e) => {
-    setRole(e.target.value)
-  }
+    const handleRole = (e) => {
+        setRole(e.target.value)
+    }
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // if(!username || !email || !password || !role){
-    //     return toast.error("all fields are required")
-    // }  
-
-    // if(password.length < 6){
-    //     return toast.error('Password is too weak!')
-    // }
-   
+      
     const userData = {
         username,
         email,
@@ -62,21 +39,27 @@ export const Register = () => {
 
     await dispatch(register(userData))
 
+    if(isSuccess){
+        navigate("/login")
+    }
+    
+    dispatch(RESET_AUTH())
 };
 
-useEffect(() => {
-    if(isSuccess){
-      navigate("/login")
-    }
-    // dispatch(RESET_AUTH())
-}, [isSuccess, navigate])
+
+    // useEffect(() => {
+    //     if(isSuccess == true){
+    //     navigate("/login")
+    //     }
+    //     // dispatch(RESET_AUTH())
+    // }, [])
 
 
 
 
   return (
     <div className='flex justify-center items-center mx-auto h-screen'>
-        <div className='bg-ivory md:w-1/2 w-full rounded-lg shadow p-4 transition-all'>
+        <div className='bg-ivory/30 md:w-1/2 w-full mx-2 my-10 rounded-lg shadow-lg p-4 transition-all'>
             <div className='text-2xl text-center my-7 font-bold flex flex-wrap items-center justify-center'><Logo/></div>
                 <h1 className='text-xl text-center font-bold'>Register now!</h1>
                 <div className='max-w-lg m-auto'>
@@ -139,10 +122,10 @@ useEffect(() => {
                     </span>
                 </div>
                 {/* error message */}
-                <p className='text-red mx-auto'>{isError && message}</p>
+                <p className='text-red mx-auto'>{isError && errMessage}</p>
                 <div >
                     <button disabled={isLoading} className='w-full p-3  from-lightBrown to-brown bg-gradient-to-r text-ivory hover:opacity-80 disabled:opacity-70  hover:font-bold transition-all duration-200 rounded-lg text-center gap-2'>
-                        { isLoading? 'LOADING...' : 'CREATE ACCOUNT'}
+                        { isLoading? 'Loading...please wait...' : 'CREATE ACCOUNT'}
                     </button>
                 </div>
             </form>

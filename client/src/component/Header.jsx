@@ -67,7 +67,7 @@ export const Header = () => {
   return (
     <div className="flex items-center justify-between bg-blur p-3 px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40">
         <div>
-            <NavLink to={`/landpage`}>
+            <NavLink to={`/`}>
             <Logo />
             </NavLink>
         </div>

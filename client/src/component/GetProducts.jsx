@@ -112,10 +112,10 @@ export const GetProducts = () => {
           >
             <option value="All">All Product</option>
             <option value="skincare">SkinCare</option>
-            <option value="sports">Sports</option>
-            <option value="Fashion">Fashion</option>
-            <option value="digital">Digital</option>
-            <option value="fragrances">Fragrances</option>
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="unisex">Unisex</option>
+            <option value="kids">Kids</option>
           </select>
         </div>
       </div>

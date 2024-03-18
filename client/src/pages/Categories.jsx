@@ -53,58 +53,40 @@ export const Categories = () => {
                 <button
                     type="button"
                     onClick={handleClick}
-                    value={"fragrances"}
+                    value={"men"}
                     className={"flex items-center"}
                     // style={toggle && { background: color, color: textColor }}
                 >
                     <TbPerfume className="mx-1" />
-                    Fragrances
+                    Men
                 </button>
                 <button
                     type="button"
                     onClick={handleClick}
-                    value={"skincare"}
+                    value={"women"}
                     className={"flex items-center"}
                     // style={toggle && { background: color, color: textColor }}
                 >
-                    <TbPerfume className="mx-1" />
-                    Skincare
+                    <PiDressFill className="mx-1" />
+                    Women
                 </button>
                 <button
                     type="button"
                     onClick={handleClick}
-                    value={"Fashion"}
+                    value={"unisex"}
                     className="flex items-center"
                 >
                     <PiDressFill className="mx-1" />
-                    Fashion
+                    Unisex
                 </button>
                 <button
                     type="button"
                     onClick={handleClick}
-                    value={"digital"}
+                    value={"fragrances"}
                     className="flex items-center"
                 >
-                    <FaComputerMouse className="mx-1" />
-                    Accessories
-                </button>
-                <button
-                    type="button"
-                    onClick={handleClick}
-                    value={"smartphones"}
-                    className="flex items-center"
-                >
-                    <IoPhonePortraitOutline className="mx-1" />
-                    Phones
-                </button>
-                <button
-                    type="button"
-                    onClick={handleClick}
-                    value={"sports"}
-                    className="flex items-center"
-                >
-                    <MdSportsTennis className="mx-1" />
-                    Sports
+                    <TbPerfume className="mx-1" />
+                    Fragrance
                 </button>
                 </div>
             </div>

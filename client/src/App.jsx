@@ -44,7 +44,6 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout/>}>
                     <Route index element ={<LandingPage/>}/>
-                    <Route path="login" element={<Login/>}/>
 
                     {/* protected route */}
                     {/* <Route element={<RequireAuth/>}> */}
@@ -52,11 +51,12 @@ function App() {
                         {/* <Route path="userDetails" element = {<AccountPage/>}/> */}
                     {/* </Route> */}
                 </Route>
+                <Route path="login" element={<Login/>}/>
+                <Route path="register" element={<Register/>}/>
                 <Route path="userDetails" element = {<AccountPage/>}/>
                 <Route path="mycart" element={<MyCart/>}/>
                 <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
                 <Route path="*" element={<NotFound/>}/> 
-                <Route path="register" element={<Register/>}/>
                 <Route path="dashboard" element={<Dashboard/>}>
                     <Route path="profile" element={<Profile/>}/>
                     <Route path="home-dashboard" element={<HomeDashboard/>}/>

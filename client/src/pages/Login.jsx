@@ -15,7 +15,7 @@ const initialState = {
 export const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const {email, password} = formData;
-  const { isLoading, isError, isSuccess, isLoggedIn} = useSelector((state) => state.auth); 
+  const { isLoading, isError, errMessage, isLoggedIn} = useSelector((state) => state.auth); 
   const navigate = useNavigate();
   const dispatch = useDispatch()
   
@@ -24,17 +24,11 @@ export const Login = () => {
     const {name, value} = e.target
     setFormData({ ...formData, [name]: value})
   }
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // if(!email || !password){
-    //     return toast.error("All fields are required")
-    // }
-    
-    // if( password.length < 6 ){
-    //     return toast.error("Password is too weak")
-    // }
-   
     const userData = {
         email,
         password
@@ -44,16 +38,17 @@ export const Login = () => {
 
     await dispatch(loginUser(userData))
 
-};
-
-useEffect(() => {
-    if(isSuccess && isLoggedIn){
+    if(isLoggedIn){
       navigate('/')
     }
-    // dispatch(Reset_Auth())
-}, [isSuccess, navigate])
+};
 
-
+    useEffect(() => {
+        if(isLoggedIn){
+            navigate('/')
+        }
+    }, [isLoggedIn, navigate])
+    
 
   return (
     <div className='flex justify-center items-center mx-auto h-screen'>
@@ -89,7 +84,7 @@ useEffect(() => {
                         <span className='text-blue'>forgot password?</span>
                     </div>
                     {/* error message */}
-                    <p className='text-red text-center text-sm'>{isError && 'something went wrong!...'}</p>
+                    <p className='text-red text-center text-sm'>{isError && errMessage}</p>
                     <div >
                         <button disabled={isLoading} className='w-full p-3 from-lightBrown to-brown bg-gradient-to-r text-ivory hover:opacity-80 disabled:opacity-70  hover:font-bold transition-all duration-200 rounded-lg text-center gap-2'>
                             { isLoading? 'Loading...Please wait!' : 'LOGIN'}

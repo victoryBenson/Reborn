@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { createProduct, getProducts, getTotalProduct } from "./productAction";
+import { createProduct, getProducts, getTotalProduct, updateProduct } from "./productAction.js";
 
 const initialState = {
     isLoading: false,
@@ -39,6 +39,24 @@ const productSlice = createSlice({
             toast.success("Created Successfully")
         })
         .addCase(createProduct.rejected, (state, {payload}) => {
+            state.isLoading = false;
+            state.isError = true;
+            state.errMessage = payload;
+            state.items = [];
+        })
+
+        // updateProduct
+        .addCase(updateProduct.pending, (state) => {
+            state.isLoading = true
+            state.isError = false
+        })
+        .addCase(updateProduct.fulfilled, (state, {payload}) => {
+            state.isLoading = false;
+            state.isSuccess = true;
+            state.items = payload;
+            toast.success("Created Successfully")
+        })
+        .addCase(updateProduct.rejected, (state, {payload}) => {
             state.isLoading = false;
             state.isError = true;
             state.errMessage = payload;

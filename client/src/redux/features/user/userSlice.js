@@ -17,11 +17,11 @@ const userSlice = createSlice({
     reducers: {
         RESET_AUTH(state) {
             state.isError = false;
-            state.isSuccess = false;
-            state.isLoading = false;
-            state.userInfo = null;
             state.errMessage = "";
-            state.data = null
+            state.isLoading = false;
+            // state.isSuccess = false;
+            // state.userInfo = null;
+            // state.data = null
         }
     },
     extraReducers: (builder) => {
@@ -35,7 +35,7 @@ const userSlice = createSlice({
             state.isLoading = false;
             state.isSuccess = true;
             state.userInfo = payload;
-            toast.success(payload)
+            // toast.success(payload)
         })
         .addCase(register.rejected, (state, {payload}) => {
             state.isLoading = false;

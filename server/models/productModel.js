@@ -45,15 +45,6 @@ const productSchema = mongoose.Schema({
         required: [true, "Please add an image"],
         trim: true
     },
-    sold: {
-        type: Number,
-        default: 0,
-        trim: true
-    },
-    rating: {
-        type: [Object],
-        trim: true
-    },
     color: {
         type: [String],
         default: "As Seen",

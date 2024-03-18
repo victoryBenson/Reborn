@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const backendURL = "https://reborn-api.onrender.com/api/products/";
 
-
+//create product
 export const createProduct = createAsyncThunk(
   "products/createProduct",
   async (productData, { rejectWithValue }) => {
@@ -30,6 +30,7 @@ export const createProduct = createAsyncThunk(
   }
 );
 
+//getProduct
 export const getProducts = createAsyncThunk(
     "products/getProducts",
     async (productData, { rejectWithValue }) => {
@@ -56,6 +57,7 @@ export const getProducts = createAsyncThunk(
     }
 );
 
+//calculate number of products
 export const getTotalProduct = createAsyncThunk(
   "products/getTotalProduct",
   async (productData, { rejectWithValue }) => {
@@ -82,6 +84,7 @@ export const getTotalProduct = createAsyncThunk(
   }
 );
 
+//edit product
 export const updateProduct = createAsyncThunk(
   "products/updateProduct",
   async (productData, { rejectWithValue }) => {
@@ -108,6 +111,7 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
+//delete product
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (productData, { rejectWithValue }) => {
