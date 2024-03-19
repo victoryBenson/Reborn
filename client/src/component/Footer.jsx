@@ -14,28 +14,28 @@ export const Footer = () => {
     },[])
 
   return (
-    <div data-aos="fade-up" className=' text-white bg-[#AB8C7E bg-brown mt-5 h-auto md:flex items-center sm:p-5 p-3'>
+    <div data-aos="fade-up" className=' text-ivory bg-brown h-auto md:flex items-center sm:p-5 p-3'>
         <div className='md:w-1/2'>
             <div className='p-2'>
                 <Logo/>
             </div>
-            <p className='p-4 font-light text-lg text-lightBrown'>Welcome to <strong className='font-bold text-ivory'>Reborn</strong>!
+            <p className='p-4 text-lg '>Welcome to <strong className='font-[800] text-ivory'>Reborn</strong>!
                 We aim to offer our customers a variety of the latest products. We’ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.
             </p>
             <div className='sm:flex sm:space-x-8'>
                 <div className='flex flex-col items-start justify-center '>
                     <h1 className='font-bold p-2 text-xl'>Social Media</h1>
                     <div className='flex flex-wrap space-x-4'>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2 text-lightBrown'>
+                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaTwitter size={20}/>
                         </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2 text-lightBrown'>
+                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaFacebookF size={20}/>
                         </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2 text-lightBrown'>
+                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaInstagram size={20}/>
                         </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2 text-lightBrown'>
+                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaWhatsapp size={20}/>
                         </p>
                     </div>
@@ -45,7 +45,7 @@ export const Footer = () => {
                         <LuPhoneCall className='mx-1'/>
                         Contact us today!
                     </h1>
-                    <h3 className='text-gray text-xl px-3'>
+                    <h3 className='text-white text-xl px-3'>
                         +234-8136878980
                     </h3>
                 </div>

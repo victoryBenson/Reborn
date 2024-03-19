@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import pkg from 'validator';
 const {isEmail, isStrongPassword} = pkg;
 
@@ -24,7 +24,6 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: [true, "Please add a password!"],
-      select: false,
       validate: [isStrongPassword, "Please use a strong password!"],
     }, 
     profilePicture: {

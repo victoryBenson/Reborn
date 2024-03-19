@@ -15,7 +15,7 @@ import { RiHeart2Line } from "react-icons/ri";
 
 
 export const Products = ({product}) => {
-    const {_id, image, name, description, color,quantity, size, brand, price, oldPrice, } = product
+    const {_id, image, name, description, color,quantity, size, brand, price, oldPrice, category } = product
     // console.log(product)
 
     const [open, setOpen] = useState(false);
@@ -157,11 +157,12 @@ export const Products = ({product}) => {
             </span>
             <img src={image[0]} alt="image" className='group-hover:scale-110 rounded-lg sm:object-cover object-contain object-top w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </div>
-        <div className='p-3 fle flex-col h-full'>
-            <p className='font-bold text-brown capitalize'>{truncateString(name, 20)}</p>
-            <p className='text-lightBrown py-2 capitalize'>{brand}</p>
-            <p className='flex py-1'>
-                <span className='py-2 text-lightBrown font-bold rounded flex items-center'>
+        <div className='p-3  fle flex-col h-full'>
+            <p className='font-bold text-brown capitalize'>{truncateString(name, 25)}</p>
+            <p className='text-lightBrown capitalize'>Brand: {brand}</p>
+            <p className='text-lightBrown capitalize'>Category: {category}</p>
+            <p className='flex'>
+                <span className=' text-lightBrown font-bold rounded flex items-center'>
                     <TbCurrencyNaira className='mt-1'/>
                     {price?.toLocaleString()}
                 </span>

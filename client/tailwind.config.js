@@ -10,7 +10,7 @@ export default {
       'gray': '#7c7772',
       'gray-light': '#d3dce6',
       'white': '#FFFFFF',
-      'black': '#0000',
+      'black': '#000000',
       'green': '#56d71e',
       'ivory': '#FFFFF0',
       'red': '#FF0000',
@@ -28,6 +28,11 @@ export default {
       animation: {
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
       },
+
+      backgroundImage: {
+        'hero': "url('https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        'hero2': "url('https://plus.unsplash.com/premium_photo-1661964205360-b0621b5a9366?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+      }
     },
     keyframes: {
       'infinite-scroll': {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { CiUser, CiLogout, CiLogin, CiEdit, CiMenuFries, CiHome } from "react-icons/ci";
-import { MdCategory } from "react-icons/md";
+import { MdCategory, MdOutlineConnectWithoutContact } from "react-icons/md";
 import { BiPurchaseTag } from "react-icons/bi";
 import {
   RiArrowDownSLine,
@@ -80,9 +80,9 @@ export const Header = () => {
             />
             {mobile && (
                 <div>
-                    <div onClick={clickMobile} className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-full w-full transition-all z-10" ></div>
+                    <div onClick={clickMobile} className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-screen w-full transition-all z-10" ></div>
                     <div data-aos="fade-right" className="hamburger-menu sm:w-2/4 w-4/5 bg-white fixed z-20 shadow-lg left-0 md:-left-0 top-0 h-screen duration-500 transition-all">
-                        <div onClick={clickMobile} className="relative bg-white h-full">
+                        <div onClick={clickMobile} className="relative bg-white h-screen">
                             {/* header */}
                             <div className="py-4 flex items-center justify-between relative shadow right-1">
                                 <div className="p-2 flex items-center">
@@ -173,11 +173,10 @@ export const Header = () => {
                                 </ShowOnLogin>
                             </div>
                             <div className="p-2">
-                                <h1 className="px-4 font-bold text-lg ">Follow us for more</h1>
-                                <p className="p-4 ">
-                                    Discover the most outstanding articles on all topics of
-                                    life. Write your stories and share them
-                                </p>
+                                <h1 className="px-4 font-bold text-lg flex items-center">
+                                    <MdOutlineConnectWithoutContact />
+                                    Connect with us
+                                </h1>
                                 <div className="flex items-center justify-between px-2">
                                     <SocialMedia />
                                     <p className="flex items-center p-2 cursor-pointer hover:underline underline-offset-4 bg-gray/20 rounded-full">
