@@ -8,6 +8,7 @@ import { TbShoppingBagSearch } from "react-icons/tb";
 import { Explore, NotfoundGif } from "./Spinner";
 import Typewriter from "typewriter-effect";
 import { getProducts, getTotalProduct } from "../redux/features/product/productAction";
+import { Logo } from "./Logo";
 
 
 export const GetProducts = () => {
@@ -74,7 +75,8 @@ export const GetProducts = () => {
                     className="text-center flex flex-col justify-center items-center"
                     data-aos="fade-down"
                     >
-                    <div className="text-ivory md:text-3xl text-xl font-bold flex">
+                    <div className="flex items-center "><strong className="text-2xl">Welcome to</strong> <Logo/></div>
+                    <div className="text-ivory md:text-3xl text-xl font-bold  right-0 top-0">
                         <Typewriter
                         options={{
                             strings: ["Explore!", "Shop!", "Repeat Again!"],

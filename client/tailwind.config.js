@@ -30,7 +30,7 @@ export default {
       },
 
       backgroundImage: {
-        'hero': "url('https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+        'hero': "url('https://c7.alamy.com/comp/2BP0EWN/dubai-uae-may-13-2020-worlds-largest-shopping-center-empty-dubai-mall-during-quarantine-top-vew-2BP0EWN.jpg')",
         'hero2': "url('https://plus.unsplash.com/premium_photo-1661964205360-b0621b5a9366?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
       }
     },

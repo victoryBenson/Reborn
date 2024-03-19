@@ -50,42 +50,39 @@ export const Login = () => {
 
   return (
     <div className='relative flex justify-center items-center mx-auto h-screen'>
-        <div className=' fixed top-0 h-screen right-0 left-0 blur-[2px]'>
-            <img src={`https://plus.unsplash.com/premium_photo-1661964205360-b0621b5a9366?q=80&w=1438&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`} 
-            alt="" 
-            className='h-full w-full object-cover object-center'
-            />
+        <div className='bg-hero2 fixed top-0 h-screen right-0 left-0 '>
+            <span className='bg-black/60 fixed top-0 h-screen right-0 left-0 blur-[2px]'></span>
         </div>
-        <div className='z-20 bg-ivory/40 md:w-1/2 w-full mx-2 my-10 rounded-lg shadow p-4 transition-all '>
+        <div className='z-20 bg-ivory/20 md:w-1/2 w-full mx-2 text-ivory rounded-lg shadow p-4 transition-all '>
             <div className='text-2xl text-center my-7 font-bold flex flex-wrap items-center justify-center'><Logo/></div>
             <h1 className='text-xl text-center font-bold'>Welcome back!</h1>
-            <p className='p-2 text-center font-bold'>Login into your account for full access.</p>
+            <p className='p-2 text-center'>Login into your account for full access.</p>
             <div className='max-w-lg m-auto'>
                 <form onSubmit={handleLogin} className='flex flex-col gap-4' >
                     <div>
-                        <label className='p-2 font-bold'>Enter Email:</label>
+                        <label className='p-2'>Enter Email:</label>
                         <input type="email" 
                             name="email"
                             value={email} 
-                            className='outline-none p-3 rounded-lg w-full border border-gray/20' 
+                            className='outline-none p-3 rounded-lg w-full border border-gray/20 text-blue' 
                             placeholder='example@gmail.com' 
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div>
-                        <label className='p-2 font-bold'>Enter Password:</label>
+                        <label className='p-2'>Enter Password:</label>
                         <input type="password" 
                             name="password" 
                             value={password}
-                            className='outline-none p-3 rounded-lg w-full border border-gray/20' 
+                            className='outline-none p-3 rounded-lg w-full border border-gray/20 text-blue' 
                             placeholder='enter your password' 
                             onChange={handleChange}
                             required
                         />
                     </div>
                     <div className='text-right'>
-                        <span className='text-blue'>forgot password?</span>
+                        <span className='text-ivory'>forgot password?</span>
                     </div>
                     {/* error message */}
                     <p className='text-red text-center text-sm'>{errMessage}</p>
