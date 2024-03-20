@@ -8,8 +8,8 @@ export const Testimonial = () => {
             <h1 className='font-bold p-2 text-3xl'>Good news from far away 🥇</h1>
             <p text-lg p-3>Let's see what people think of Reborn</p>
         </div>
-        <div className='flex w-full justify-center '>
-            <div className='w-full mx-2 lg:flex space-x-2 justify-center items-center overflow-x-auto no-scrollbar'>
+        <div className='flex justify-center overflow-x-auto no-scrollbar'>
+            <div className='w-full mx-2 lg:fle space-x-2 justify-center items-center whitespace-nowrap'>
                 {
                     testimonials.map((data)=> {
                         return(
