@@ -2,19 +2,19 @@ export const testimonials = [
     {
         id: 1,
         name: "Cynthia Chibugo",
-        title: "Buisness Woman",
+        title: "Financial Expert/Buisness Woman",
         description: "Yes! No doubt, Reborn is Simply the best...just explore!",
         image: `https://i.postimg.cc/VkwwLqYV/Photoroom-20240228-102551.png`
     },
     {
-        id: 1,
-        name: "Perl",
+        id: 2,
+        name: "Pearl",
         title: "Social media influencer",
         description: "It's either Reborn or no other",
         image: `https://i.postimg.cc/mg6CF4JT/ero-Digital.jpg`
     },
     {
-        id: 1,
+        id: 3,
         name: "Joe Martins",
         title: "Lead Engineer @ Kennytech",
         description: "I'll choose Reborn over and over again!, best experience ever!",
