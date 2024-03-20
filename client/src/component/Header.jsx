@@ -72,7 +72,7 @@ export const Header = () => {
             </NavLink>
         </div>
         {/* mobile */}
-        <div className="flex flex-cols md:hidden px-3">
+        <div className="flex flex-cols md:hidden px-3 order-last">
             <CiMenuFries
             size={20}
             onClick={clickMobile}
@@ -194,7 +194,7 @@ export const Header = () => {
             to="categories"
             className={({ isActive }) =>
                 isActive
-                ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
+                ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-brown decoration-2 font-bold"
                 : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
             }
             >
@@ -207,7 +207,7 @@ export const Header = () => {
                 to="/dashboard/orders"
                 className={({ isActive }) =>
                     isActive
-                    ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-green decoration-2 font-bold"
+                    ? "flex rounded-full items-center p-2 cursor-pointer underline underline-offset-4 decoration-brown decoration-2 font-bold"
                     : "flex rounded-full items-center p-2 cursor-pointer hover:underline underline-offset-4"
                 }
                 >
@@ -232,8 +232,8 @@ export const Header = () => {
             </div>
             </ShowAdmin>
         </div>
-        <div className="items-center space-x-2 hidden md:flex">
-            <div className="px-2 relative flex items-center space-x-4">
+        <div className="items-center space-x-2 flex">
+            <div className="px-2 relative items-center space-x-4 hidden  md:flex">
                 <div
                     onClick={() => setMenu(!menu)}
                     className="flex items-center cursor-pointer space-x-3 transition-all"
@@ -347,7 +347,7 @@ export const Header = () => {
                     )}
                 </div>
             </div>
-            <NavLink to="/mycart" className="px-1 text-xl relative cursor-pointer">
+            <NavLink to="/mycart" className="px-1 text-xl relative cursor-pointer ">
                 <p className="relative">
                     <BsCartCheck />
                     <span className="absolute -top-3 -right-3 px-1 text-sm bg-blue text-white rounded-full flex item-center justify-center">

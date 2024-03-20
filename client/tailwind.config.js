@@ -9,7 +9,7 @@ export default {
       'blue': '#0f172a',
       'gray': '#7c7772',
       'gray-light': '#d3dce6',
-      'white': '#FFFFFF',
+      'white': '#ffffff',
       'black': '#000000',
       'green': '#56d71e',
       'ivory': '#FFFFF0',
