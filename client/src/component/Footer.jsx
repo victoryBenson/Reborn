@@ -4,6 +4,8 @@ import {LuPhoneCall} from 'react-icons/lu'
 import { Logo } from './Logo'
 import AOS from 'aos'
 import "aos/dist/aos.css"
+import { PiLinkThin } from "react-icons/pi";
+import { FaPhone } from 'react-icons/fa6'
 
 export const Footer = () => {
 
@@ -22,32 +24,26 @@ export const Footer = () => {
             <p className='p-1 sm:p-4 text-lg '>Welcome to <strong className='font-[800] text-ivory'>Reborn</strong>!
                 We aim to offer our customers a variety of the latest products. We’ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.
             </p>
-            <div className='flex md:space-x-2'>
+            <div className='sm:flex sm:space-x-2'>
                 <div className='sm:flex flex-col items-start justify-center '>
-                    <h1 className='font-bold p-2 text-xl'>Social Media</h1>
+                    <h1 className='font-bold p-2 text-xl flex items-center'><PiLinkThin />Connect with us</h1>
                     <div className='flex flex-wrap space-x-'>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
+                        <a href="tel:" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaTwitter size={20}/>
-                        </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
+                        </a>
+                        <a href="tel:" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaFacebookF size={20}/>
-                        </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
+                        </a>
+                        <a href="tel:" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaInstagram size={20}/>
-                        </p>
-                        <p className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=+234-8136878980" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
                             <FaWhatsapp size={20}/>
-                        </p>
+                        </a>
+                        <a href="tel:+234-8136878980" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
+                            <FaPhone size={20}/>
+                        </a>
                     </div>
-                </div>
-                <div className=' md:flex flex-col items-start justify-center p-2 '>
-                    <h1 className='text-lg font-bold flex items-center'>
-                        <LuPhoneCall className='mx-1'/>
-                        Contact us today!
-                    </h1>
-                    <h3 className='text-white text-xl p-2'>
-                        +234-8136878980
-                    </h3>
                 </div>
             </div>
         </div>

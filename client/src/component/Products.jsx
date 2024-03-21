@@ -31,6 +31,15 @@ export const Products = ({product}) => {
     const handleAddToCart = (product) => {
         dispatch(addToCart(product))
     }
+
+    const scrollToTop = () => {
+        window.scrollTo(0,0)
+    }
+
+    const handleModal = () => {
+        onOpenModal(product)
+        scrollToTop()
+    }
     
   return (
     <div className='product shadow rounded-xl w-full h-96 relative group sm:m-3 my-2 mx-5'>
@@ -42,7 +51,7 @@ export const Products = ({product}) => {
                             <BsBagCheck/> 
                             Add to bag
                         </button>
-                        <button onClick={()=> onOpenModal(product)} className='flex mx-2 items-center bg-white rounded-full p-2 shadow text-sm'>
+                        <button onClick={handleModal} className='flex mx-2 items-center bg-white rounded-full p-2 shadow text-sm'>
                             <TiArrowMaximise/>
                             Quick view
                         </button>
@@ -79,11 +88,8 @@ export const Products = ({product}) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <h1 className=' font-bold text-xl text-brown'>{name}</h1>
-                                    <div className='flex items-center space-x-4 flex-wrap px-3'>
-                                        <p className='text-brown font-bold'>Brand:</p>
-                                        <p className='text-gray py-2'> {brand}</p>
-                                    </div>
+                                    <h1 className=' font-bold text-xl text-brown capitalize'>{name}</h1>
+                                    <p className='text-brown capitalize'><strong className='mr-1'>Brand:</strong>{brand}</p>
                                     <p className=' py-4 p-2 text-gray'>{description}</p>
                                     <div className='py-3  flex items-center' >
                                         Color: {
@@ -115,7 +121,7 @@ export const Products = ({product}) => {
                                         }
                                     </div>
                                     <div className='flex flex-wrap sm:flex-nowrap items-center pt-4'>
-                                        <p className='space-x-3 sm:w-1/3 justify-center flex mx-2 items-center bg-gray-light/50 p-3 rounded-full'>
+                                        {/* <p className='space-x-3 sm:w-1/3 justify-center flex mx-2 items-center bg-gray-light/50 p-3 rounded-full'>
                                             <CiCircleMinus 
                                                 size={30} 
                                                 onClick={() => dispatch(decreaseCart(_id))} 
@@ -127,7 +133,7 @@ export const Products = ({product}) => {
                                                 onClick={() => dispatch(increaseCart(_id))}
                                                 className='mx-1 cursor-pointer hover:opacity-10 transition-all'
                                             /> 
-                                        </p>
+                                        </p> */}
                                         <p className='w-full py-3'>
                                             {
                                                 quantity > 0 ? (
@@ -155,7 +161,7 @@ export const Products = ({product}) => {
             <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
                 <RiHeart2Line size={20}/>
             </span>
-            <img src={image[0]} alt="image" className='group-hover:scale-110 rounded-lg sm:object-cover object-contain object-top w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
+            <img src={image[0]} alt="image" className='group-hover:scale-110 rounded-lg object-cover object-top w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </div>
         <div className='p-3  fle flex-col h-full'>
             <p className='font-bold text-brown capitalize'>{truncateString(name, 25)}</p>

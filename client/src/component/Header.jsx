@@ -38,6 +38,7 @@ export const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isActive, setIsActive] = useState(false)
 
   const clickMobile = () => {
     setMobile(!mobile);
@@ -59,13 +60,24 @@ export const Header = () => {
   }, [showCart]);
 
   const Logout = async () => {
-    await dispatch(LogoutUser());
-    await dispatch(Reset_Auth());
-    navigate("/login");
+    try {
+        await dispatch(LogoutUser());
+        await dispatch(Reset_Auth());
+        navigate("/login");
+    } catch (error) {
+        console.log(error)
+    }
   };
 
+
+  useEffect( () => {
+      window.addEventListener('scroll', () => {
+          window.scrollY > 70 ? setIsActive(true) : setIsActive(false)
+      });
+  })
+
   return (
-    <div className="flex items-center justify-between bg-blur p-3 px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40">
+    <div className={`${isActive ? 'fixed w-full top-0 bg-green-focus z-[99] ' : null} flex items-center justify-between bg-blur p-3 px-5 h-20 transition-all bg-gradient-to-l shadow backdrop-blur-lg sticky top-0 z-40`}>
         <div>
             <NavLink to={`/`}>
             <Logo />
