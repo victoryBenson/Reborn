@@ -34,7 +34,7 @@ export const Testimonial = () => {
             <p text-lg p-3>Let's see what people think of Reborn</p>
         </div>
         <div></div>
-        <div className='overflow-hidden no-scrollbar slideshow max-w-[80%] m-auto '>
+        <div className='overflow-hidden no-scrollbar slideshow max-w-[90%] sm:max-w-[80%] m-auto '>
             <div className=' whitespace-nowrap slideshowSlider' style={{transition: "ease-in 100ms"}}>
                 {
                     testimonials.map((data)=> {
