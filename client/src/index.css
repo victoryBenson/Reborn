@@ -75,6 +75,10 @@
     padding: 2px;
   }
 
+  .slideshowDot.active {
+    background-color:burlywood;
+  }
+
   /* .inputField:focus  + {
     background-color: aqua;
   } */

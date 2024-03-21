@@ -16,7 +16,7 @@ export const testimonials = [
     {
         id: 3,
         name: "Joe Martins",
-        title: "Lead Engineer @ Kennytech",
+        title: "Lead Engineer @Kennytech",
         description: "I'll choose Reborn over and over again!, best experience ever!",
         image: `https://images.unsplash.com/photo-1545184180-25d471fe75eb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8`
     }

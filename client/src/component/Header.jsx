@@ -232,7 +232,7 @@ export const Header = () => {
             </div>
             </ShowAdmin>
         </div>
-        <div className="items-center space-x-2 flex">
+        <div className="items-center space-x-2 flex ">
             <div className="px-2 relative items-center space-x-4 hidden  md:flex">
                 <div
                     onClick={() => setMenu(!menu)}

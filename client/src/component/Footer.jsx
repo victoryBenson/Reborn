@@ -22,7 +22,7 @@ export const Footer = () => {
             <p className='p-1 sm:p-4 text-lg '>Welcome to <strong className='font-[800] text-ivory'>Reborn</strong>!
                 We aim to offer our customers a variety of the latest products. We’ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.
             </p>
-            <div className='md:flex md:space-x-2'>
+            <div className='flex md:space-x-2'>
                 <div className='sm:flex flex-col items-start justify-center '>
                     <h1 className='font-bold p-2 text-xl'>Social Media</h1>
                     <div className='flex flex-wrap space-x-'>
@@ -40,8 +40,8 @@ export const Footer = () => {
                         </p>
                     </div>
                 </div>
-                <div className=' md:flex flex-col items-start justify-center '>
-                    <h1 className='text-lg py-2 font-bold flex items-center'>
+                <div className=' md:flex flex-col items-start justify-center p-2 '>
+                    <h1 className='text-lg font-bold flex items-center'>
                         <LuPhoneCall className='mx-1'/>
                         Contact us today!
                     </h1>
