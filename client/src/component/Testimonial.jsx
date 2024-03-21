@@ -22,7 +22,6 @@ export const Testimonial = () => {
           ),
         delay
       );
-  
       return () => {
         resetTimeout();
       };
@@ -35,7 +34,7 @@ export const Testimonial = () => {
             <p text-lg p-3>Let's see what people think of Reborn</p>
         </div>
         <div></div>
-        <div className='overflow-hidden no-scrollbar slideshow lg:max-w-[80%] m-auto '>
+        <div className='overflow-hidden no-scrollbar slideshow max-w-[80%] m-auto '>
             <div className=' whitespace-nowrap slideshowSlider' style={{transition: "ease-in 100ms"}}>
                 {
                     testimonials.map((data)=> {
@@ -43,7 +42,7 @@ export const Testimonial = () => {
                             <div 
                                 key={data.id} 
                                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-                                className='inline-block w-[100%] bg-white rounded shadow min-h-full h-72 border border-gray/20 slide '>
+                                className='inline-block w-full bg-white rounded shadow min-h-full h-72 border border-gray/20 slide '>
                                 <p className='flex justify-end '>
                                     <span className='h-28 lg:h-40 w-40 lg:w-48'>
                                         <img className='h-full w-full object-cover object-top rounded-full rounded-tr-sm' src={data.image} alt="image" />
