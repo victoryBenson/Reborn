@@ -69,7 +69,7 @@ export const GetProducts = () => {
 
   return (
     <div className="" id="search">
-        <div className="md:bg-hero bg-hero2  bg-center relative sm:p-5 lg:h-[60vh] h-[40vh] transition-all px-3 flex flex-col justify-center items-center gap-4 ">
+        <div className="md:bg-hero bg-hero2 bg-center relative sm:p-5 lg:h-[60vh] h-[40vh] transition-all px-3 flex flex-col justify-center items-center gap-4 ">
             <div className="absolute bg-black/60 top-0 right-0 left-0 h-full flex justify-center flex-col">
                 <div
                     className="text-center flex flex-col justify-center items-center"

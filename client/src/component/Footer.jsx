@@ -50,10 +50,10 @@ export const Footer = () => {
         <div className=' items-center justify-between md:w-1/2 sm:m-3 md:mb-0'>
             <div className='bg-lightBrown shadow-md rounded-lg sm:p-4 p-2'>
                 <h1 className='font-bold text-3xl p-2 drop-shadow text-ivory'>Don't wanna miss our offers?</h1>
-                <h2 className='py-2'>Drop your email address below and start receving the best offers from <strong>Reborn</strong></h2>
+                <h2 className='py-2'>Drop your email address below and start receiving the best offers from <strong>Reborn</strong></h2>
                 <div>
                     <form className='flex flex-col space-y-2 h-full items-center justify-center m-2 transition-all'>
-                        <input type="email" name="search" id="" placeholder='example@gmail.com' className='p-2 w-full rounded outline-none text-[#781d75]'/>
+                        <input type="mailto:victorybenson98@gmail.com" name="search" id="" placeholder='example@gmail.com' className='p-2 w-full rounded outline-none text-[#781d75]'/>
                         <p>
                             <button type="submit" className='border p-2 mx-2 rounded hover:scale-95 translate-x-4 skew-y-3  shadow-lg font-bold'>MALE</button>
                             <button type="submit" className='border p-2 mx-2 rounded hover:scale-95 translate-x-4 skew-y-3  shadow-lg font-bold'>FEMALE</button>
