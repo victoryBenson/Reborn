@@ -14,11 +14,9 @@ import { PayButton } from '../component/PayButton';
 
 export const MyCart = () => {
     const {cartItems, cartTotalQuantity, cartTotalAmount} = useSelector(state => state.cart)
+    console.log(cartTotalQuantity)
     const dispatch = useDispatch();
-    
-    const amount = 3000;
-    const email = 'victorybenson98@gmail.com';
-    
+       
     const scrollToTop = () => {
         window.scrollTo(0,0)
     }
@@ -35,7 +33,7 @@ export const MyCart = () => {
                     </span>
                 </p>
             </div>
-            { cartItems.length === 0 ? (
+            { !cartItems.length ? (
                 <div className='flex flex-col h-[100vh] justify-center items-center font-bold mt-5'>
                     <p className='text-xl p-2'>Your cart is currently empty</p>
                     <MdOutlineRemoveShoppingCart className='text-3xl text-green'/>
@@ -95,9 +93,9 @@ export const MyCart = () => {
                     </p>
                 </div>
                 <div className='mx-4'>
-                     <PayButton email={email} amount={amount} />
+                     {/* <PayButton email={email} amount={amount} /> */}
                 </div>
-                <Link to={`/landPage`} className='flex items-center lowercase p-3 text-xl mx-4 opacity-70 hover:opacity-80'>
+                <Link to={`/`} className='flex items-center lowercase p-3 text-xl mx-4 opacity-70 hover:opacity-80'>
                     <FaArrowLeftLong className='mt-2 mx-1'/>
                     continue shopping
                 </Link>

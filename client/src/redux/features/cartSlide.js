@@ -82,7 +82,8 @@ export const {
   increaseCart,
   decreaseCart,
   removeCart,
-  // getTotals,
-  displayCart
+  getTotals,   
+  displayCart,
+  cartItems
 } = cartSlide.actions;
 export default cartSlide.reducer;

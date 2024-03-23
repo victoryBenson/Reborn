@@ -29,7 +29,8 @@ export const store = configureStore({
     getDefaultMiddlewire({
         serializableCheck: false,
     }),
-    devTools: false //set true only in development mode
+    devTools: process.env.NODE_ENV !== 'production'
+    // devTools: true //set true only in development mode
     
 })
 

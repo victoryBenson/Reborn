@@ -23,7 +23,7 @@ export const Products = ({product}) => {
     const [Size, setSize] = useState(size[0])
     const [Image, setImage] = useState(image[0])
     const dispatch = useDispatch()
-    const {cartItems} = useSelector(state => state.cart)
+    // const {cartItems} = useSelector(state => state.cart)
 
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);

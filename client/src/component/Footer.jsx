@@ -25,7 +25,7 @@ export const Footer = () => {
                 We aim to offer our customers a variety of the latest products. We’ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.
             </p>
             <div className='sm:flex sm:space-x-2'>
-                <div className='sm:flex flex-col items-start justify-center '>
+                <div className=' items-start justify-center '>
                     <h1 className='font-bold p-2 text-xl flex items-center'><PiLinkThin />Connect with us</h1>
                     <div className='flex flex-wrap space-x-'>
                         <a href="tel:" className='hover:scale-110 ease-in duration-100 rounded-full p-2'>
