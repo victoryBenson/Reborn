@@ -24,12 +24,12 @@ import { HomeDashboard } from "./pages/DashboardOverview";
 import { AdminProducts } from "./pages/AdminProducts";
 import { Orders } from "./pages/Order";
 import { Categories } from "./pages/Categories";
+import { PayButton } from "./component/PayButton";
 
 
 
 function App() {
   const cart = useSelector(state => state.cart)
-  // console.log(cart)7
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -57,6 +57,7 @@ function App() {
                 <Route path="userDetails" element = {<AccountPage/>}/>
                 <Route path="mycart" element={<MyCart/>}/>
                 <Route path="/checkout-success" element={<CheckoutSuccess/>}/>
+                <Route path="paymentBtn" element={<PayButton/>}/>
                 <Route path="*" element={<NotFound/>}/> 
                 <Route path="dashboard" element={<Dashboard/>}>
                     <Route path="profile" element={<Profile/>}/>

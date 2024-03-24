@@ -46,9 +46,9 @@ export const MyCart = () => {
                                     <img src={item?.image[0]} alt="image" className='h-full w-full object-contain rounded-lg' />
                                 </div>
                                 <div className='flex flex-col items-start justify-center w-full px-1'>
-                                    <p className={` md:text-[1rem] overflow-auto sm:overflow-hidden capitalize`}>{item?.name}</p>
+                                    <p className={` md:text-[1rem] overflow-auto sm:overflow-hidden capitalize font-bold`}>{item?.name}</p>
                                     <div className='flex items-center justify-between w-full py-2'>
-                                        <p className='flex text-lg items-center'>
+                                        <p className='flex items-center'>
                                             <PiCurrencyNgn className='mt-1'/>
                                             {item.price?.toLocaleString()}
                                         </p>
@@ -71,13 +71,13 @@ export const MyCart = () => {
         </div>
         <div className='md:mt-10'>
             <div className=' md:w-[30vw] rounded-lg p-4  shadow capitalize sticky top-0'>
-                <p className='p-2 font-bold'>Cart Summary</p>
+                <p className='p-2 font-bold flex items-center'> <BsCartCheck/>Cart Summary</p>
                 <div className='my-1'>
                     <p className='flex flex-wrap justify-between items-center'>
                         <span className=''>
                             item total:
                         </span>
-                        <span className='flex items-center ml-2 font-extrabold text-lg underline'>
+                        <span className='flex items-center ml-2 font-extrabold text-lg'>
                             <PiCurrencyNgn className='mt-1'/>
                             {cartTotalAmount.toLocaleString()}
                         </span>
@@ -91,9 +91,16 @@ export const MyCart = () => {
                         </span>
                     </p>
                 </div>
-                <div className='mx-4'>
-                     {/* <PayButton email={email} amount={amount} /> */}
-                </div>
+                <Link to={`/paymentBtn`} className=''>
+                    <button className='bg-brown w-full text-white rounded p-2 my-2 flex items-center justify-center'>
+                        Check-Out (
+                        <span className='flex items-center'>
+                            <PiCurrencyNgn className='mt-1'/>
+                            {cartTotalAmount.toLocaleString()}
+                        </span>
+                        )
+                    </button>
+                </Link>
                 <Link to={`/`} className='flex items-center hover:opacity-80 text-sm underline'>
                     continue shopping
                     <BsCartCheck/>
