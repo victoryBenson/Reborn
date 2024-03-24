@@ -20,8 +20,8 @@ const authSlice = createSlice({
       state.isError = false;
       state.isSuccess = false;
       state.isLoggedIn = false;
-      // state.userInfo = null;
       state.errMessage = "";
+      state.userInfo = ""
     },
   },
   extraReducers: (builder) => {
@@ -35,6 +35,7 @@ const authSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.userInfo = payload;
+        state.isSuccess = true;
         state.isLoggedIn = true;
         toast.success("Login Successful");
       })

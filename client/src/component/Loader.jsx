@@ -8,7 +8,7 @@ export const Loader = () => {
         <Blocks
             visible={true}
             width="200"
-            color="#4fa94d"
+            color="#45382c"
             ariaLabel="infinity-spin-loading"
         />
         <p className='font-bold text-xl'>Please Wait...</p>

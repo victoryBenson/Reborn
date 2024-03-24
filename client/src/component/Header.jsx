@@ -92,19 +92,16 @@ export const Header = () => {
                 className="cursor-pointer "
                 />
                 {mobile && (
-                    <div>
-                        <div onClick={clickMobile} className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-screen w-full transition-all z-10" ></div>
-                        <div data-aos="fade-right" className="hamburger-menu sm:w-2/4 w-4/5 bg-white fixed z-20 shadow-lg left-0 md:-left-0 top-0 h-screen duration-500 transition-all">
-                            <div onClick={clickMobile} className="relative bg-white h-screen">
+                    <div className="z-50">
+                        <div onClick={clickMobile} className="bg-black/70 backdrop-blur fixed top-0 left-0 right-0 h-screen w-full transition-all z" ></div>
+                        <div data-aos="fade-right" className="hamburger-menu sm:w-2/4 w-4/5 bg-white fixed shadow-lg left-0 md:-left-0 top-0 h-screen duration-500 transition-all">
+                            <div onClick={clickMobile} className="relative bg-white h-screen ">
                                 {/* header */}
                                 <div className="py-4 flex items-center justify-between relative shadow right-1">
                                     <div className="p-2 flex items-center">
                                         <Logo />
                                     </div>
-                                    <p
-                                        onClick={clickMobile}
-                                        className=" flex items-end justify-end p-2 "
-                                    >
+                                    <p onClick={clickMobile} className=" flex items-end justify-end p-2 ">
                                         <IoArrowUndoOutline size={20} />
                                     </p>
                                 </div>
@@ -363,7 +360,7 @@ export const Header = () => {
                 <NavLink to="/mycart" className="px-1 text-xl relative cursor-pointer ">
                     <p className="relative">
                         <BsCartCheck />
-                        <span className="absolute -top-3 -right-3 px-1 text-sm bg-blue text-white rounded-full flex item-center justify-center">
+                        <span className="absolute -top-3 -right-3 px-1 text-sm bg-blue text-white rounded-full flex item-center justify-center ">
                         {cartTotalQuantity}
                         </span>
                     </p>

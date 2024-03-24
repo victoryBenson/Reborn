@@ -15,7 +15,7 @@ export const Register = () => {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [role, setRole] = useState("customer")
-    const { isLoading, isError, errMessage, isSuccess} = useSelector((state) => state.user); 
+    const { isLoading, isError, errMessage, isSuccess, isRegistered} = useSelector((state) => state.user); 
     const navigate = useNavigate();
     const dispatch = useDispatch()
   
@@ -39,20 +39,15 @@ export const Register = () => {
 
     await dispatch(register(userData))
 
-    if(isSuccess){
-        navigate("/login")
-    }
-    
-    dispatch(RESET_AUTH())
 };
 
-
-    // useEffect(() => {
-    //     if(isSuccess == true){
-    //     navigate("/login")
-    //     }
-    //     // dispatch(RESET_AUTH())
-    // }, [])
+    useEffect(() => {
+        if(isSuccess && isRegistered){
+        navigate("/login")
+        }else{
+            dispatch(RESET_AUTH())
+        }
+    }, [isSuccess,isRegistered, navigate, dispatch])
 
 
 

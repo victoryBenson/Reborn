@@ -15,7 +15,7 @@ const initialState = {
 export const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const {email, password} = formData;
-  const { isLoading, isError, errMessage, isLoggedIn} = useSelector((state) => state.auth); 
+  const { isLoading, isError, errMessage, isLoggedIn, isSuccess} = useSelector((state) => state.auth); 
   const navigate = useNavigate();
   const dispatch = useDispatch()
   
@@ -38,14 +38,15 @@ export const Login = () => {
 
     await dispatch(loginUser(userData))
 
-    
 };
 
     useEffect(() => {
-        if(isLoggedIn){
+        if(isLoggedIn && isSuccess){
             navigate('/')
+        } else {
+            dispatch(Reset_Auth())
         }
-    }, [isLoggedIn, navigate])
+    }, [isLoggedIn, isSuccess, navigate, dispatch])
     
 
   return (
