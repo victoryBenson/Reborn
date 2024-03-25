@@ -154,7 +154,7 @@ export const DisplayCategory = ({product}) => {
             <span className='absolute top-2 right-2 p-2 z-10  text-yellow rounded-full cursor-pointer'>
                 <RiHeart2Line size={20}/>
             </span>
-            <img src={image[0]} alt="image" className='group-hover:scale-110 object-contain rounded-lg w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
+            <img src={image[0]} alt="image" className='group-hover:scale-110 object-cover rounded-lg w-full cursor-pointer overflow-hidden duration-100 transition-all ' />
         </div>
         <div className='p-3 space-x-2'>
             <p className='font-bold px-2 text-brown capitalize'>{truncateString(name, 20)}</p>
