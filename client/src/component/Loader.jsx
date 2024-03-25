@@ -1,17 +1,12 @@
 import React from 'react'
-import { Blocks } from 'react-loader-spinner'
 import { Circles } from 'react-loader-spinner'
-
+import loadingGif from '../assets/image/loadingGif.gif'
 export const Loader = () => {
   return (
     <div className=' justify-center flex flex-col items-center '>
-        <Blocks
-            visible={true}
-            width="200"
-            color="#45382c"
-            ariaLabel="infinity-spin-loading"
-        />
-        <p className='font-bold text-xl'>Please Wait...</p>
+        <p className='h-40'>
+            <img src={loadingGif} alt=""  className='h-full '/>
+        </p>
     </div>
   )
 }

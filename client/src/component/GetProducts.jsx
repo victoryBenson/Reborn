@@ -25,11 +25,6 @@ export const GetProducts = () => {
     });
   }, []);
 
-  useEffect(() => {
-    dispatch(getProducts())
-    // dispatch(getTotalProduct())
-  }, [dispatch])
-  
 
   // search function
   const search = (products) => {
@@ -76,19 +71,22 @@ export const GetProducts = () => {
                     data-aos="fade-down"
                     >
                     <div className="flex items-center text-white"><strong className="text-2xl mr-1">Welcome to</strong> <Logo/></div>
-                    <div className="text-ivory md:text-3xl text-xl font-bold  right-0 top-0">
-                        <Typewriter
-                        options={{
-                            strings: ["Explore!", "Shop!", "Repeat Again!"],
-                            autoStart: true,
-                            loop: true,
-                        }}
-                        />
-                    </div>
-                    <div className="text-ivory sm:text-xl text-lg font-light flex items-center">
-                        Discover the most trending products in Reborn.
-                        <div className=" font-bold md:text-3xl text-xl text-ivory flex flex-wrap justify-center items-center">
-                        <Explore />
+                    <div className="text-ivory md:text-xl text-xl items-center flex right-0 top-0">
+                        <div className="font-bold bg-ivory text-brown p-1">
+                            <Typewriter
+                                options={{
+                                strings: [ "Discover","Explore!","Shop!"],
+                                autoStart: true,
+                                loop: true,
+                            }}
+                            />
+                        </div>
+                        <span></span>
+                        <div className="text-ivory sm:text-xl text-lg flex items-center">
+                            everything in Reborn.
+                            <div className=" font-bold md:text-3xl text-xl text-ivory flex flex-wrap justify-center items-center">
+                            <Explore />
+                            </div>
                         </div>
                     </div>
                 </div>

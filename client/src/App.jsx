@@ -7,8 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import {MyCart} from "./pages/MyCart"
 import { useDispatch, useSelector } from "react-redux";
 import { getTotals } from "./redux/features/cartSlide";
-import { useEffect } from "react";
-import { Loader } from "./component/Loader";
 import { NotFound } from "./component/NotFound";
 import { CheckoutSuccess } from "./pages/CheckoutSuccess";
 import { Layout } from "./component/Layout";
@@ -25,6 +23,8 @@ import { AdminProducts } from "./pages/AdminProducts";
 import { Orders } from "./pages/Order";
 import { Categories } from "./pages/Categories";
 import { PayButton } from "./component/PayButton";
+import { useEffect } from "react";
+import { getProducts } from "./redux/features/product/productAction";
 
 
 
@@ -32,9 +32,11 @@ function App() {
   const cart = useSelector(state => state.cart)
   const dispatch = useDispatch();
   
-  useEffect(() => {
+    useEffect(() => {
       dispatch(getTotals())
+      dispatch(getProducts())
     }, [cart, dispatch])
+
 
   return (
     <>

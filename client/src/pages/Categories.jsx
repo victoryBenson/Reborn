@@ -19,10 +19,6 @@ export const Categories = () => {
   const {isLoading,items, isError, errMessage } = useSelector(state => state.products);
   
 
-  useEffect(() => {
-    dispatch(getProducts())
-    dispatch(getTotalProduct())
-  }, [])
 
   const handleClick = (e) => {
     setClick(e.target.value);
@@ -40,10 +36,10 @@ export const Categories = () => {
   return (
     <div className="">
         <div className="md:bg-hero bg-hero2  bg-center relative sm:p-5 lg:h-[60vh h-[40vh] transition-all px-3 flex flex-col justify-center items-center gap-4">
-            <div className="absolute bg-black/60 top-0 right-0 left-0 h-full flex justify-center flex-col">
+            <div className="absolute bg-black/30 top-0 right-0 left-0 h-full flex justify-center flex-col">
                 <p className="flex flex-wrap items-center justify-center font-bold md:text-3xl text-xl p-5">
                     <span className="text-ivory drop-shadow-sm">Discover more.</span>
-                    <span className="text-brown font-light flex flex-warp items-center">
+                    <span className="text-lightBrown font-light flex flex-warp items-center">
                         Good things are waiting for you
                     <img src={gift} alt="image" className="w-14 h-10 rounded" />
                     </span>
