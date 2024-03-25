@@ -14,7 +14,6 @@ export default {
       'green': '#56d71e',
       'ivory': '#FFFFF0',
       'red': '#FF0000', 
-      // 'green2': '#003000',
       // 'brown': '#4D2D18',
       // 'lightBrown':'#C2B280',
       'lightBrown':'#95785e',
