@@ -70,15 +70,24 @@ export const Header = () => {
   };
 
 
- useEffect( () => {
-      window.addEventListener('scroll', () => {
-          window.scrollY > 70 ? setIsActive(true) : setIsActive(false)
-      });
-  })
+//  useEffect( () => {
+//     let header = document.getElementById("header");
+//       window.addEventListener('scroll', () => {
+//           window.scrollY >= 60 ? 
+//           header.classList.add('absolute', 'top-0', 'z-[999]')
+//           :
+//           header.classList.remove("fixed")
+//         //   setIsActive(true) : setIsActive(false)
+//       });
+//   })
+
+
+
+
 
   return (
-    <header className="">
-        <div className={` bg-white transition-all flex justify-between items-center h-20 md:px-10 px-2  shadow`}>
+    <header id="header" className="">
+        <div  className=" transition-all flex justify-between items-center h-20 md:px-10 px-2  shadow">
             <div>
                 <NavLink to={`/`}>
                 <Logo />

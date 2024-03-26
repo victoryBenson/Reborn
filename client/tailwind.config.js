@@ -14,17 +14,9 @@ export default {
       'green': '#56d71e',
       'ivory': '#FFFFF0',
       'red': '#FF0000', 
-      // 'brown': '#4D2D18',
-      // 'lightBrown':'#C2B280',
       'lightBrown':'#95785e',
       'brown': '#45382c',
-      // 'brown': '#988558',
-      // 'brown': '#013220',
-      // 'lightBrown': '#ab8c7e',
-      // 'lightBrown': '#025839',
-      // 'lightBrown': '#03925e',
       'yellow': '#FFEA00'
-      
     },
     extend: {
       animation: {
