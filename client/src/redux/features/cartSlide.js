@@ -17,10 +17,11 @@ const cartSlide = createSlice({
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity++;
+        toast("Product is added to cart");
       } else {
         const tempProduct = { ...payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast("Product is added to cart");
+        toast.success("Product is added to cart");
       }
     },
 

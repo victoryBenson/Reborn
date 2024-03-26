@@ -25,17 +25,21 @@ import { Categories } from "./pages/Categories";
 import { PayButton } from "./component/PayButton";
 import { useEffect } from "react";
 import { getProducts } from "./redux/features/product/productAction";
+import axios from "axios";
+import { getLoginStatus } from "./redux/features/auth/authActions";
 
 
 
 function App() {
   const cart = useSelector(state => state.cart)
-  const dispatch = useDispatch();
-  
-    useEffect(() => {
-      dispatch(getTotals())
-      dispatch(getProducts())
-    }, [cart, dispatch])
+    // axios.defaults.withCredentials = true; 
+    const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getLoginStatus())
+    dispatch(getProducts())
+    dispatch(getTotals())
+  }, [cart, dispatch])
 
 
   return (

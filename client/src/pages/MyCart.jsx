@@ -13,7 +13,7 @@ import { PayButton } from '../component/PayButton';
 
 export const MyCart = () => {
     const {cartItems, cartTotalQuantity, cartTotalAmount} = useSelector(state => state.cart)
-    console.log(cartTotalQuantity)
+    // console.log(cartTotalQuantity)
     const dispatch = useDispatch();
        
     const scrollToTop = () => {

@@ -1,29 +1,6 @@
 import User from "../models/userModel.js";
 
 
-//register
-export const register = async (req, res, next) => {
-  try {
-    const { email } = req.body;
-  
-    const duplicate = await User.findOne({ email }).lean().exec();
-  
-    if (duplicate) {
-      return res.status(409).json({ message: "User already exists" });
-    }
-  
-    const newUser = await User.create(req.body);
-  
-    if (newUser) {
-      const { password, ...rest } = newUser._doc;
-      return res.status(201).json(rest);
-    }
-    
-  } catch (err) {
-    next(err)
-  }
-}
-
 //getUsers
 export const getUsers = async (req, res, next) => {
   try {

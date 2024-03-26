@@ -12,7 +12,7 @@ import { FaCheck } from "react-icons/fa6";
 import { addToCart, decreaseCart, displayCart, increaseCart } from '../redux/features/cartSlide.js';
 import {useDispatch, useSelector} from "react-redux";
 import { RiHeart2Line } from "react-icons/ri";
-
+import {useNavigate} from 'react-router-dom' 
 
 export const Products = ({product}) => {
     const {_id, image, name, description, color,quantity, size, brand, price, oldPrice, category } = product
@@ -23,6 +23,7 @@ export const Products = ({product}) => {
     const [Size, setSize] = useState(size[0])
     const [Image, setImage] = useState(image[0])
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     // const {cartItems} = useSelector(state => state.cart)
 
     const onOpenModal = () => setOpen(true);
@@ -30,6 +31,7 @@ export const Products = ({product}) => {
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product))
+        navigate("mycart")
     }
 
     const scrollToTop = () => {

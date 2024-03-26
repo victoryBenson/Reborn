@@ -39,7 +39,7 @@ export const Testimonial = () => {
     <div data-aos="fade-up" className='flex flex-col justify-center h-full items-center mt-5'>
         <div className='text-center py-4'>
             <h1 className='font-bold sm:text-3xl text-xl'>Good news from far away 🥇</h1>
-            <p text-lg p-3>Let's see what people think of Reborn</p>
+            <p className='text-lg p-3'>Let's see what people think of Reborn</p>
         </div>
         <div></div>
         <div className='overflow-hidden no-scrollbar slideshow max-w-[100%] sm:max-w-[80%] mx-1 '>

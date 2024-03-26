@@ -15,6 +15,42 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });
 };
 
+//register
+export const register = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+  
+    const duplicate = await User.findOne({ email }).lean().exec();
+  
+    if (duplicate) {
+      return res.status(409).json({ message: "User already exists" });
+    }
+
+    if (!validator.isEmail(email))
+    return res.status(400).json("Email must be a valid email...");
+  
+    const newUser  = await User.create(req.body);
+
+    const token = generateToken(User._id)
+    console.log(accessToken)
+    
+    if (newUser) {
+      const { password, ...rest } = newUser._doc;
+      return res
+      .status(201)
+      .json(rest)
+      .cookie("token", token, cookieConfig)
+      .header("Authorization", token)
+      .status(201)
+      .json(newUser)
+    }
+    
+  } catch (err) {
+    next(err)
+  }
+}
+
+
 //loginUser
 export const Login = async (req, res, next) => {
   try {
@@ -33,13 +69,13 @@ export const Login = async (req, res, next) => {
     }
    
     //generate token
-    const accessToken = generateToken(findUser._id)
+    const token = generateToken(findUser._id)
   
     if (findUser && verifyPwd) {
       const newUser = await User.findOne({ email }).select("-password")
       res
-        .cookie("token", accessToken, cookieConfig)
-        .header("Authorization", accessToken)
+        .cookie("token", token, cookieConfig)
+        .header("Authorization", token)
         .status(201)
         .json(newUser)
     } 
@@ -48,6 +84,28 @@ export const Login = async (req, res, next) => {
     next(err)
   }
 }
+
+//Login status
+export const getLoginStatus = async (req, res, next) => {
+  const token = req.cookies.token
+  try {
+    if(!token){
+            return res.json(false)
+        }
+    
+        const verified = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        
+        if(verified){
+            res.json(true)
+        } else{
+            res.json(false)
+    }
+  } catch (err) {
+    next(err)
+  }
+  
+};
+
 //refresh token
 // export const refreshToken = (req, res) => {
 //   const cookies = req.cookies;

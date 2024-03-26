@@ -4,8 +4,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import { validateEmail } from '../utils';
 import { toast } from 'react-toastify';
 import { register } from '../redux/features/user/userAction';
-import { RESET_AUTH } from '../redux/features/user/userSlice';
 import { Logo } from '../component/Logo';
+import { Reset_Auth } from '../redux/features/auth/authSlice';
 
 // import { OAuth } from '../Component/OAuth';
 
@@ -15,7 +15,7 @@ export const Register = () => {
     const [password, setPassword] = useState()
     const [email, setEmail] = useState()
     const [role, setRole] = useState("customer")
-    const { isLoading, isError, errMessage, isSuccess, isRegistered} = useSelector((state) => state.user); 
+    const { isLoading, isError, errMessage, isSuccess, isLoggedIn} = useSelector((state) => state.user); 
     const navigate = useNavigate();
     const dispatch = useDispatch()
   
@@ -41,13 +41,12 @@ export const Register = () => {
 
 };
 
-    useEffect(() => {
-        if(isSuccess && isRegistered){
-        navigate("/login")
-        }else{
-            dispatch(RESET_AUTH())
-        }
-    }, [isSuccess,isRegistered, navigate, dispatch])
+useEffect(() => {
+    if(isSuccess && isLoggedIn){
+      navigate("/")
+    }
+    dispatch(Reset_Auth())
+  }, [isSuccess, isLoggedIn, dispatch, navigate])
 
 
 

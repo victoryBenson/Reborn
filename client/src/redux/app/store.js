@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import cartReducer from "../features/cartSlide";
+import cartReducer, { getTotals } from "../features/cartSlide";
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer} from 'redux-persist';
 import userReducer from '../features/user/userSlice.js'
@@ -33,5 +33,6 @@ export const store = configureStore({
     // devTools: true //set true only in development mode
     
 })
+
 
 export const persistor = persistStore(store)

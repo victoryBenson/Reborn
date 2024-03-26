@@ -30,6 +30,32 @@ export const loginUser = createAsyncThunk(
   }
 );
   
+//getLoginStatus
+export const getLoginStatus = createAsyncThunk(
+  "auth/loginStatus",
+  async (_, {rejectWithValue}) => {
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+  
+        const response = await axios.post(
+          `${backendURL}getLoginStatus`,
+          userData,
+          config
+        );
+        return response.data;
+      } catch (error) {
+        if (error.response && error.response.data.message) {
+          return rejectWithValue(error.response.data.message);
+        } else {
+          return rejectWithValue(error.message);
+        }
+      }
+  }
+)
 
 //logout user
 export const LogoutUser = createAsyncThunk(
